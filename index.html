@@ -32,6 +32,24 @@
     .content{display:grid;grid-template-columns:1fr 360px;gap:48px;margin:56px 0}
     @media(max-width:900px){.content{grid-template-columns:1fr;padding:0 12px}}
 
+    /* Phone polish */
+@media (max-width: 600px){
+  .page{padding:0 16px;}
+
+  header{padding:34px 0 16px;}
+  header h1{font-size:32px;}
+  header .subtitle{font-size:17px;}
+
+  nav{margin-top:18px;}
+  nav ul{gap:10px; padding:10px 0;}
+  nav li{font-size:16px;}
+  nav a{padding:9px 12px;}
+
+  .content{gap:22px; margin:28px 0;}
+  h2{font-size:24px;}
+  .photo{min-height:240px;}
+}
+
     section[id]{scroll-margin-top:120px}
 
     h2{font-family:"Libre Baskerville",serif;font-size:28px;margin:0 0 16px}
@@ -52,14 +70,15 @@
     </header>
 
     <nav>
-      <ul>
-  <a href="index.html" class="nav-link">Home</a>
-  <a href="experience.html" class="nav-link">Experience</a>
-  <a href="research.html" class="nav-link">Research</a>
-  <a href="outreach.html" class="nav-link">Outreach</a>
-  <a href="contact.html" class="nav-link">Contact</a>
-      </ul>
-    </nav>
+  <ul>
+    <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
+    <li><a href="experience.html" class="nav-link" id="nav-experience">Experience</a></li>
+    <li><a href="research.html" class="nav-link" id="nav-research">Research</a></li>
+    <li><a href="outreach.html" class="nav-link" id="nav-outreach">Outreach</a></li>
+    <li><a href="contact.html" class="nav-link" id="nav-contact">Contact</a></li>
+  </ul>
+</nav>
+
 
     <main class="content">
 <section id="about" aria-labelledby="about-heading">
@@ -97,17 +116,15 @@
   <script>
     (function(){
       var map = {
-        'index.html': 'nav-home',
-        '': 'nav-home',
-        'experience.html': 'nav-work',
-        'writing.html': 'nav-writing',
-        'cv.html': 'nav-cv',
-        'contact.html': 'nav-contact'
-      };
+  'index.html': 'nav-home',
+  '': 'nav-home',
+  'experience.html': 'nav-experience',
+  'research.html': 'nav-research',
+  'outreach.html': 'nav-outreach',
+  'contact.html': 'nav-contact'
+};
       var current = location.pathname.split('/').pop();
       var activeId = map[current] || null;
-
-      if (location.hash && location.hash.indexOf('#profile') === 0) activeId = 'nav-profile';
 
       if (activeId) {
         var el = document.getElementById(activeId);
