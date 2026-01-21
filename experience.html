@@ -14,7 +14,7 @@ Only change:
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Experience — Miriam Malament</title>
-  <meta name="description" content="PAGE_DESCRIPTION" />
+  <meta name="description" content="A short overview of Miriam Malament’s experience across applied and academic research environments, from experiments and policy work to AI and prevention economics." />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -48,10 +48,10 @@ Only change:
     h2{font-family:"Libre Baskerville",serif;font-size:28px;margin:0 0 16px}
     p{margin:0 0 14px}
 
-    .photo{width:100%;border-radius:2px;background:#efefef;min-height:320px;display:block;object-fit:cover}
-
     /* Optional: light “card” feel for sidebar blocks if you add them later */
     .side-card{border:1px solid #e6e6e6;border-radius:8px;padding:18px;margin:0 0 18px;background:#fff}
+    .side-card h3{margin:0 0 10px;font-family:"Libre Baskerville",serif;font-size:18px}
+    .muted{color:#555}
 
     footer{text-align:center;color:#777;font-size:14px;padding:32px 0}
     a{color:#111}
@@ -68,8 +68,8 @@ Only change:
     <!-- NAV: identical across pages, only one link gets .active -->
     <nav>
       <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="experience.html">Experience</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="experience.html" class="active">Experience</a></li>
         <li><a href="research.html">Research</a></li>
         <li><a href="outreach.html">Outreach</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -78,26 +78,51 @@ Only change:
 
     <main class="content">
       <!-- LEFT: page content -->
-      <section id="PAGE_ID" aria-labelledby="page-heading">
-        <h2 id="page-heading">PAGE HEADING</h2>
+      <section id="experience" aria-labelledby="page-heading">
+        <h2 id="page-heading">Experience</h2>
 
-        <p>PLACEHOLDER paragraph 1.</p>
-        <p>PLACEHOLDER paragraph 2.</p>
-        <p>PLACEHOLDER paragraph 3.</p>
+        <p>
+          I have worked across applied and academic research environments with a focus on causal inference, microdata, and
+          decision-relevant outputs.
+        </p>
+
+        <p>
+          I started in experimental work in Latin America as a research assistant on John List’s team. During my master’s,
+          I worked with Ricardo Perez-Truglia on empirical projects, including work connected to Zoe Cullen, and built a
+          strong foundation in applied microeconomics.
+        </p>
+
+        <p>
+          I then joined the World Bank, where the priority was execution under constraints: data quality, reproducibility,
+          and communication that holds up with non-technical readers. Alongside this, I worked with Daron Acemoglu’s team
+          on research related to the economic impact of AI. I later spent a full academic year at Yale through the Fox
+          International Fellowship and now work in Oxford at the Ellison Institute of Technology on the economic case for
+          prevention in the United Kingdom.
+        </p>
       </section>
 
       <!-- RIGHT: keep the same structure on every page -->
       <aside>
-        <!-- Option A: portrait (default) -->
-        <img src="photo.jpg" alt="Portrait of Miriam Malament" class="photo" />
-
-        <!-- Option B: replace with sidebar blocks instead (keep wrapper) -->
-        <!--
         <div class="side-card">
-          <h3 style="margin:0 0 10px;font-family:'Libre Baskerville',serif;font-size:18px;">PLACEHOLDER</h3>
-          <p style="margin:0;">PLACEHOLDER short sidebar text.</p>
+          <h3>Currently</h3>
+          <p class="muted" style="margin:0;">
+            Oxford, UK — developing the economic case for prevention at the Ellison Institute of Technology.
+          </p>
         </div>
-        -->
+
+        <div class="side-card">
+          <h3>Focus</h3>
+          <p class="muted" style="margin:0;">
+            Causal inference, microdata, reproducible workflows, and clear communication for non-technical audiences.
+          </p>
+        </div>
+
+        <div class="side-card">
+          <h3>Selected settings</h3>
+          <p class="muted" style="margin:0;">
+            Experimental research (Latin America) · Academic research (Yale) · Policy research (World Bank) · AI economics.
+          </p>
+        </div>
       </aside>
     </main>
 
