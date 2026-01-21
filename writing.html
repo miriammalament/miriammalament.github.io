@@ -3,44 +3,113 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Miriam Malament — Writing</title>
-  <meta name="description" content="Writing — placeholder" />
+  <title>Publications & Media — Miriam Malament</title>
+  <meta name="description" content="Miriam Malament — Publications & Media" />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body{margin:0;background:#fff;color:#111;font-family:"Source Sans 3",system-ui;line-height:1.65}
-    .page{max-width:900px;margin:0 auto;padding:48px 24px}
-    header{text-align:center}
-    h1{font-family:"Libre Baskerville",serif;font-size:36px;margin:0 0 12px}
-    nav{margin:24px 0 40px;border-top:1px solid #bbb;border-bottom:6px solid #9a9a9a}
-    nav ul{list-style:none;display:flex;justify-content:center;gap:36px;padding:14px 0;margin:0}
-    nav a{text-decoration:none;color:#111;padding:10px 22px}
-    nav a.active{background:#555;color:#fff}
-    .placeholder-box{border:1px dashed #ddd;padding:48px;border-radius:8px;color:#999;text-align:center;font-size:16px}
-    footer{text-align:center;color:#777;font-size:14px;margin-top:60px}
+    html { scroll-behavior: smooth; }
+    body{margin:0;background:#ffffff;color:#111;font-family:"Source Sans 3",system-ui,-apple-system,Segoe UI,Roboto,Arial;line-height:1.6}
+    .page{max-width:1050px;margin:0 auto;padding:0 24px}
+
+    header{text-align:center;padding:48px 0 24px}
+    header h1{margin:0;font-family:"Libre Baskerville",serif;font-size:42px;letter-spacing:0.02em}
+    header .subtitle{margin-top:8px;color:#555;font-size:20px;font-family:"Libre Baskerville",serif}
+
+    nav{
+      border-top:1px solid #bbb;
+      border-bottom:6px solid #9a9a9a;
+      margin-top:28px;
+      position:sticky;
+      top:0;
+      background:#fff;
+      z-index:10;
+    }
+    nav ul{list-style:none;display:flex;justify-content:center;gap:36px;padding:14px 0;margin:0;flex-wrap:wrap}
+    nav li{font-family:"Libre Baskerville",serif;font-size:18px}
+    nav a{text-decoration:none;color:#111;padding:10px 22px;display:inline-block}
+    nav a.active{background:#555;color:#fff;border-radius:4px}
+
+    .content{display:grid;grid-template-columns:1fr 360px;gap:48px;margin:56px 0}
+    @media(max-width:900px){.content{grid-template-columns:1fr;padding:0 12px}}
+
+    section[id]{scroll-margin-top:120px}
+
+    h2{font-family:"Libre Baskerville",serif;font-size:28px;margin:0 0 16px}
+    p{margin:0 0 14px}
+
+    .photo{
+      width:100%;
+      height:auto;
+      max-height:440px;
+      border-radius:2px;
+      background:#efefef;
+      display:block;
+      object-fit:contain;
+    }
+
+    footer{text-align:center;color:#777;font-size:14px;padding:32px 0}
+    a{color:#111}
   </style>
 </head>
+
 <body>
   <div class="page">
     <header>
-      <h1>Publications &amp; Media</h1>
+      <h1>Miriam Malament</h1>
+      <div class="subtitle">Applied Economist</div>
     </header>
 
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="experience.html">Work</a></li>
-        <li><a class="active" href="writing.html">Publications &amp; Media</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.html" id="nav-home">Home</a></li>
+        <li><a href="index.html#profile" id="nav-profile">Profile</a></li>
+        <li><a href="experience.html" id="nav-work">Work</a></li>
+        <li><a href="writing.html" id="nav-writing">Publications &amp; Media</a></li>
+        <li><a href="cv.html" id="nav-cv">CV</a></li>
+        <li><a href="contact.html" id="nav-contact">Contact</a></li>
       </ul>
     </nav>
 
-    <main>
-      <div class="placeholder-box" aria-hidden="true">Publications &amp; Media placeholder</div>
+    <main class="content">
+      <section aria-labelledby="writing-heading">
+        <h2 id="writing-heading">Publications &amp; Media</h2>
+        <p><em>Placeholder.</em></p>
+      </section>
+
+      <aside>
+        <img src="photo.jpg" alt="Portrait of Miriam Malament" class="photo" />
+      </aside>
     </main>
 
     <footer>
-      <div><a href="mailto:mmalament@eit.org">mmalament@eit.org</a></div>
+      <div>
+        Oxford, United Kingdom · <a href="mailto:mmalament@eit.org">mmalament@eit.org</a>
+      </div>
     </footer>
   </div>
+
+  <script>
+    (function(){
+      var map = {
+        'index.html': 'nav-home',
+        '': 'nav-home',
+        'experience.html': 'nav-work',
+        'writing.html': 'nav-writing',
+        'cv.html': 'nav-cv',
+        'contact.html': 'nav-contact'
+      };
+      var current = location.pathname.split('/').pop();
+      var activeId = map[current] || null;
+
+      if ((current === '' || current === 'index.html') && location.hash && location.hash.indexOf('#profile') === 0) {
+        activeId = 'nav-profile';
+      }
+
+      if (activeId) {
+        var el = document.getElementById(activeId);
+        if (el) el.classList.add('active');
+      }
+    })();
+  </script>
 </body>
 </html>
