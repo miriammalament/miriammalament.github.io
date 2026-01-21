@@ -1,29 +1,12 @@
-<!-- =========================
-     TEMPLATE: copy this file for each page
-     Pages you will have:
-     - index.html
-     - experience.html
-     - research.html
-     - outreach.html
-     - contact.html
-
-     On each page:
-     1) Change <title>
-     2) Change the H2 page title + subtitle
-     3) Set the active nav link (class="nav-link active")
-     4) Replace PLACEHOLDER blocks with real content
-========================= -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>PLACEHOLDER — Miriam Malament</title>
+  <title>Experience — Miriam Malament</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-  <!-- Header (identical across pages) -->
   <header class="site-header">
     <div class="container">
       <div class="site-title">
@@ -32,9 +15,8 @@
       </div>
 
       <nav class="site-nav" aria-label="Primary">
-        <!-- Set ONE of these to .active depending on the page -->
         <a href="index.html" class="nav-link">Home</a>
-        <a href="experience.html" class="nav-link">Experience</a>
+        <a href="experience.html" class="nav-link active">Experience</a>
         <a href="research.html" class="nav-link">Research</a>
         <a href="outreach.html" class="nav-link">Outreach</a>
         <a href="contact.html" class="nav-link">Contact</a>
@@ -44,58 +26,49 @@
     </div>
   </header>
 
-  <!-- Main (identical layout across pages) -->
   <main class="page">
     <div class="container">
       <header class="page-header">
-        <h2 class="page-title">PLACEHOLDER PAGE TITLE</h2>
-        <p class="page-subtitle">PLACEHOLDER one-line subtitle that frames what is on this page.</p>
+        <h2 class="page-title">Experience</h2>
+        <p class="page-subtitle">PLACEHOLDER one-line summary of your trajectory (international, applied, rigorous).</p>
       </header>
 
       <section class="content-grid">
-        <!-- Main column -->
         <div class="content-main">
           <div class="card">
-            <h3>PLACEHOLDER section title</h3>
-            <p>PLACEHOLDER paragraph. Replace with 3–5 sentences.</p>
-          </div>
-
-          <div class="card">
-            <h3>PLACEHOLDER section title</h3>
+            <h3>Selected roles</h3>
             <ul class="simple-list">
-              <li><strong>PLACEHOLDER</strong> — one-line description (PLACEHOLDER)</li>
-              <li><strong>PLACEHOLDER</strong> — one-line description (PLACEHOLDER)</li>
-              <li><strong>PLACEHOLDER</strong> — one-line description (PLACEHOLDER)</li>
+              <li><strong>PLACEHOLDER Institution</strong> — PLACEHOLDER role (DATES)</li>
+              <li><strong>PLACEHOLDER Institution</strong> — PLACEHOLDER role (DATES)</li>
+              <li><strong>PLACEHOLDER Institution</strong> — PLACEHOLDER role (DATES)</li>
             </ul>
           </div>
 
           <div class="card">
-            <h3>PLACEHOLDER section title</h3>
-            <p>PLACEHOLDER paragraph.</p>
+            <h3>What I did</h3>
+            <p>PLACEHOLDER paragraph describing the kind of work you do (methods + outputs).</p>
           </div>
         </div>
 
-        <!-- Sidebar -->
         <aside class="content-aside">
           <div class="card">
-            <h3>PLACEHOLDER sidebar title</h3>
-            <p>PLACEHOLDER short block: 1–3 lines.</p>
+            <h3>Strengths</h3>
+            <ul class="simple-list">
+              <li>PLACEHOLDER: reproducible analysis</li>
+              <li>PLACEHOLDER: causal inference</li>
+              <li>PLACEHOLDER: stakeholder-ready writing</li>
+            </ul>
           </div>
 
           <div class="card">
-            <h3>PLACEHOLDER sidebar title</h3>
-            <ul class="simple-list">
-              <li>PLACEHOLDER</li>
-              <li>PLACEHOLDER</li>
-              <li>PLACEHOLDER</li>
-            </ul>
+            <h3>Tools</h3>
+            <p>PLACEHOLDER: Stata, R, Python, Git, LaTeX.</p>
           </div>
         </aside>
       </section>
     </div>
   </main>
 
-  <!-- Footer (identical across pages) -->
   <footer class="site-footer">
     <div class="container">
       <p class="footer-text">© <span id="year"></span> Miriam Malament</p>
@@ -103,7 +76,6 @@
   </footer>
 
   <script>
-    // small nice-to-have, same on all pages
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
