@@ -1,4 +1,3 @@
-
 <!--
 Copy this EXACT structure for every page.
 Only change:
@@ -15,7 +14,7 @@ Only change:
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Experience — Miriam Malament</title>
-  <meta name="description" content="A short overview of Miriam Malament’s experience across applied and academic research environments, from experiments and policy work to AI and prevention economics." />
+  <meta name="description" content="Experience overview for Miriam Malament, highlighting applied and academic research work across experiments, policy research, AI economics, and prevention economics." />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -41,21 +40,34 @@ Only change:
     nav a{text-decoration:none;color:#111;padding:10px 22px;display:inline-block}
     nav a.active{background:#555;color:#fff;border-radius:4px}
 
-    .content{display:grid;grid-template-columns:1fr 360px;gap:48px;margin:56px 0}
-    @media(max-width:900px){.content{grid-template-columns:1fr;padding:0 12px}}
+    /* Full-page layout for this page */
+    .content{display:grid;grid-template-columns:1fr;gap:0;margin:56px 0}
+    aside{display:none}
 
     section[id]{scroll-margin-top:120px}
 
     h2{font-family:"Libre Baskerville",serif;font-size:28px;margin:0 0 16px}
+    h3{font-family:"Libre Baskerville",serif;font-size:18px;margin:26px 0 10px}
     p{margin:0 0 14px}
+    a{color:#111}
 
-    /* Optional: light “card” feel for sidebar blocks if you add them later */
-    .side-card{border:1px solid #e6e6e6;border-radius:8px;padding:18px;margin:0 0 18px;background:#fff}
-    .side-card h3{margin:0 0 10px;font-family:"Libre Baskerville",serif;font-size:18px}
+    .lead{font-size:18px;color:#222}
     .muted{color:#555}
 
+    .block{border:1px solid #e6e6e6;border-radius:10px;padding:20px 22px;background:#fff;margin:18px 0}
+    .row{display:grid;grid-template-columns:1fr 220px;gap:18px;align-items:start}
+    @media(max-width:700px){.row{grid-template-columns:1fr}}
+
+    .meta{color:#666;font-size:14px;margin-top:2px}
+    ul{margin:8px 0 0 18px}
+    li{margin:6px 0}
+
+    .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .btn{display:inline-block;text-decoration:none;border-radius:8px;padding:10px 12px;border:1px solid #d9d9d9}
+    .btn.primary{background:#555;color:#fff;border-color:#555}
+    .btn.ghost{background:#fff;color:#111}
+
     footer{text-align:center;color:#777;font-size:14px;padding:32px 0}
-    a{color:#111}
   </style>
 </head>
 
@@ -66,7 +78,6 @@ Only change:
       <div class="subtitle">Applied Economist</div>
     </header>
 
-    <!-- NAV: identical across pages, only one link gets .active -->
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -78,53 +89,107 @@ Only change:
     </nav>
 
     <main class="content">
-      <!-- LEFT: page content -->
       <section id="experience" aria-labelledby="page-heading">
         <h2 id="page-heading">Experience</h2>
 
-        <p>
-          I have worked across applied and academic research environments with a focus on causal inference, microdata, and
-          decision-relevant outputs.
+        <p class="lead">
+          I work across applied and academic research settings, translating complex empirical questions into clear,
+          defensible evidence. My emphasis is on causal inference, microdata, reproducible workflows, and writing that
+          holds up with non-technical readers.
         </p>
 
-        <p>
-          I started in experimental work in Latin America as a research assistant on John List’s team. During my master’s,
-          I worked with Ricardo Perez-Truglia on empirical projects, including work connected to Zoe Cullen, and built a
-          strong foundation in applied microeconomics.
+        <p class="muted">
+          Below is a concise overview of roles and the type of work I have done. A full CV is available upon request or as a download.
         </p>
 
-        <p>
-          I then joined the World Bank, where the priority was execution under constraints: data quality, reproducibility,
-          and communication that holds up with non-technical readers. Alongside this, I worked with Daron Acemoglu’s team
-          on research related to the economic impact of AI. I later spent a full academic year at Yale through the Fox
-          International Fellowship and now work in Oxford at the Ellison Institute of Technology on the economic case for
-          prevention in the United Kingdom.
-        </p>
+        <div class="btnrow">
+          <a class="btn primary" href="/assets/Malament_CV.pdf">Download CV</a>
+          <a class="btn ghost" href="contact.html">Get in touch</a>
+        </div>
+
+        <h3>Selected experience</h3>
+
+        <div class="block">
+          <div class="row">
+            <div>
+              <strong>Ellison Institute of Technology</strong>
+              <div class="meta">Oxford, United Kingdom · Current</div>
+            </div>
+            <div class="meta" style="text-align:right;">Prevention economics</div>
+          </div>
+          <ul>
+            <li>Developing economic evidence to support prevention-focused policy and investment decisions.</li>
+            <li>Producing decision-ready analysis, exhibits, and written outputs for mixed technical audiences.</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <div class="row">
+            <div>
+              <strong>Yale University</strong>
+              <div class="meta">Fox International Fellowship · Visiting Graduate Student</div>
+            </div>
+            <div class="meta" style="text-align:right;">Academic research</div>
+          </div>
+          <ul>
+            <li>Full academic year focused on research development, seminars, and empirical work.</li>
+            <li>Advanced thesis work on institutions and civic behaviour.</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <div class="row">
+            <div>
+              <strong>World Bank</strong>
+              <div class="meta">Policy research</div>
+            </div>
+            <div class="meta" style="text-align:right;">Applied microdata</div>
+          </div>
+          <ul>
+            <li>Empirical work designed for use in policy settings, with an emphasis on execution and transparency.</li>
+            <li>Data construction, reproducibility, and communication that survives real constraints and deadlines.</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <div class="row">
+            <div>
+              <strong>Research teams (John List; Ricardo Perez-Truglia; Zoe Cullen)</strong>
+              <div class="meta">Research assistance across experimental and applied micro projects</div>
+            </div>
+            <div class="meta" style="text-align:right;">Experiments and applied micro</div>
+          </div>
+          <ul>
+            <li>Field and survey-based work in Latin America, including experimental design and implementation support.</li>
+            <li>Empirical projects during my master’s, strengthening applied microeconometric practice and research workflows.</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <div class="row">
+            <div>
+              <strong>AI economics (Daron Acemoglu’s team)</strong>
+              <div class="meta">Research contribution</div>
+            </div>
+            <div class="meta" style="text-align:right;">Economic impact of AI</div>
+          </div>
+          <ul>
+            <li>Contributed to research on the economic implications of AI, with a focus on clear framing and empirical reasoning.</li>
+          </ul>
+        </div>
+
+        <h3>How I work</h3>
+        <div class="block">
+          <ul>
+            <li><strong>Credibility first:</strong> clear identification logic, documented assumptions, and stress-tested results.</li>
+            <li><strong>Reproducibility:</strong> clean pipelines from raw data to final exhibits, with transparent code and notes.</li>
+            <li><strong>Communication:</strong> writing and visuals that make the logic easy to audit and the conclusions easy to use responsibly.</li>
+          </ul>
+        </div>
       </section>
 
-      <!-- RIGHT: keep the same structure on every page -->
-      <aside>
-        <div class="side-card">
-          <h3>Currently</h3>
-          <p class="muted" style="margin:0;">
-            Oxford, UK — developing the economic case for prevention at the Ellison Institute of Technology.
-          </p>
-        </div>
-
-        <div class="side-card">
-          <h3>Focus</h3>
-          <p class="muted" style="margin:0;">
-            Causal inference, microdata, reproducible workflows, and clear communication for non-technical audiences.
-          </p>
-        </div>
-
-        <div class="side-card">
-          <h3>Selected settings</h3>
-          <p class="muted" style="margin:0;">
-            Experimental research (Latin America) · Academic research (Yale) · Policy research (World Bank) · AI economics.
-          </p>
-        </div>
-      </aside>
+      <!-- Keep the wrapper to match your structure, but it is intentionally unused on this page -->
+      <aside></aside>
     </main>
 
     <footer>
