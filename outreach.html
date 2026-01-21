@@ -14,7 +14,7 @@ Only change:
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Outreach — Miriam Malament</title>
-  <meta name="description" content="PAGE_DESCRIPTION" />
+  <meta name="description" content="Outreach and writing by Miriam Malament, including a blog post on how a symbolic fine in Argentina is associated with a large jump in voter turnout." />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -47,14 +47,32 @@ Only change:
 
     h2{font-family:"Libre Baskerville",serif;font-size:28px;margin:0 0 16px}
     p{margin:0 0 14px}
+    a{color:#111}
 
-    .photo{width:100%;border-radius:2px;background:#efefef;min-height:320px;display:block;object-fit:cover}
-
-    /* Optional: light “card” feel for sidebar blocks if you add them later */
     .side-card{border:1px solid #e6e6e6;border-radius:8px;padding:18px;margin:0 0 18px;background:#fff}
+    .side-card h3{margin:0 0 10px;font-family:"Libre Baskerville",serif;font-size:18px}
+    .muted{color:#555}
+
+    /* Blog styling (kept simple, consistent with the other pages) */
+    .post{border:1px solid #e6e6e6;border-radius:10px;padding:22px;background:#fff}
+    .post-title{font-family:"Libre Baskerville",serif;font-size:24px;line-height:1.25;margin:0 0 10px}
+    .post-meta{color:#666;font-size:14px;margin:0 0 16px}
+    .lede{font-size:17px;color:#222;margin:0 0 16px}
+    .post h3{font-family:"Libre Baskerville",serif;font-size:18px;margin:18px 0 8px}
+    .post ul{margin:8px 0 14px 18px}
+    .post li{margin:6px 0}
+    blockquote{
+      margin:18px 0;
+      padding:14px 16px;
+      border-left:4px solid #555;
+      background:#fafafa;
+      color:#333;
+    }
+    .note{font-size:14px;color:#666;margin-top:14px}
+    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+    .tag{font-size:13px;color:#333;border:1px solid #e6e6e6;border-radius:999px;padding:6px 10px;background:#fff}
 
     footer{text-align:center;color:#777;font-size:14px;padding:32px 0}
-    a{color:#111}
   </style>
 </head>
 
@@ -65,39 +83,149 @@ Only change:
       <div class="subtitle">Applied Economist</div>
     </header>
 
-    <!-- NAV: identical across pages, only one link gets .active -->
     <nav>
       <ul>
-        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="experience.html">Experience</a></li>
         <li><a href="research.html">Research</a></li>
-        <li><a href="outreach.html">Outreach</a></li>
+        <li><a href="outreach.html" class="active">Outreach</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
 
     <main class="content">
-      <!-- LEFT: page content -->
-      <section id="PAGE_ID" aria-labelledby="page-heading">
-        <h2 id="page-heading">PAGE HEADING</h2>
+      <!-- LEFT -->
+      <section id="outreach" aria-labelledby="page-heading">
+        <h2 id="page-heading">Outreach</h2>
 
-        <p>PLACEHOLDER paragraph 1.</p>
-        <p>PLACEHOLDER paragraph 2.</p>
-        <p>PLACEHOLDER paragraph 3.</p>
+        <p>
+          Short writing for broader audiences. I use this space to explain research ideas, empirical results, and why they matter,
+          without assuming a technical background.
+        </p>
+
+        <article class="post" aria-labelledby="post-5cent-title">
+          <h3 id="post-5cent-title" class="post-title">The Five-Cent Law: How a Symbolic Fine Gets 20% More People to Vote</h3>
+          <p class="post-meta">Blog entry · <span class="muted">Date: replace when publishing</span> · 6–8 minute read</p>
+
+          <p class="lede">
+            Why do we follow the rules? Is it fear of getting caught, the sting of a penalty, or something else entirely?
+            A remarkable case from Argentina challenges the usual deterrence story. Sometimes the most powerful laws are the ones with no teeth.
+          </p>
+
+          <p>
+            In Argentina, voting has been compulsory for over a century. It is more than a rule on paper. Through a turbulent history
+            that included periods of military rule, voting later became a constitutional right, and it carries a strong symbolic meaning
+            of democratic belonging.
+          </p>
+
+          <p>
+            Here is the puzzle. The penalty for not voting is a 50-peso fine. Once worth about $2.50, years of inflation have pushed its real
+            value down to around five U.S. cents, and it is rarely collected. From a purely rational perspective, this should have little effect.
+            And yet, it does. How can a law with no real punishment still change who shows up to the polls?
+          </p>
+
+          <h3>A legal switch flips, and nearly 20% more people show up</h3>
+          <p>
+            The rules change abruptly at age 18. For 16- and 17-year-olds, voting is optional. The moment a citizen turns 18, voting becomes a
+            legal obligation. That single legal switch is followed by a sharp, discontinuous change in behaviour.
+          </p>
+
+          <p>
+            As soon as Argentinians become legally required to vote, turnout jumps by about 19.7 percentage points. This is not a gradual shift.
+            It happens right at the age-18 threshold and is stable across electoral cycles. Nothing else about these young people changes overnight.
+            The key change is legal status: a voluntary act becomes a civic duty.
+          </p>
+
+          <h3>It is not the threat, it is the signal</h3>
+          <p>
+            If it is not fear of a five-cent fine, what is driving the behaviour? The evidence points to a mechanism often described as
+            <strong>expressive compliance</strong>. People comply not because they fear punishment, but because the law signals a social expectation
+            and activates civic duty.
+          </p>
+
+          <ul>
+            <li>
+              <strong>Deterrence:</strong> If the fine were the driver, beliefs about enforcement should matter. Yet even people confident that sanctions are not enforced
+              still report high voting intention. Some precautionary voting may exist at the margin, but it does not explain the magnitude.
+            </li>
+            <li>
+              <strong>Civic maturation:</strong> Turning 18 does not instantly change political interest or democratic attitudes. These attitudes move smoothly with age,
+              unlike turnout, which jumps sharply at the legal threshold.
+            </li>
+          </ul>
+
+          <blockquote>
+            The law’s effectiveness may lie not in the threat it poses, but in the meaning it conveys.
+          </blockquote>
+
+          <h3>A symbolic law can be a great equalizer</h3>
+          <p>
+            One of the most striking results is who responds most. The turnout increase is especially pronounced among lower-income and lower-education youth.
+            In other words, a symbolic mandate can disproportionately mobilize groups that are often underrepresented in politics.
+          </p>
+
+          <p>
+            In that sense, the legal obligation can function like a civic rite of passage. By codifying voting as a duty, the state clarifies what is expected of citizens,
+            and the signal appears to close participation gaps without relying on coercion.
+          </p>
+
+          <h3>The quiet power of shared expectations</h3>
+          <p>
+            Argentina’s “five-cent law” illustrates a broader point about behaviour: rules can work through norms, not only through penalties. The sharp discontinuity at
+            age 18 highlights how a legal mandate can act as a normative signal, especially for youth who are otherwise hardest to mobilize.
+          </p>
+
+          <p>
+            It raises a question that applies far beyond elections. What if the best way to encourage civic behaviour is not with bigger sticks,
+            but with clearer signals about what a community expects and values?
+          </p>
+
+          <div class="tags" aria-label="Post tags">
+            <span class="tag">Institutions</span>
+            <span class="tag">Voting</span>
+            <span class="tag">Behaviour</span>
+            <span class="tag">Norms</span>
+            <span class="tag">Causal inference</span>
+          </div>
+
+          <p class="note">
+            Optional: add links here to your thesis page, a one-page brief, or a visual abstract once they are hosted.
+          </p>
+        </article>
       </section>
 
-      <!-- RIGHT: keep the same structure on every page -->
+      <!-- RIGHT -->
       <aside>
-        <!-- Option A: portrait (default) -->
-        <img src="photo.jpg" alt="Portrait of Miriam Malament" class="photo" />
-
-        <!-- Option B: replace with sidebar blocks instead (keep wrapper) -->
-        <!--
         <div class="side-card">
-          <h3 style="margin:0 0 10px;font-family:'Libre Baskerville',serif;font-size:18px;">PLACEHOLDER</h3>
-          <p style="margin:0;">PLACEHOLDER short sidebar text.</p>
+          <h3>On this page</h3>
+          <p class="muted" style="margin:0;">
+            Writing for broader audiences. Blog posts, short explainers, and research summaries.
+          </p>
         </div>
-        -->
+
+        <div class="side-card">
+          <h3>Featured topic</h3>
+          <p class="muted" style="margin:0;">
+            Symbolic law and turnout: why legal obligation can matter even when deterrence is weak.
+          </p>
+        </div>
+
+        <div class="side-card">
+          <h3>Links</h3>
+          <p class="muted" style="margin:0 0 8px 0;">
+            <a href="/research/thesis-symbolic-law">Thesis page</a> (add when ready)
+          </p>
+          <p class="muted" style="margin:0;">
+            <a href="/assets/Malament_SymbolicLaw_OnePager.pdf">One-page brief</a> (add when ready)
+          </p>
+        </div>
+
+        <div class="side-card">
+          <h3>Contact</h3>
+          <p class="muted" style="margin:0;">
+            <a href="mailto:mmalament@eit.org">mmalament@eit.org</a>
+          </p>
+        </div>
       </aside>
     </main>
 
