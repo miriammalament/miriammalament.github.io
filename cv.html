@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Miriam Malament — CV</title>
+  <meta name="description" content="Curriculum Vitae — Miriam Malament" />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--accent:#9a9a9a;--muted:#777;--text:#111;--white:#fff;--rule:#cfcfcf}
+    html,body{height:100%;margin:0;background:var(--white);color:var(--text);font-family:"Source Sans 3",system-ui,-apple-system,Segoe UI,Roboto,Arial;line-height:1.6}
+    .page{max-width:1100px;margin:0 auto;padding:18px 36px}
+
+    header{text-align:center;padding:56px 0 8px}
+    header h1{margin:0;font-family:"Libre Baskerville",serif;font-size:44px;letter-spacing:0.02em}
+    header .subtitle{margin-top:8px;color:var(--muted);font-size:18px;font-family:"Libre Baskerville",serif}
+
+    nav{border-top:1px solid var(--rule);border-bottom:6px solid var(--accent);margin-top:28px}
+    nav ul{list-style:none;display:flex;justify-content:center;gap:36px;padding:14px 0;margin:0}
+    nav li{font-family:"Libre Baskerville",serif;font-size:16px}
+    nav a{color:var(--text);text-decoration:none;padding:10px 18px;display:inline-block}
+    nav a.active{background:#555;color:#fff;padding:10px 26px}
+
+    main{margin:44px 0 30px}
+
+    .contact{margin:0 auto 24px;text-align:center}
+    .contact a{color:var(--text)}
+
+    .section{margin:26px 0}
+    .section h2{font-family:"Libre Baskerville",serif;font-size:22px;margin:0 0 12px}
+    .section .rule{height:1px;background:#e6e6e6;margin:10px 0 0}
+
+    .profile{max-width:860px;margin:0 auto}
+
+    /* CV entries */
+    .entries{max-width:920px;margin:0 auto}
+    .entry{padding:14px 0;border-bottom:1px solid #eee}
+    .entry:last-child{border-bottom:none}
+    .entry-top{display:flex;gap:16px;justify-content:space-between;align-items:flex-start}
+    .role{font-weight:600}
+    .dates{white-space:nowrap;color:var(--muted)}
+    .orgline{display:flex;gap:16px;justify-content:space-between;color:var(--muted);margin-top:2px}
+    .org{color:var(--text)}
+    .loc{white-space:nowrap}
+    .bullets{margin:10px 0 0 18px}
+
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    @media(max-width:900px){
+      .page{padding:18px 18px}
+      .two-col{grid-template-columns:1fr}
+      .entry-top,.orgline{flex-direction:column}
+      .dates,.loc{white-space:normal}
+    }
+
+    .small{font-size:14px;color:var(--muted)}
+    footer{text-align:center;color:var(--muted);font-size:14px;padding:20px 0 28px}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>Miriam Malament</h1>
+      <div class="subtitle">Curriculum Vitae</div>
+    </header>
+
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a class="active" href="cv.html">CV</a></li>
+        <li><a href="research.html">RESEARCH</a></li>
+        <li><a href="policy.html">POLICY &amp; MEDIA</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <div class="contact">
+        <div><a href="mailto:miriammalament@gmail.com">miriammalament@gmail.com</a></div>
+        <div><a href="https://www.linkedin.com/in/miriam-malament-b903a7229/" target="_blank" rel="noreferrer noopener">linkedin.com/in/miriam-malament-b903a7229</a></div>
+      </div>
+
+      <section class="section profile">
+        <h2>Profile</h2>
+        <p>Policy-oriented economist with experience in international institutions and applied economic research. Specialized in applied microeconometrics and labour economics, with a strong focus on translating empirical evidence into clear, actionable policy insights. Strong international profile, with professional experience across Europe, North America, and Latin America.</p>
+      </section>
+
+      <section class="section entries">
+        <h2>Work Experience</h2>
+
+        <div class="entry">
+          <div class="entry-top">
+            <div class="role">Economics Research Analyst</div>
+            <div class="dates">Aug. 2025 – Present</div>
+          </div>
+          <div class="orgline">
+            <div class="org">Ellison Institute of Technology Oxford</div>
+            <div class="loc">Oxford, United Kingdom</div>
+          </div>
+          <ul class="bullets">
+            <li>Conduct applied economic analysis on longevity, labour markets, and innovation to support evidence-based policy design.</li>
+            <li>Develop quantitative frameworks using large administrative and survey datasets to assess workforce participation, ageing, and productivity trends.</li>
+            <li>Prepare policy-oriented outputs, including analytical notes, reports, and presentations for non-academic stakeholders.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-top">
+            <div class="role">Research Fellow</div>
+            <div class="dates">Aug. 2024 – Jun. 2025</div>
+          </div>
+          <div class="orgline">
+            <div class="org">Yale University (Fox International Fellow)</div>
+            <div class="loc">New Haven, United States</div>
+          </div>
+          <ul class="bullets">
+            <li>Led independent research on civic engagement, institutional trust, and public policy design using administrative and survey data.</li>
+            <li>Produced empirical evidence on youth political participation with implications for democratic institutions and governance.</li>
+            <li>Engaged in interdisciplinary collaboration linking economics, political science, and public policy.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-top">
+            <div class="role">Research Fellow</div>
+            <div class="dates">Mar. 2024 – Aug. 2024</div>
+          </div>
+          <div class="orgline">
+            <div class="org">Massachusetts Institute of Technology (MIT)</div>
+            <div class="loc">&nbsp;</div>
+          </div>
+          <ul class="bullets">
+            <li>Contributed to applied research on artificial intelligence and labour markets with relevance for employment policy and skills strategies.</li>
+            <li>Analysed employment transitions and task exposure to assess distributional and inequality implications.</li>
+            <li>Supported evidence generation for policy discussions on labour market regulation and job quality.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-top">
+            <div class="role">Consultant</div>
+            <div class="dates">Jan. 2024 – Aug. 2024</div>
+          </div>
+          <div class="orgline">
+            <div class="org">The World Bank Group</div>
+            <div class="loc">&nbsp;</div>
+          </div>
+          <ul class="bullets">
+            <li>Supported operational and research teams with empirical analysis to inform policy design and programme implementation.</li>
+            <li>Conducted impact and effectiveness evaluations of financial literacy and behavioural interventions.</li>
+            <li>Developed analytical tools and technical documentation for policymakers and practitioners.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-top">
+            <div class="role">Research Assistant</div>
+            <div class="dates">Jun. 2023 – Aug. 2024</div>
+          </div>
+          <div class="orgline">
+            <div class="org">UC Berkeley, Haas School of Business (with Prof. Ricardo Perez-Truglia)</div>
+            <div class="loc">&nbsp;</div>
+          </div>
+          <ul class="bullets">
+            <li>Conducted applied behavioural economics analysis using large-scale survey and administrative datasets.</li>
+            <li>Built reproducible data pipelines to support policy evaluation and empirical research.</li>
+            <li>Generated quantitative evidence to inform studies on economic behaviour and institutional design.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-top">
+            <div class="role">Research Assistant</div>
+            <div class="dates">Aug. 2021 – Feb. 2023</div>
+          </div>
+          <div class="orgline">
+            <div class="org">University of Chicago (with Prof. John A. List and Julio Elías)</div>
+            <div class="loc">&nbsp;</div>
+          </div>
+          <ul class="bullets">
+            <li>Supported large-scale field experiments evaluating civic engagement and behavioural policy interventions.</li>
+            <li>Managed data collection, cleaning, and analysis for applied policy research projects.</li>
+            <li>Contributed to impact evaluation design and empirical implementation.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section entries">
+        <h2>Education</h2>
+
+        <div class="entry">
+          <div class="entry-top">
+            <div class="role">Master in Economics</div>
+            <div class="dates">Feb. 2023 – Jun. 2025</div>
+          </div>
+          <div class="orgline">
+            <div class="org">Universidad de San Andrés</div>
+            <div class="loc">Buenos Aires, Argentina</div>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-top">
+            <div class="role">Bachelor in Economics</div>
+            <div class="dates">Mar. 2019 – Dec. 2022</div>
+          </div>
+          <div class="orgline">
+            <div class="org">Universidad del CEMA</div>
+            <div class="loc">Buenos Aires, Argentina</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section entries">
+        <h2>Technical and Analytical Skills</h2>
+        <div class="two-col">
+          <div>
+            <div><strong>Policy and Impact Evaluation</strong></div>
+            <div class="small">Programme evaluation, impact assessment, evidence synthesis</div>
+          </div>
+          <div>
+            <div><strong>Econometrics and Data Analysis</strong></div>
+            <div class="small">Causal inference, regression discontinuity, panel data methods, survey analysis</div>
+          </div>
+          <div>
+            <div><strong>Programming</strong></div>
+            <div class="small">Stata (Advanced), R (Advanced), Python (Advanced), MATLAB (Intermediate)</div>
+          </div>
+          <div>
+            <div><strong>Data Tools</strong></div>
+            <div class="small">QGIS, GeoDA, large-scale administrative and survey datasets</div>
+          </div>
+          <div>
+            <div><strong>Policy Communication</strong></div>
+            <div class="small">Analytical notes, policy briefs, technical documentation</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section entries">
+        <h2>Languages</h2>
+        <p>Spanish (Native) · English (C2) · French (B1) · Italian (A2)</p>
+      </section>
+
+      <section class="section entries">
+        <h2>Citizenship</h2>
+        <p>Australia · Argentina · Poland</p>
+      </section>
+
+      <section class="section entries">
+        <h2>Selected Publications and Policy-Oriented Research</h2>
+        <p><strong>Canning, D., Malament, M., Riumalló-Herl, C., &amp; Sabberwal, M.</strong> (work in progress). <em>Beyond GDP: Annual Growth Rates in Welfare for the UK, 2009–2022</em>.</p>
+        <p><strong>Malament, M.</strong> et al. (work in progress). <em>Modelling, Measuring, and Valuing Health: An Economic Framework for Policy Analysis</em>.</p>
+        <p><strong>Malament, M.</strong> (2025). <em>Compulsory or Committed? Decoding Youth Voting Patterns in Argentina</em>. MacMillan Center Working Papers, Yale University.</p>
+        <p><strong>Malament, M.</strong> (2023). <em>Returns to Education and Investment in Human Capital: The Argentine Case</em>. Asociación Argentina de Economía Política.</p>
+        <p><strong>Arispe</strong> et al. (2023). <em>Anticipated Stabilization Programs</em>. Asociación Argentina de Economía Política.</p>
+        <p><strong>Fernández, M. &amp; Malament, M.</strong> (2023). <em>Towards the Construction of a Countercyclical Fiscal Fund</em>. Universidad del CEMA Working Paper.</p>
+      </section>
+
+      <section class="section entries">
+        <h2>Honors and Awards</h2>
+        <ul class="bullets">
+          <li>Fox International Fellowship, MacMillan Center for International and Area Studies at Yale University (2024–2025)</li>
+          <li>Merit Scholarship for Master’s Program (2023)</li>
+          <li>Honors Diploma, Bachelor’s Degree (Top 1%)</li>
+          <li>Merit Scholarship for Bachelor’s Program</li>
+          <li>National Math Olympiad Finalist</li>
+        </ul>
+      </section>
+
+    </main>
+
+    <footer>
+      <div>Last updated: <span class="small">January 2026</span></div>
+    </footer>
+  </div>
+</body>
+</html>
