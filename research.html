@@ -5,7 +5,6 @@ Only change:
 2) <meta name="description">
 3) Which nav link has class="active"
 4) The <h2> and the placeholder content inside <section>
-5) Optional: the right-side <aside> content (keep the same wrapper)
 -->
 
 <!doctype html>
@@ -40,19 +39,14 @@ Only change:
     nav a{text-decoration:none;color:#111;padding:10px 22px;display:inline-block}
     nav a.active{background:#555;color:#fff;border-radius:4px}
 
-    .content{display:grid;grid-template-columns:1fr 360px;gap:48px;margin:56px 0}
-    @media(max-width:900px){.content{grid-template-columns:1fr;padding:0 12px}}
+    /* Single-column layout (no right sidebar) */
+    .content{display:block;margin:56px 0}
 
     section[id]{scroll-margin-top:120px}
 
     h2{font-family:"Libre Baskerville",serif;font-size:28px;margin:0 0 16px}
     p{margin:0 0 14px}
     a{color:#111}
-
-    /* Sidebar cards */
-    .side-card{border:1px solid #e6e6e6;border-radius:8px;padding:18px;margin:0 0 18px;background:#fff}
-    .side-card h3{margin:0 0 10px;font-family:"Libre Baskerville",serif;font-size:18px}
-    .muted{color:#555}
 
     /* Research blocks */
     .block{border:1px solid #e6e6e6;border-radius:10px;padding:18px;background:#fff;margin:18px 0}
@@ -72,6 +66,18 @@ Only change:
     ul.clean{margin:10px 0 0 18px}
     ul.clean li{margin:6px 0}
     hr{border:0;border-top:1px solid #eee;margin:22px 0}
+
+    /* Thesis plot image */
+    .feature-img{
+      width:100%;
+      height:auto;
+      display:block;
+      border:1px solid #e6e6e6;
+      border-radius:10px;
+      background:#fff;
+    }
+    figure{margin:12px 0 14px}
+    figcaption{margin-top:8px;color:#666;font-size:13px}
 
     footer{text-align:center;color:#777;font-size:14px;padding:32px 0}
   </style>
@@ -96,7 +102,6 @@ Only change:
     </nav>
 
     <main class="content">
-      <!-- LEFT: page content -->
       <section id="research" aria-labelledby="research-heading">
         <h2 id="research-heading">Research</h2>
 
@@ -108,12 +113,25 @@ Only change:
 
         <div class="block" aria-labelledby="thesis-title">
           <p class="eyebrow">Featured research</p>
-          <h3 id="thesis-title" class="title">The power of symbolic law</h3>
+          <h3 id="thesis-title" class="title">Do symbolic penalties work?</h3>
 
           <p class="hook">
             A <strong>$0.05 fine</strong> that is almost never enforced still coincides with a
             <strong>~20-point jump</strong> in turnout at age 18.
           </p>
+
+          <!-- Add your image here (make sure the path matches your repo structure) -->
+          <figure>
+            <img
+              src="thesis_plot.jpg"
+              alt="Plot showing the discontinuity in turnout at age 18 in Argentina"
+              class="feature-img"
+              loading="lazy"
+            />
+            <figcaption>
+              Turnout around the compulsory voting threshold (age 18).
+            </figcaption>
+          </figure>
 
           <p class="small">
             My master’s thesis studies Argentina’s compulsory voting threshold as a clean test of whether legal
@@ -186,38 +204,6 @@ Only change:
           </ul>
         </div>
       </section>
-
-      <!-- RIGHT: keep the same structure on every page -->
-      <aside>
-        <div class="side-card">
-          <h3>Current base</h3>
-          <p class="muted" style="margin:0;">Oxford, United Kingdom</p>
-        </div>
-
-        <div class="side-card">
-          <h3>Focus areas</h3>
-          <p class="muted" style="margin:0;">
-            Institutions and compliance · voting behaviour · causal inference · economics of AI · prevention economics
-          </p>
-        </div>
-
-        <div class="side-card">
-          <h3>Downloads</h3>
-          <p class="muted" style="margin:0 0 8px 0;">
-            <a href="/assets/Malament_SymbolicLaw_OnePager.pdf">1-page thesis brief</a>
-          </p>
-          <p class="muted" style="margin:0;">
-            <a href="/assets/Malament_CV.pdf">CV (PDF)</a>
-          </p>
-        </div>
-
-        <div class="side-card">
-          <h3>Contact</h3>
-          <p class="muted" style="margin:0;">
-            <a href="mailto:mmalament@eit.org">mmalament@eit.org</a>
-          </p>
-        </div>
-      </aside>
     </main>
 
     <footer>
