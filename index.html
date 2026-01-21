@@ -1,116 +1,122 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Static Site Example</title>
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Miriam Malament — Applied economist working with causal inference and large-scale data to translate complex analysis into decision-relevant insights." />
+  <title>Miriam Malament — Applied Economist</title>
   <style>
-    body {
-      margin: 0;
-      font-family: system-ui, sans-serif;
-      line-height: 1.6;
-      background: #f5f5f5;
-      color: #222;
-    }
+    :root{--bg:#0f1724;--card:#0b1220;--muted:#9aa4b2;--accent:#6ee7b7;--white:#ecf0f6}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;background:linear-gradient(180deg,#071023 0%,var(--bg) 100%);color:var(--white);-webkit-font-smoothing:antialiased}
+    .container{max-width:980px;margin:48px auto;padding:24px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);padding:28px;border-radius:14px;box-shadow:0 6px 30px rgba(2,6,23,0.6)}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:56px;height:56px;border-radius:12px;display:grid;place-items:center;font-weight:700;background:linear-gradient(135deg,var(--accent),#60a5fa);color:#04212a}
+    h1{margin:0;font-size:26px}
+    p.lead{margin:12px 0 0;color:var(--muted);line-height:1.5}
+    .grid{display:grid;grid-template-columns:1fr 340px;gap:20px;margin-top:22px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
 
-    header {
-      background: #111;
-      color: white;
-      padding: 1.5rem;
-    }
+    .section{margin-bottom:20px}
+    .muted{color:var(--muted)}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.02);font-size:13px}
 
-    nav a {
-      color: white;
-      margin-right: 1rem;
-      text-decoration: none;
-      font-weight: 500;
-    }
+    .about h2,.work h2,.research h2,.contact h2{margin:0 0 10px}
+    ul.clean{padding-left:18px;margin:0}
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .skill{background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:8px;font-size:13px}
 
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
+    .cta{display:inline-block;margin-top:14px;padding:10px 14px;border-radius:10px;background:var(--accent);color:#04212a;font-weight:600;text-decoration:none}
+    footer{margin-top:20px;text-align:center;color:var(--muted);font-size:13px}
+    a.textlink{color:var(--accent);text-decoration:none}
 
-    section {
-      background: white;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      border-radius: 6px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #666;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-    }
-
-    .card {
-      border: 1px solid #ddd;
-      padding: 1rem;
-      border-radius: 4px;
-    }
+    /* subtle separator */
+    .sep{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.02),transparent);margin:18px 0;border-radius:2px}
   </style>
 </head>
-
 <body>
-  <header>
-    <h1>Static Site</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Docs</a>
-      <a href="#">Contact</a>
-    </nav>
-  </header>
+  <div class="container">
+    <div class="card">
+      <header>
+        <div class="brand">
+          <div class="logo">MM</div>
+          <div>
+            <h1>Miriam Malament</h1>
+            <div class="muted">Applied economist • Ellison Institute of Technology, Oxford</div>
+          </div>
+        </div>
+        <div style="text-align:right">
+          <div class="pill">Applied economics · Causal inference · Large-scale data</div>
+          <div style="margin-top:8px"><a class="textlink" href="https://github.com/" target="_blank" rel="noopener">GitHub</a> · <a class="textlink" href="mailto:mmalament@eit.org">mmalament@eit.org</a></div>
+        </div>
+      </header>
 
-  <main>
-    <section>
-      <h2>Hero Section</h2>
-      <p>
-        This is a simple static site. No JavaScript, no build tools, just HTML and CSS.
-        Use this area to explain what the site is about.
-      </p>
-    </section>
+      <div class="grid">
+        <main>
+          <section class="about section">
+            <h2>About</h2>
+            <p class="lead">I am an applied economist who works with causal inference and large-scale data to answer real-world questions. I translate complex analysis into clear, decision-relevant insights for policy, organisations, and stakeholders.</p>
+          </section>
 
-    <section>
-      <h2>Features</h2>
-      <div class="card-grid">
-        <div class="card">
-          <h3>Fast</h3>
-          <p>Loads instantly. Nothing to compile.</p>
-        </div>
-        <div class="card">
-          <h3>Simple</h3>
-          <p>Easy to read and maintain.</p>
-        </div>
-        <div class="card">
-          <h3>Portable</h3>
-          <p>Works anywhere a browser exists.</p>
-        </div>
+          <div class="sep"></div>
+
+          <section class="work section">
+            <h2>Work & approach</h2>
+            <p class="muted">My work sits at the intersection of applied economics, policy, and data-driven problem solving. I focus on rigorous causal identification, careful research design, and communicating results that drive practical decisions.</p>
+            <ul class="clean" style="margin-top:10px">
+              <li>Designing quasi-experimental and experimental studies to estimate causal effects.</li>
+              <li>Working with large administrative and survey datasets; reproducible pipelines.</li>
+              <li>Translating results into policy recommendations and clear visual narratives.</li>
+            </ul>
+          </section>
+
+          <section class="research section">
+            <h2>Research interests</h2>
+            <div class="skills" style="margin-top:8px">
+              <div class="skill">Causal inference</div>
+              <div class="skill">Program evaluation</div>
+              <div class="skill">Policy analysis</div>
+              <div class="skill">Panel & administrative data</div>
+              <div class="skill">Machine learning for heterogeneity</div>
+              <div class="skill">Reproducible research</div>
+            </div>
+          </section>
+
+          <div class="sep"></div>
+
+          <section class="contact section">
+            <h2>Contact</h2>
+            <p class="muted">I’m open to collaborations, speaking, and consulting. The fastest way to reach me is by email.</p>
+            <p style="margin-top:8px"><a class="cta" href="mailto:mmalament@eit.org">Email me</a></p>
+          </section>
+        </main>
+
+        <aside style="min-width:240px">
+          <div style="padding:16px;border-radius:12px;background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.02)">
+            <h3 style="margin-top:0">Selected outputs</h3>
+            <p class="muted" style="font-size:14px">(Add links to papers, preprints, GitHub repos or CV)</p>
+            <ul class="clean" style="margin-top:8px">
+              <li><a class="textlink" href="#">Working paper: Policy evaluation of ...</a></li>
+              <li><a class="textlink" href="#">Replication code (GitHub)</a></li>
+              <li><a class="textlink" href="#">Talk: Translating evidence into decisions</a></li>
+            </ul>
+          </div>
+
+          <div style="height:16px"></div>
+
+          <div style="padding:14px;border-radius:12px;background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.02)">
+            <h4 style="margin:0">Quick facts</h4>
+            <p class="muted" style="margin:8px 0 0;line-height:1.4">Applied economist at the Ellison Institute of Technology, Oxford. Focused on causal inference, policy evaluation, and large-scale data analysis.</p>
+          </div>
+        </aside>
       </div>
-    </section>
 
-    <section>
-      <h2>Content Placeholder</h2>
-      <p>
-        Replace this section with real content. Articles, documentation,
-        links, or whatever the site is for.
-      </p>
-    </section>
-  </main>
-
-  <footer>
-    © 2026 Your Name · Static HTML Example
-  </footer>
+      <footer>
+        <div>Built for GitHub Pages — drop this file into a repository named <code>username.github.io</code> and publish.</div>
+      </footer>
+    </div>
+  </div>
 </body>
 </html>
