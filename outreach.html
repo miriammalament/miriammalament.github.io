@@ -1,8 +1,6 @@
 <!--
-Option A implemented:
-- outreach.html becomes a teaser/index-style page with a faded excerpt + "Read the full post" button.
-- This assumes you will create a separate full post page at: outreach-5cent-law.html
-  (you can make it by duplicating this file and pasting the full article in that page).
+Outreach page with Option A teaser + right-side image (presentation_yale.jpg).
+Assumes presentation_yale.jpg is in the same folder as this HTML file.
 -->
 
 <!doctype html>
@@ -97,6 +95,17 @@ Option A implemented:
 
     .post-list .post{ margin-bottom:18px; }
 
+    /* Right-side image */
+    .side-image{
+      display:block;
+      width:100%;
+      height:auto;
+      border-radius:10px;
+      border:1px solid #e6e6e6;
+      background:#fff;
+    }
+    .caption{font-size:13px;color:#666;margin:10px 0 0}
+
     footer{text-align:center;color:#777;font-size:14px;padding:32px 0}
   </style>
 </head>
@@ -185,6 +194,12 @@ Option A implemented:
 
       <!-- RIGHT -->
       <aside>
+        <div class="side-card">
+          <h3>Photo</h3>
+          <img class="side-image" src="presentation_yale.jpg" alt="Presentation at Yale" />
+          <p class="caption">Presentation at Yale.</p>
+        </div>
+
         <div class="side-card">
           <h3>On this page</h3>
           <p class="muted" style="margin:0;">
