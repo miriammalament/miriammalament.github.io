@@ -4,10 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Miriam Malament</title>
-  <meta name="description" content="Miriam Malament — Applied Economist & Data Scientist" />
+  <meta name="description" content="Miriam Malament — Applied Economist (causal inference, large-scale data). Oxford-based; experience across the UK, US, and Argentina." />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* Basic layout & typography */
     html { scroll-behavior: smooth; }
     body{margin:0;background:#ffffff;color:#111;font-family:"Source Sans 3",system-ui,-apple-system,Segoe UI,Roboto,Arial;line-height:1.6}
     .page{max-width:1050px;margin:0 auto;padding:0 24px}
@@ -16,7 +15,6 @@
     header h1{margin:0;font-family:"Libre Baskerville",serif;font-size:42px;letter-spacing:0.02em}
     header .subtitle{margin-top:8px;color:#555;font-size:20px;font-family:"Libre Baskerville",serif}
 
-    /* Nav */
     nav{
       border-top:1px solid #bbb;
       border-bottom:6px solid #9a9a9a;
@@ -31,11 +29,9 @@
     nav a{text-decoration:none;color:#111;padding:10px 22px;display:inline-block}
     nav a.active{background:#555;color:#fff;border-radius:4px}
 
-    /* Page grid */
     .content{display:grid;grid-template-columns:1fr 360px;gap:48px;margin:56px 0}
     @media(max-width:900px){.content{grid-template-columns:1fr;padding:0 12px}}
 
-    /* Profile anchor offset so nav doesn't cover it */
     section[id]{scroll-margin-top:120px}
 
     h2{font-family:"Libre Baskerville",serif;font-size:28px;margin:0 0 16px}
@@ -47,11 +43,12 @@
     a{color:#111}
   </style>
 </head>
+
 <body>
   <div class="page">
     <header>
       <h1>Miriam Malament</h1>
-      <div class="subtitle">Applied Economist &amp; Data Scientist</div>
+      <div class="subtitle">Applied Economist</div>
     </header>
 
     <nav>
@@ -70,48 +67,35 @@
         <h2 id="profile-heading">Profile</h2>
 
         <p>
-          I am an applied economist specialising in causal inference and large-scale data
-          analysis, with experience translating complex empirical evidence into
-          clear, decision-ready insights for senior stakeholders.
+          I am an applied economist specialising in causal inference and large-scale data analysis,
+          with experience translating empirical evidence into clear inputs for decision making.
         </p>
 
         <p>
-          My work sits at the intersection of economics, data science, and public policy.
-          I focus on answering high-stakes questions where evidence quality matters:
-          what works, for whom, and at what cost.
+    I see economics as a practical tool for understanding how people, organisations, and systems
+    respond to incentives and constraints. I am interested in using empirical analysis to clarify
+    complex problems and inform real-world choices.
         </p>
 
         <p>
-          I have worked with interdisciplinary teams across research, policy, and
-          technology environments, contributing rigorous analysis to inform strategy,
-          programme design, and evaluation.
-        </p>
-
-        <h2 style="margin-top:36px">Capabilities</h2>
-        <p>
-          Causal inference and programme evaluation · Experimental and quasi-experimental
-          design · Panel and administrative data · Reproducible research pipelines ·
-          Applied machine learning for heterogeneity and targeting · Clear communication
-          of technical results to non-technical audiences
+            I have worked in academic and applied research environments in Europe and North America,
+  I am currently an Economic Researcher at the Ellison Institute of Technology, Oxford. 
         </p>
       </section>
 
       <aside>
-        <!-- swap-in your photo.jpg in the repo root; placeholder here is neutral grey -->
         <img src="photo.jpg" alt="Portrait of Miriam Malament" class="photo" />
       </aside>
     </main>
 
     <footer>
       <div>
-        Ellison Institute of Technology, Oxford ·
-        <a href="mailto:mmalament@eit.org">mmalament@eit.org</a>
+        Oxford, United Kingdom · <a href="mailto:mmalament@eit.org">mmalament@eit.org</a>
       </div>
     </footer>
   </div>
 
   <script>
-    // mark active nav link based on current page or hash
     (function(){
       var map = {
         'index.html': 'nav-home',
@@ -124,7 +108,6 @@
       var current = location.pathname.split('/').pop();
       var activeId = map[current] || null;
 
-      // If user clicked a hash (#profile) on index, prefer profile
       if (location.hash && location.hash.indexOf('#profile') === 0) activeId = 'nav-profile';
 
       if (activeId) {
