@@ -1,79 +1,110 @@
+<!-- =========================
+     TEMPLATE: copy this file for each page
+     Pages you will have:
+     - index.html
+     - experience.html
+     - research.html
+     - outreach.html
+     - contact.html
+
+     On each page:
+     1) Change <title>
+     2) Change the H2 page title + subtitle
+     3) Set the active nav link (class="nav-link active")
+     4) Replace PLACEHOLDER blocks with real content
+========================= -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Work — Miriam Malament</title>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body{margin:0;font-family:"Source Sans 3",system-ui,-apple-system,Segoe UI,Roboto,Arial;color:#111}
-    .page{max-width:1050px;margin:0 auto;padding:24px}
-    header{text-align:center;padding:28px 0}
-    nav{border-top:1px solid #bbb;border-bottom:6px solid #9a9a9a;margin-top:18px}
-    nav ul{display:flex;justify-content:center;gap:26px;list-style:none;padding:12px 0;margin:0}
-    nav a{font-family:"Libre Baskerville",serif;text-decoration:none;color:#111;padding:8px 12px}
-    nav a.active{background:#111;color:#fff;border-radius:4px}
-    .grid{display:grid;grid-template-columns:1fr 320px;gap:28px;margin:28px 0}
-    .card{padding:16px;border-radius:8px;background:#fafafa;border:1px solid #eee}
-    .placeholder{color:#666}
-    footer{text-align:center;color:#777;padding:24px 0}
-  </style>
+  <title>PLACEHOLDER — Miriam Malament</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
-  <div class="page">
-    <header>
-      <h1>Work & Projects</h1>
-      <div style="color:#555">Selected highlights — high-level, client-friendly (placeholders)</div>
-    </header>
-
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="profile.html">Profile</a></li>
-        <li><a class="active" href="experience.html">Work</a></li>
-        <li><a href="writing.html">Publications & Media</a></li>
-        <li><a href="cv.html">CV</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-
-    <main class="grid">
-      <div>
-        <div class="card">
-          <h3 style="font-family:Libre Baskerville,serif">Featured projects (placeholder)</h3>
-          <p class="placeholder">Project tile — one-line summary (placeholder)</p>
-          <p class="placeholder">Project tile — one-line summary (placeholder)</p>
-          <p class="placeholder">Project tile — one-line summary (placeholder)</p>
-        </div>
-
-        <div style="height:18px"></div>
-
-        <div class="card">
-          <h3 style="font-family:Libre Baskerville,serif">Selected roles</h3>
-          <p class="placeholder"><strong>Ellison Institute of Technology, Oxford</strong> — Applied economics research (Aug 2025–Present)</p>
-          <p class="placeholder"><strong>Yale University</strong> — Research Fellow (Aug 2024–Jul 2025)</p>
-          <p class="placeholder"><strong>World Bank</strong> — Short-term consultant (Jan–Aug 2024)</p>
-        </div>
+  <!-- Header (identical across pages) -->
+  <header class="site-header">
+    <div class="container">
+      <div class="site-title">
+        <h1 class="name">Miriam Malament</h1>
+        <p class="tagline">Applied Economist</p>
       </div>
 
-      <aside>
-        <div class="card">
-          <h4 style="font-family:Libre Baskerville,serif">How I work</h4>
-          <p class="placeholder">Short bullets: tight deadlines, reproducible code, concise policy memos.</p>
+      <nav class="site-nav" aria-label="Primary">
+        <!-- Set ONE of these to .active depending on the page -->
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="experience.html" class="nav-link">Experience</a>
+        <a href="research.html" class="nav-link">Research</a>
+        <a href="outreach.html" class="nav-link">Outreach</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-rule" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <!-- Main (identical layout across pages) -->
+  <main class="page">
+    <div class="container">
+      <header class="page-header">
+        <h2 class="page-title">PLACEHOLDER PAGE TITLE</h2>
+        <p class="page-subtitle">PLACEHOLDER one-line subtitle that frames what is on this page.</p>
+      </header>
+
+      <section class="content-grid">
+        <!-- Main column -->
+        <div class="content-main">
+          <div class="card">
+            <h3>PLACEHOLDER section title</h3>
+            <p>PLACEHOLDER paragraph. Replace with 3–5 sentences.</p>
+          </div>
+
+          <div class="card">
+            <h3>PLACEHOLDER section title</h3>
+            <ul class="simple-list">
+              <li><strong>PLACEHOLDER</strong> — one-line description (PLACEHOLDER)</li>
+              <li><strong>PLACEHOLDER</strong> — one-line description (PLACEHOLDER)</li>
+              <li><strong>PLACEHOLDER</strong> — one-line description (PLACEHOLDER)</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>PLACEHOLDER section title</h3>
+            <p>PLACEHOLDER paragraph.</p>
+          </div>
         </div>
 
-        <div style="height:18px"></div>
+        <!-- Sidebar -->
+        <aside class="content-aside">
+          <div class="card">
+            <h3>PLACEHOLDER sidebar title</h3>
+            <p>PLACEHOLDER short block: 1–3 lines.</p>
+          </div>
 
-        <div class="card">
-          <h4 style="font-family:Libre Baskerville,serif">Tools & methods</h4>
-          <p class="placeholder">Stata, R, Python, causal inference, RDD / DiD / IV, experimental design.</p>
-        </div>
-      </aside>
-    </main>
+          <div class="card">
+            <h3>PLACEHOLDER sidebar title</h3>
+            <ul class="simple-list">
+              <li>PLACEHOLDER</li>
+              <li>PLACEHOLDER</li>
+              <li>PLACEHOLDER</li>
+            </ul>
+          </div>
+        </aside>
+      </section>
+    </div>
+  </main>
 
-    <footer>
-      Ellison Institute of Technology, Oxford · <a href="mailto:mmalament@eit.org">mmalament@eit.org</a>
-    </footer>
-  </div>
+  <!-- Footer (identical across pages) -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-text">© <span id="year"></span> Miriam Malament</p>
+    </div>
+  </footer>
+
+  <script>
+    // small nice-to-have, same on all pages
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
