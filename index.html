@@ -7,26 +7,41 @@
   <meta name="description" content="Miriam Malament — Applied Economist & Data Scientist" />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body{margin:0;background:#ffffff;color:#111;font-family:Source Sans 3,system-ui,-apple-system,Segoe UI,Roboto,Arial;line-height:1.6}
+    /* Basic layout & typography */
+    html { scroll-behavior: smooth; }
+    body{margin:0;background:#ffffff;color:#111;font-family:"Source Sans 3",system-ui,-apple-system,Segoe UI,Roboto,Arial;line-height:1.6}
     .page{max-width:1050px;margin:0 auto;padding:0 24px}
 
     header{text-align:center;padding:48px 0 24px}
-    header h1{margin:0;font-family:Libre Baskerville,serif;font-size:42px;letter-spacing:0.02em}
-    header .subtitle{margin-top:8px;color:#555;font-size:20px;font-family:Libre Baskerville,serif}
+    header h1{margin:0;font-family:"Libre Baskerville",serif;font-size:42px;letter-spacing:0.02em}
+    header .subtitle{margin-top:8px;color:#555;font-size:20px;font-family:"Libre Baskerville",serif}
 
-    nav{border-top:1px solid #bbb;border-bottom:6px solid #9a9a9a;margin-top:28px}
-    nav ul{list-style:none;display:flex;justify-content:center;gap:36px;padding:14px 0;margin:0}
-    nav li{font-family:Libre Baskerville,serif;font-size:18px}
-    nav a{text-decoration:none;color:#111}
-    nav .active{background:#555;color:#fff;padding:10px 22px}
+    /* Nav */
+    nav{
+      border-top:1px solid #bbb;
+      border-bottom:6px solid #9a9a9a;
+      margin-top:28px;
+      position:sticky;
+      top:0;
+      background:#fff;
+      z-index:10;
+    }
+    nav ul{list-style:none;display:flex;justify-content:center;gap:36px;padding:14px 0;margin:0;flex-wrap:wrap}
+    nav li{font-family:"Libre Baskerville",serif;font-size:18px}
+    nav a{text-decoration:none;color:#111;padding:10px 22px;display:inline-block}
+    nav a.active{background:#555;color:#fff;border-radius:4px}
 
+    /* Page grid */
     .content{display:grid;grid-template-columns:1fr 360px;gap:48px;margin:56px 0}
-    @media(max-width:900px){.content{grid-template-columns:1fr}}
+    @media(max-width:900px){.content{grid-template-columns:1fr;padding:0 12px}}
 
-    h2{font-family:Libre Baskerville,serif;font-size:28px;margin:0 0 16px}
+    /* Profile anchor offset so nav doesn't cover it */
+    section[id]{scroll-margin-top:120px}
+
+    h2{font-family:"Libre Baskerville",serif;font-size:28px;margin:0 0 16px}
     p{margin:0 0 14px}
 
-    .photo{width:100%;border-radius:2px}
+    .photo{width:100%;border-radius:2px;background:#efefef;min-height:320px;display:block;object-fit:cover}
 
     footer{text-align:center;color:#777;font-size:14px;padding:32px 0}
     a{color:#111}
@@ -41,17 +56,18 @@
 
     <nav>
       <ul>
-        <li class="active">Home</li>
-        <li><a href="#profile">Profile</a></li>
-        <li><a href="#">Work</a></li>
-        <li><a href="#">Publications &amp; Media</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="index.html" id="nav-home">Home</a></li>
+        <li><a href="#profile" id="nav-profile">Profile</a></li>
+        <li><a href="experience.html" id="nav-work">Work</a></li>
+        <li><a href="writing.html" id="nav-writing">Publications &amp; Media</a></li>
+        <li><a href="cv.html" id="nav-cv">CV</a></li>
+        <li><a href="contact.html" id="nav-contact">Contact</a></li>
       </ul>
     </nav>
 
     <main class="content">
-      <section id="profile">
-        <h2>Profile</h2>
+      <section id="profile" aria-labelledby="profile-heading">
+        <h2 id="profile-heading">Profile</h2>
 
         <p>
           I am an applied economist specialising in causal inference and large-scale data
@@ -81,6 +97,7 @@
       </section>
 
       <aside>
+        <!-- swap-in your photo.jpg in the repo root; placeholder here is neutral grey -->
         <img src="photo.jpg" alt="Portrait of Miriam Malament" class="photo" />
       </aside>
     </main>
@@ -92,5 +109,29 @@
       </div>
     </footer>
   </div>
+
+  <script>
+    // mark active nav link based on current page or hash
+    (function(){
+      var map = {
+        'index.html': 'nav-home',
+        '': 'nav-home',
+        'experience.html': 'nav-work',
+        'writing.html': 'nav-writing',
+        'cv.html': 'nav-cv',
+        'contact.html': 'nav-contact'
+      };
+      var current = location.pathname.split('/').pop();
+      var activeId = map[current] || null;
+
+      // If user clicked a hash (#profile) on index, prefer profile
+      if (location.hash && location.hash.indexOf('#profile') === 0) activeId = 'nav-profile';
+
+      if (activeId) {
+        var el = document.getElementById(activeId);
+        if (el) el.classList.add('active');
+      }
+    })();
+  </script>
 </body>
 </html>
