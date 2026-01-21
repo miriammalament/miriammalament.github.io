@@ -67,9 +67,11 @@ Only change:
     ul.clean li{margin:6px 0}
     hr{border:0;border-top:1px solid #eee;margin:22px 0}
 
-    /* Thesis plot image */
+    /* Thesis plot image (smaller) */
     .feature-img{
-      width:100%;
+      width:25%;
+      max-width:260px;      /* prevents it from getting weirdly large on wide screens */
+      min-width:160px;      /* optional: keeps it readable on very small screens */
       height:auto;
       display:block;
       border:1px solid #e6e6e6;
@@ -78,6 +80,9 @@ Only change:
     }
     figure{margin:12px 0 14px}
     figcaption{margin-top:8px;color:#666;font-size:13px}
+    @media(max-width:560px){
+      .feature-img{width:60%; min-width:0; max-width:100%;}
+    }
 
     footer{text-align:center;color:#777;font-size:14px;padding:32px 0}
   </style>
@@ -120,7 +125,6 @@ Only change:
             <strong>~20-point jump</strong> in turnout at age 18.
           </p>
 
-          <!-- Add your image here (make sure the path matches your repo structure) -->
           <figure>
             <img
               src="thesis_plot.jpg"
