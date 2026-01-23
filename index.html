@@ -8,13 +8,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
+    :root{
+      --text:#111;
+      --muted:#555;
+      --line:#dedede;
+      --panel:#fafafa;
+      --shadow: 0 10px 30px rgba(0,0,0,.06);
+      --radius: 10px;
+    }
+
     html { scroll-behavior: smooth; }
-    body{margin:0;background:#ffffff;color:#111;font-family:"Source Sans 3",system-ui,-apple-system,Segoe UI,Roboto,Arial;line-height:1.6}
+    body{
+      margin:0;
+      background:#ffffff;
+      color:var(--text);
+      font-family:"Source Sans 3",system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      line-height:1.6
+    }
     .page{max-width:1050px;margin:0 auto;padding:0 24px}
 
     header{text-align:center;padding:48px 0 24px}
     header h1{margin:0;font-family:"Libre Baskerville",serif;font-size:42px;letter-spacing:0.02em}
-    header .subtitle{margin-top:8px;color:#555;font-size:20px;font-family:"Libre Baskerville",serif}
+    header .subtitle{margin-top:8px;color:var(--muted);font-size:20px;font-family:"Libre Baskerville",serif}
 
     nav{
       border-top:1px solid #bbb;
@@ -27,7 +42,7 @@
     }
     nav ul{list-style:none;display:flex;justify-content:center;gap:36px;padding:14px 0;margin:0;flex-wrap:wrap}
     nav li{font-family:"Libre Baskerville",serif;font-size:18px}
-    nav a{text-decoration:none;color:#111;padding:10px 22px;display:inline-block}
+    nav a{text-decoration:none;color:var(--text);padding:10px 22px;display:inline-block}
     nav a.active{background:#555;color:#fff;border-radius:4px}
 
     .content{display:grid;grid-template-columns:1fr 360px;gap:48px;margin:56px 0}
@@ -56,81 +71,112 @@
     h2{font-family:"Libre Baskerville",serif;font-size:28px;margin:0 0 16px}
     p{margin:0 0 14px}
 
-    .lead{font-size:19px; line-height:1.7}
-    .tagline{margin-top:8px;color:#444;font-style:italic}
+    .lead{
+      font-size:19px;
+      line-height:1.75;
+      color:#1a1a1a;
+    }
+    #about .lead:first-of-type{font-size:20px}
 
     .bullets{margin:16px 0 0; padding-left:18px}
     .bullets li{margin:6px 0}
 
-    .photo{width:100%;border-radius:2px;background:#efefef;min-height:320px;display:block;object-fit:cover}
+    /* Photo polish */
+    .photo{
+      width:100%;
+      border-radius: var(--radius);
+      background:#efefef;
+      min-height:320px;
+      display:block;
+      object-fit:cover;
+      box-shadow: var(--shadow);
+      object-position:center 20%;
+    }
+    @media (min-width: 901px){
+      aside{position:sticky; top:120px; align-self:start;}
+    }
 
-    /* Thesis block (compact card) */
+    /* Thesis card (full-width) */
     .block{
-      grid-column: 1 / -1;   /* spans both columns (must be direct grid child) */
+      grid-column: 1 / -1;
       margin-top: 22px;
-      padding: 18px 18px 16px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
+      padding: 22px 22px 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
       max-width: none;
       width: 100%;
     }
-    .block .inner{
-      max-width: 820px;
-    }
+    .block .inner{max-width: 860px;}
 
     .eyebrow{
       text-transform:uppercase;
       font-size:12px;
       letter-spacing:0.08em;
       color:#666;
+      font-weight:600;
       margin:0 0 6px;
     }
     .title{
       font-family:"Libre Baskerville",serif;
-      font-size:20px;
-      margin:0 0 8px;
+      font-size:24px;
+      line-height:1.25;
+      margin:0 0 10px;
     }
     .hook{
-      font-size:15.5px;
+      font-size:16px;
       margin:0 0 12px;
       color:#222;
+      padding-left:12px;
+      border-left:3px solid #9a9a9a;
     }
-    figure{margin:12px 0 10px}
+
+    figure{margin:14px 0 12px}
     .feature-img{
       width:100%;
-      max-width:520px;   /* makes the image smaller */
-      border-radius:3px;
+      max-width: 680px;
+      margin: 0 auto;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background:#fff;
+      padding: 8px;
       display:block;
     }
+
     .small{font-size:14.5px;color:#333;margin:0 0 12px}
 
     .kpis{
       display:flex;
-      gap:18px;
+      gap:12px;
       flex-wrap:wrap;
-      margin:10px 0 12px;
+      margin:12px 0 12px;
     }
     .kpi{
-      border-left:3px solid #9a9a9a;
-      padding-left:10px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:10px;
+      padding:10px 12px;
+      min-width: 160px;
     }
     .kpi .val{
       font-family:"Libre Baskerville",serif;
-      font-size:18px;
+      font-size:20px;
       line-height:1.2;
     }
-    .kpi .lab{font-size:13px;color:#555}
+    .kpi .lab{font-size:13px;color:var(--muted)}
 
     .btnrow{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
     .btn{
-      padding:8px 12px;
-      border-radius:4px;
+      padding:9px 14px;
+      border-radius:999px;
       text-decoration:none;
       font-size:14px;
+      font-weight:600;
       display:inline-block;
     }
-    .primary{background:#555;color:#fff}
-    .ghost{border:1px solid #555;color:#555}
+    .primary{background:#111;color:#fff}
+    .ghost{border:1px solid #111;color:#111}
 
     details summary{cursor:pointer;font-weight:600;font-size:14px}
     details p.small{margin-top:10px}
@@ -177,6 +223,12 @@
           I have experience across academic and applied research environments in Europe and the United States,
           including Yale University and now at the Ellison Institute of Technology in Oxford.
         </p>
+
+        <ul class="bullets">
+          <li>Incentives, enforcement credibility, and participation decisions</li>
+          <li>Institutional and regulatory design in real-world settings</li>
+          <li>Applied empirical analysis for policy and strategy</li>
+        </ul>
 
         <hr />
       </section>
