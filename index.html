@@ -66,14 +66,18 @@
 
     /* Thesis block (compact card) */
     .block{
-  grid-column: 1 / -1;  /* <-- spans both columns */
-  margin-top: 22px;
-  padding: 18px 18px 16px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  max-width: none;      /* <-- remove the cap */
-  width: 80%;
-}
+      grid-column: 1 / -1;   /* spans both columns (must be direct grid child) */
+      margin-top: 22px;
+      padding: 18px 18px 16px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      max-width: none;
+      width: 100%;
+    }
+    .block .inner{
+      max-width: 820px;
+    }
+
     .eyebrow{
       text-transform:uppercase;
       font-size:12px;
@@ -161,7 +165,6 @@
 
         <p class="lead">
           I use economic tools to make sense of how people and institutions respond to rules, incentives, and uncertainty — often in ways that standard assumptions miss.
-
         </p>
 
         <p class="lead">
@@ -175,14 +178,16 @@
           including Yale University and now at the Ellison Institute of Technology in Oxford.
         </p>
 
-        <ul class="bullets">
-          <li>Incentives, enforcement credibility, and participation decisions</li>
-          <li>Institutional and regulatory design in real-world settings</li>
-          <li>Applied empirical analysis for policy and strategy</li>
-        </ul>
+        <hr />
+      </section>
 
-        <!-- FEATURED THESIS CARD (compact) -->
-          <div class="block" aria-labelledby="thesis-title">
+      <aside>
+        <img src="photo.jpg" alt="Portrait of Miriam Malament" class="photo" />
+      </aside>
+
+      <!-- FEATURED THESIS CARD (FULL-WIDTH) -->
+      <div class="block" aria-labelledby="thesis-title">
+        <div class="inner">
           <p class="eyebrow">Featured project</p>
           <h3 id="thesis-title" class="title">Do symbolic penalties work?</h3>
 
@@ -226,18 +231,12 @@
 
           <details style="margin-top:12px;">
             <summary>What is “expressive compliance”?</summary>
-            <p class="small">
+            <p class="small" style="margin-top:10px;">
               Behaviour can change not because people fear punishment, but because the law shifts expectations about what is normal or required. In that view, even symbolic penalties can generate meaningful participation responses.
             </p>
           </details>
         </div>
-
-        <hr />
-      </section>
-
-      <aside>
-        <img src="photo.jpg" alt="Portrait of Miriam Malament" class="photo" />
-      </aside>
+      </div>
     </main>
 
     <footer>
