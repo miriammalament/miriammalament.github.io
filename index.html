@@ -4,18 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Miriam Malament</title>
-  <meta name="description" content="Miriam Malament — Applied Economist focused on policy, institutions, and behaviour. Experience across Europe and the United States." />
+  <meta name="description" content="Miriam Malament — Applied Economist focused on incentives, institutions, and policy-relevant analysis." />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
     html { scroll-behavior: smooth; }
-    body{
-      margin:0;
-      background:#ffffff;
-      color:#111;
-      font-family:"Source Sans 3",system-ui,-apple-system,Segoe UI,Roboto,Arial;
-      line-height:1.6
-    }
+    body{margin:0;background:#ffffff;color:#111;font-family:"Source Sans 3",system-ui,-apple-system,Segoe UI,Roboto,Arial;line-height:1.6}
     .page{max-width:1050px;margin:0 auto;padding:0 24px}
 
     header{text-align:center;padding:48px 0 24px}
@@ -31,231 +25,248 @@
       background:#fff;
       z-index:10;
     }
-    nav ul{
-      list-style:none;
-      display:flex;
-      justify-content:center;
-      gap:36px;
-      padding:14px 0;
-      margin:0;
-      flex-wrap:wrap
-    }
+    nav ul{list-style:none;display:flex;justify-content:center;gap:36px;padding:14px 0;margin:0;flex-wrap:wrap}
     nav li{font-family:"Libre Baskerville",serif;font-size:18px}
     nav a{text-decoration:none;color:#111;padding:10px 22px;display:inline-block}
     nav a.active{background:#555;color:#fff;border-radius:4px}
 
-    main{margin:56px 0}
-    section{margin-bottom:56px}
+    .content{display:grid;grid-template-columns:1fr 360px;gap:48px;margin:56px 0}
+    @media(max-width:900px){.content{grid-template-columns:1fr;padding:0 12px}}
+
+    /* Phone polish */
+    @media (max-width: 600px){
+      .page{padding:0 16px;}
+
+      header{padding:34px 0 16px;}
+      header h1{font-size:32px;}
+      header .subtitle{font-size:17px;}
+
+      nav{margin-top:18px;}
+      nav ul{gap:10px; padding:10px 0;}
+      nav li{font-size:16px;}
+      nav a{padding:9px 12px;}
+
+      .content{gap:22px; margin:28px 0;}
+      h2{font-size:24px;}
+      .photo{min-height:240px;}
+    }
+
+    section[id]{scroll-margin-top:120px}
 
     h2{font-family:"Libre Baskerville",serif;font-size:28px;margin:0 0 16px}
-    h3{font-family:"Libre Baskerville",serif;font-size:22px;margin:0 0 10px}
     p{margin:0 0 14px}
 
-    .lead{
-      font-size:19px;
-      line-height:1.7;
-      max-width:760px
-    }
+    .lead{font-size:19px; line-height:1.7}
+    .tagline{margin-top:8px;color:#444;font-style:italic}
 
-    .tagline{
-      font-style:italic;
-      color:#444;
-      margin-top:8px
-    }
-
-    .bullets{
-      margin:18px 0 0;
-      padding-left:18px;
-      max-width:720px
-    }
+    .bullets{margin:16px 0 0; padding-left:18px}
     .bullets li{margin:6px 0}
 
-    /* Featured project block */
+    .photo{width:100%;border-radius:2px;background:#efefef;min-height:320px;display:block;object-fit:cover}
+
+    /* Thesis block (compact card) */
     .block{
-      border-top:1px solid #ddd;
-      padding-top:36px;
-      max-width:900px
+      margin-top:22px;
+      padding:18px 18px 16px;
+      border:1px solid #ddd;
+      border-radius:6px;
+      max-width:720px; /* keeps it from feeling huge */
     }
     .eyebrow{
       text-transform:uppercase;
-      font-size:13px;
+      font-size:12px;
       letter-spacing:0.08em;
       color:#666;
-      margin-bottom:8px
+      margin:0 0 6px;
+    }
+    .title{
+      font-family:"Libre Baskerville",serif;
+      font-size:20px;
+      margin:0 0 8px;
     }
     .hook{
-      font-size:18px;
-      margin:10px 0 18px
+      font-size:15.5px;
+      margin:0 0 12px;
+      color:#222;
     }
+    figure{margin:12px 0 10px}
     .feature-img{
       width:100%;
-      max-width:720px;
-      border-radius:2px;
-      margin:16px 0
+      max-width:520px;   /* makes the image smaller */
+      border-radius:3px;
+      display:block;
     }
-    .small{font-size:15px;color:#333}
+    .small{font-size:14.5px;color:#333;margin:0 0 12px}
 
     .kpis{
       display:flex;
-      gap:28px;
-      margin:22px 0
+      gap:18px;
+      flex-wrap:wrap;
+      margin:10px 0 12px;
+    }
+    .kpi{
+      border-left:3px solid #9a9a9a;
+      padding-left:10px;
     }
     .kpi .val{
       font-family:"Libre Baskerville",serif;
-      font-size:26px
+      font-size:18px;
+      line-height:1.2;
     }
-    .kpi .lab{
-      font-size:14px;
-      color:#555
-    }
+    .kpi .lab{font-size:13px;color:#555}
 
-    .btnrow{display:flex;gap:16px;margin-top:18px}
+    .btnrow{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
     .btn{
-      padding:10px 16px;
+      padding:8px 12px;
       border-radius:4px;
       text-decoration:none;
-      font-size:15px
+      font-size:14px;
+      display:inline-block;
     }
     .primary{background:#555;color:#fff}
     .ghost{border:1px solid #555;color:#555}
 
-    footer{
-      text-align:center;
-      color:#777;
-      font-size:14px;
-      padding:32px 0
-    }
+    details summary{cursor:pointer;font-weight:600;font-size:14px}
+    details p.small{margin-top:10px}
 
-    @media(max-width:700px){
-      .kpis{flex-direction:column;gap:12px}
-      header h1{font-size:32px}
-      .lead{font-size:18px}
-    }
+    hr{border:none;border-top:1px solid #e6e6e6;margin:18px 0 0}
+
+    footer{text-align:center;color:#777;font-size:14px;padding:32px 0}
+    a{color:#111}
   </style>
 </head>
 
 <body>
-<div class="page">
+  <div class="page">
+    <header>
+      <h1>Miriam Malament</h1>
+      <div class="subtitle">Applied Economist</div>
+    </header>
 
-  <header>
-    <h1>Miriam Malament</h1>
-    <div class="subtitle">Applied Economist</div>
-  </header>
-
-  <nav>
-    <ul>
-      <li><a href="index.html" id="nav-home">Home</a></li>
-      <li><a href="experience.html" id="nav-experience">Experience</a></li>
-      <li><a href="research.html" id="nav-research">Research</a></li>
-      <li><a href="outreach.html" id="nav-outreach">Outreach</a></li>
-      <li><a href="contact.html" id="nav-contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <main>
-
-    <!-- INTRO / POSITIONING -->
-    <section>
-      <p class="lead">
-        I use economic tools to make sense of how people and institutions respond to rules,
-        incentives, and uncertainty — often in ways that standard assumptions miss.
-      </p>
-
-      <p class="lead">
-        My work focuses on applied questions at the intersection of policy, behaviour, and
-        institutions, combining causal analysis with a strong emphasis on clarity and decision
-        relevance. I have experience across academic and applied research environments in Europe
-        and the United States, including Yale University and the Ellison Institute of Technology
-        in Oxford.
-      </p>
-
-      <p class="tagline">
-        I am especially interested in cases where small rules have surprisingly large effects.
-      </p>
-
-      <ul class="bullets">
-        <li>Policy design and institutional incentives</li>
-        <li>Behavioural responses to rules and information</li>
-        <li>Applied empirical analysis for decision-making</li>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
+        <li><a href="experience.html" class="nav-link" id="nav-experience">Experience</a></li>
+        <li><a href="research.html" class="nav-link" id="nav-research">Research</a></li>
+        <li><a href="outreach.html" class="nav-link" id="nav-outreach">Outreach</a></li>
+        <li><a href="contact.html" class="nav-link" id="nav-contact">Contact</a></li>
       </ul>
-    </section>
+    </nav>
 
-    <!-- FEATURED PROJECT -->
-    <section class="block" aria-labelledby="thesis-title">
-      <p class="eyebrow">Featured project</p>
-      <h3 id="thesis-title">Do symbolic penalties work?</h3>
+    <main class="content">
+      <section id="about" aria-labelledby="about-heading">
+        <h2 id="about-heading">About me</h2>
 
-      <p class="hook">
-        A <strong>$0.05 fine</strong> that is almost never enforced is associated with a
-        <strong>~20-point jump</strong> in turnout at age 18 — suggesting that laws can change
-        behaviour even without credible enforcement.
-      </p>
+        <p class="lead">
+          I use economic tools to make sense of how agents respond to rules, incentives, and uncertainty —
+          particularly when enforcement is weak and strategic responses matter.
+        </p>
 
-      <figure>
-        <img
-          src="thesis_plot.jpg"
-          alt="Discontinuity in voter turnout at age 18 in Argentina"
-          class="feature-img"
-          loading="lazy"
-        />
-      </figure>
+        <p class="lead">
+          My work focuses on applied questions at the intersection of policy and institutions, with an emphasis on
+          participation decisions, regulatory thresholds, and equilibrium responses. I combine causal analysis with a
+          strong focus on clarity and decision relevance.
+        </p>
 
-      <p class="small">
-        This project uses Argentina’s compulsory voting threshold as a clean test of whether
-        legal obligation can affect behaviour in the absence of deterrence. The evidence points
-        to <strong>expressive compliance</strong>: the law operates as a normative signal rather
-        than a credible threat.
-      </p>
+        <p class="lead">
+          I have experience across academic and applied research environments in Europe and the United States,
+          including Yale University and the Ellison Institute of Technology in Oxford.
+        </p>
 
-      <div class="kpis">
-        <div class="kpi">
-          <div class="val">~20pp</div>
-          <div class="lab">turnout jump at age 18</div>
+        <p class="tagline">
+          I am especially interested in cases where small rules generate large equilibrium effects.
+        </p>
+
+        <ul class="bullets">
+          <li>Incentives, enforcement credibility, and participation decisions</li>
+          <li>Institutional and regulatory design in real-world settings</li>
+          <li>Applied empirical analysis for policy and strategy</li>
+        </ul>
+
+        <!-- FEATURED THESIS CARD (compact) -->
+        <div class="block" aria-labelledby="thesis-title">
+          <p class="eyebrow">Featured project</p>
+          <h3 id="thesis-title" class="title">Do symbolic penalties work?</h3>
+
+          <p class="hook">
+            A <strong>$0.05 fine</strong> that is almost never enforced still coincides with a
+            <strong>~20-point jump</strong> in turnout at age 18 — consistent with a large participation response at a legal threshold.
+          </p>
+
+          <figure>
+            <img
+              src="thesis_plot.jpg"
+              alt="Plot showing the discontinuity in turnout at age 18 in Argentina"
+              class="feature-img"
+              loading="lazy"
+            />
+          </figure>
+
+          <p class="small">
+            This project uses Argentina’s compulsory voting threshold as a clean test of how participation incentives shift at a regulatory cutoff when expected penalties are near zero. The evidence is most consistent with <strong>expressive compliance</strong>: the law operates as a normative signal rather than a credible threat.
+          </p>
+
+          <div class="kpis" role="list" aria-label="Key thesis facts">
+            <div class="kpi" role="listitem">
+              <div class="val">~20pp</div>
+              <div class="lab">turnout jump at 18</div>
+            </div>
+            <div class="kpi" role="listitem">
+              <div class="val">15</div>
+              <div class="lab">national elections (2015–2023)</div>
+            </div>
+            <div class="kpi" role="listitem">
+              <div class="val">$0.05</div>
+              <div class="lab">approx. real fine value</div>
+            </div>
+          </div>
+
+          <div class="btnrow">
+            <a class="btn primary" href="research.html">Explore the thesis</a>
+            <a class="btn ghost" href="assets/Malament_SymbolicLaw_OnePager.pdf">Download 1-page brief</a>
+          </div>
+
+          <details style="margin-top:12px;">
+            <summary>What is “expressive compliance”?</summary>
+            <p class="small">
+              Behaviour can change not because people fear punishment, but because the law shifts expectations about what is normal or required. In that view, even symbolic penalties can generate meaningful participation responses.
+            </p>
+          </details>
         </div>
-        <div class="kpi">
-          <div class="val">15</div>
-          <div class="lab">national elections (2015–2023)</div>
-        </div>
-        <div class="kpi">
-          <div class="val">$0.05</div>
-          <div class="lab">approx. real fine value</div>
-        </div>
+
+        <hr />
+      </section>
+
+      <aside>
+        <img src="photo.jpg" alt="Portrait of Miriam Malament" class="photo" />
+      </aside>
+    </main>
+
+    <footer>
+      <div>
+        Oxford, United Kingdom · <a href="mailto:mmalament@eit.org">mmalament@eit.org</a>
       </div>
+    </footer>
+  </div>
 
-      <div class="btnrow">
-        <a class="btn primary" href="research.html">Explore the project</a>
-        <a class="btn ghost" href="assets/Malament_SymbolicLaw_OnePager.pdf">
-          Download 1-page brief
-        </a>
-      </div>
-    </section>
+  <script>
+    (function(){
+      var map = {
+        'index.html': 'nav-home',
+        '': 'nav-home',
+        'experience.html': 'nav-experience',
+        'research.html': 'nav-research',
+        'outreach.html': 'nav-outreach',
+        'contact.html': 'nav-contact'
+      };
+      var current = location.pathname.split('/').pop();
+      var activeId = map[current] || null;
 
-  </main>
-
-  <footer>
-    Oxford, United Kingdom · <a href="mailto:mmalament@eit.org">mmalament@eit.org</a>
-  </footer>
-
-</div>
-
-<script>
-(function(){
-  var map = {
-    'index.html': 'nav-home',
-    '': 'nav-home',
-    'experience.html': 'nav-experience',
-    'research.html': 'nav-research',
-    'outreach.html': 'nav-outreach',
-    'contact.html': 'nav-contact'
-  };
-  var current = location.pathname.split('/').pop();
-  var activeId = map[current];
-  if(activeId){
-    var el = document.getElementById(activeId);
-    if(el) el.classList.add('active');
-  }
-})();
-</script>
-
+      if (activeId) {
+        var el = document.getElementById(activeId);
+        if (el) el.classList.add('active');
+      }
+    })();
+  </script>
 </body>
 </html>
