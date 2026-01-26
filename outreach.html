@@ -1,6 +1,13 @@
 <!--
 Outreach page with Option A teaser + right-side image (presentation_yale.jpg).
 Assumes presentation_yale.jpg is in the same folder as this HTML file.
+Mobile fixes:
+- sticky nav no longer “jumps”/takes too much space on phones
+- nav becomes horizontally scrollable (one line) instead of wrapping into 2–3 lines
+- better scroll-margin for anchored sections depending on screen size
+- tighter spacing + slightly smaller type on small screens
+- teaser max-height adapts on mobile
+- prevents accidental horizontal scrolling
 -->
 
 <!doctype html>
@@ -14,13 +21,28 @@ Assumes presentation_yale.jpg is in the same folder as this HTML file.
 
   <style>
     html { scroll-behavior: smooth; }
-    body{margin:0;background:#ffffff;color:#111;font-family:"Source Sans 3",system-ui,-apple-system,Segoe UI,Roboto,Arial;line-height:1.6}
+
+    /* Prevent tiny layout overflows that cause sideways scrolling on phones */
+    * { box-sizing: border-box; }
+    body{
+      margin:0;
+      background:#ffffff;
+      color:#111;
+      font-family:"Source Sans 3",system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
     .page{max-width:1050px;margin:0 auto;padding:0 24px}
 
     header{text-align:center;padding:48px 0 24px}
     header h1{margin:0;font-family:"Libre Baskerville",serif;font-size:42px;letter-spacing:0.02em}
     header .subtitle{margin-top:8px;color:#555;font-size:20px;font-family:"Libre Baskerville",serif}
 
+    /* Sticky nav that behaves well on mobile:
+       - horizontal scroll instead of wrapping
+       - slightly smaller + tighter padding on small screens
+    */
     nav{
       border-top:1px solid #bbb;
       border-bottom:6px solid #9a9a9a;
@@ -29,16 +51,44 @@ Assumes presentation_yale.jpg is in the same folder as this HTML file.
       top:0;
       background:#fff;
       z-index:10;
+      /* Prevent “jitter” on some mobile browsers */
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
     }
-    nav ul{list-style:none;display:flex;justify-content:center;gap:36px;padding:14px 0;margin:0;flex-wrap:wrap}
-    nav li{font-family:"Libre Baskerville",serif;font-size:18px}
-    nav a{text-decoration:none;color:#111;padding:10px 22px;display:inline-block}
+    nav ul{
+      list-style:none;
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      padding:12px 0;
+      margin:0;
+
+      /* Key mobile fix */
+      flex-wrap:nowrap;
+      overflow-x:auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox */
+    }
+    nav ul::-webkit-scrollbar{ display:none; } /* Safari/Chrome */
+
+    nav li{font-family:"Libre Baskerville",serif;font-size:18px;white-space:nowrap}
+    nav a{text-decoration:none;color:#111;padding:10px 18px;display:inline-block;white-space:nowrap}
     nav a.active{background:#555;color:#fff;border-radius:4px}
 
     .content{display:grid;grid-template-columns:1fr 360px;gap:48px;margin:56px 0}
-    @media(max-width:900px){.content{grid-template-columns:1fr;padding:0 12px}}
 
+    /* Better responsive behavior + less weird padding when the grid collapses */
+    @media(max-width:900px){
+      .page{padding:0 18px}
+      .content{grid-template-columns:1fr;gap:28px;margin:32px 0}
+      header{padding:34px 0 18px}
+      header h1{font-size:34px}
+      header .subtitle{font-size:18px}
+    }
+
+    /* Make anchored scroll positions correct depending on sticky nav height */
     section[id]{scroll-margin-top:120px}
+    @media(max-width:900px){ section[id]{scroll-margin-top:92px} }
 
     h2{font-family:"Libre Baskerville",serif;font-size:28px;margin:0 0 16px}
     p{margin:0 0 14px}
@@ -48,7 +98,7 @@ Assumes presentation_yale.jpg is in the same folder as this HTML file.
     .side-card h3{margin:0 0 10px;font-family:"Libre Baskerville",serif;font-size:18px}
     .muted{color:#555}
 
-    /* Blog styling (kept simple, consistent with the other pages) */
+    /* Blog styling */
     .post{border:1px solid #e6e6e6;border-radius:10px;padding:22px;background:#fff}
     .post-title{font-family:"Libre Baskerville",serif;font-size:24px;line-height:1.25;margin:0 0 10px}
     .post-meta{color:#666;font-size:14px;margin:0 0 16px}
@@ -67,10 +117,10 @@ Assumes presentation_yale.jpg is in the same folder as this HTML file.
     .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
     .tag{font-size:13px;color:#333;border:1px solid #e6e6e6;border-radius:999px;padding:6px 10px;background:#fff}
 
-    /* Teaser + fade + button */
+    /* Teaser + fade + button (mobile gets a bit more room) */
     .teaser{
       position:relative;
-      max-height:260px; /* adjust to show more/less */
+      max-height:260px;
       overflow:hidden;
       padding-bottom:8px;
     }
@@ -81,6 +131,10 @@ Assumes presentation_yale.jpg is in the same folder as this HTML file.
       height:90px;
       background:linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1));
     }
+    @media(max-width:900px){
+      .teaser{ max-height:320px; }
+    }
+
     .readmore{
       display:inline-block;
       margin-top:10px;
@@ -107,6 +161,18 @@ Assumes presentation_yale.jpg is in the same folder as this HTML file.
     .caption{font-size:13px;color:#666;margin:10px 0 0}
 
     footer{text-align:center;color:#777;font-size:14px;padding:32px 0}
+
+    /* Small-screen polish */
+    @media(max-width:520px){
+      .page{padding:0 14px}
+      nav{margin-top:18px}
+      nav li{font-size:16px}
+      nav a{padding:9px 14px}
+      h2{font-size:24px}
+      .post{padding:18px}
+      .post-title{font-size:21px}
+      .lede{font-size:16px}
+    }
   </style>
 </head>
 
@@ -137,7 +203,7 @@ Assumes presentation_yale.jpg is in the same folder as this HTML file.
           without assuming a technical background.
         </p>
 
-                <div class="post-list">
+        <div class="post-list">
           <!-- 1) Five-Cent Law (most recent / featured) -->
           <article class="post" aria-labelledby="post-5cent-title">
             <h3 id="post-5cent-title" class="post-title">
@@ -150,7 +216,7 @@ Assumes presentation_yale.jpg is in the same folder as this HTML file.
                 Why do we follow the rules? Is it fear of getting caught, the sting of a penalty, or something else entirely?
                 A remarkable case from Argentina challenges the usual deterrence story. Sometimes the most powerful laws are the ones with no teeth.
               </p>
-              
+
               <p>
                 In Argentina, voting has been compulsory for over a century. It is more than a rule on paper. Through a turbulent history
                 that included periods of military rule, voting later became a constitutional right, and it carries a strong symbolic meaning
@@ -262,7 +328,7 @@ Assumes presentation_yale.jpg is in the same folder as this HTML file.
             </div>
           </article>
 
-          <!-- 4) Announcement Effect (you pasted it too; delete this block if you do not want it) -->
+          <!-- 4) Announcement Effect -->
           <article class="post" aria-labelledby="post-announcement-title">
             <h3 id="post-announcement-title" class="post-title">
               <a href="outreach-announcement-effect.html">The Announcement Effect: How a Credible Promise Can Flip an Economy on Its Head</a>
@@ -297,8 +363,6 @@ Assumes presentation_yale.jpg is in the same folder as this HTML file.
       </section>
 
       <!-- RIGHT -->
-
-      
       <aside>
         <div class="side-card">
           <h3>On this page</h3>
@@ -306,12 +370,10 @@ Assumes presentation_yale.jpg is in the same folder as this HTML file.
             Writing for broader audiences. Blog posts, short explainers, and research summaries.
           </p>
         </div>
-        
+
         <div class="side-card">
           <img class="side-image" src="presentation_yale.jpg" alt="Presentation at Yale" />
         </div>
-
-
 
         <div class="side-card">
           <h3>Featured topic</h3>
