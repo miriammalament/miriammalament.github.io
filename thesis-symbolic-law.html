@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Master’s Thesis — Symbolic Law & Participation</title>
+  <title>Symbolic penalties and civic participation — Miriam Malament</title>
   <meta name="description" content="Policy-relevant evidence on how symbolic legal obligations change behavior: causal evidence from compulsory voting in Argentina." />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 
@@ -11,27 +11,33 @@
     :root{
       --ink:#111;
       --muted:#555;
-      --line:#e9e9e9;
-      --soft:#f6f6f6;
-      --bg:#fff;
-      --radius:14px;
+      --faint:#7a7a7a;
+      --line:rgba(17,17,17,.10);
+      --bg:#ffffff;
+      --soft:#fafafa;
     }
+
     html{scroll-behavior:smooth}
     body{
       margin:0;
       background:var(--bg);
       color:var(--ink);
       font-family:"Source Sans 3",system-ui,-apple-system,Segoe UI,Roboto,Arial;
-      line-height:1.7;
+      line-height:1.75;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
     }
-    .page{max-width:1080px;margin:0 auto;padding:0 24px}
-    a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
-    a:hover{opacity:.86}
 
-    /* Minimal top bar */
+    .page{max-width:1060px;margin:0 auto;padding:0 26px}
+    @media (max-width:520px){.page{padding:0 18px}}
+
+    a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+    a:hover{opacity:.85}
+
+    /* Minimal top bar (optional) */
     .top{
-      position:sticky;top:0;z-index:40;
-      background:rgba(255,255,255,.86);
+      position:sticky;top:0;z-index:50;
+      background:rgba(255,255,255,.88);
       backdrop-filter:saturate(160%) blur(10px);
       border-bottom:1px solid var(--line);
     }
@@ -46,33 +52,31 @@
     .nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
     .nav a{
       text-decoration:none;
-      padding:7px 10px;
-      border-radius:999px;
       color:var(--muted);
       font-size:14px;
-      border:1px solid transparent;
+      padding:6px 10px;
+      border-radius:999px;
     }
-    .nav a:hover{border-color:var(--line)}
-    .nav a.active{border-color:var(--ink);color:var(--ink)}
+    .nav a:hover{background:var(--soft)}
+    .nav a.active{color:var(--ink);background:var(--soft)}
 
     /* Hero */
     header{padding:44px 0 18px}
     .kicker{
+      font-size:13px;
       color:var(--muted);
-      font-size:14px;
-      display:inline-block;
-      padding:6px 10px;
-      border-radius:999px;
-      background:var(--soft);
+      letter-spacing:.06em;
+      text-transform:uppercase;
     }
     h1{
-      margin:14px 0 10px;
+      margin:10px 0 10px;
       font-family:"Libre Baskerville",serif;
-      font-size:42px;
+      font-size:44px;
+      line-height:1.12;
       letter-spacing:-.4px;
-      line-height:1.15;
       max-width:900px;
     }
+    @media (max-width:520px){h1{font-size:36px}}
     .subtitle{
       margin:0;
       color:var(--muted);
@@ -80,55 +84,52 @@
       max-width:900px;
     }
 
-    .meta{
-      display:flex;flex-wrap:wrap;gap:10px;
-      margin-top:16px;
-      color:var(--muted);
-      font-size:14px;
+    .actions{
+      display:flex;flex-wrap:wrap;gap:12px;
+      margin-top:18px;
+      align-items:center;
     }
-    .meta span{
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:#fff;
-    }
-
-    /* Buttons (simple) */
-    .btnrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
     .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      gap:8px;
-      padding:10px 12px;
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 14px;
       border-radius:999px;
-      text-decoration:none;
-      font-size:14px;
-      font-weight:600;
-      border:1px solid var(--ink);
       background:var(--ink);
       color:#fff;
-      white-space:nowrap;
+      text-decoration:none;
+      font-weight:600;
+      font-size:14px;
     }
-    .btn.secondary{
-      background:#fff;
-      color:var(--ink);
-      border-color:var(--line);
+    .btn:hover{opacity:.9}
+    .actionlink{
+      color:var(--muted);
+      text-decoration:none;
+      font-size:14px;
+      padding:8px 0;
+      border-bottom:1px solid transparent;
     }
-    .btn.secondary:hover{border-color:var(--ink)}
-    .btn:active{transform:translateY(1px)}
+    .actionlink:hover{color:var(--ink);border-bottom-color:var(--line)}
+    .meta{
+      margin-top:10px;
+      color:var(--faint);
+      font-size:14px;
+      display:flex;flex-wrap:wrap;gap:10px;
+    }
+    .dot:before{content:"·";margin:0 8px;color:var(--line)}
 
     /* Layout */
-    .grid{
+    main{
       display:grid;
-      grid-template-columns: 1.4fr .6fr;
-      gap:34px;
+      grid-template-columns: 1.5fr .65fr;
+      gap:44px;
+      padding:8px 0 70px;
       align-items:start;
-      padding:18px 0 70px;
     }
-    @media (max-width: 980px){ .grid{grid-template-columns:1fr;gap:22px} h1{font-size:38px} header{padding-top:34px}}
-    @media (max-width: 520px){ .page{padding:0 18px} h1{font-size:34px}}
+    @media (max-width:980px){
+      main{grid-template-columns:1fr;gap:26px}
+    }
 
-    /* Sections with whitespace + subtle dividers (no boxy cards) */
-    .section{padding:18px 0}
+    /* Sections (no boxes) */
+    .section{padding:16px 0}
     .section + .section{border-top:1px solid var(--line)}
     h2{
       margin:0 0 10px;
@@ -138,37 +139,40 @@
     }
     p{margin:0 0 12px}
     p:last-child{margin-bottom:0}
-    .muted{color:var(--muted)}
+    .lead{
+      font-size:16px;
+    }
 
-    /* Evidence strip */
-    .evidence{
+    /* Stat row: clean, no rectangles */
+    .stats{
       display:grid;
       grid-template-columns: repeat(3, minmax(0,1fr));
-      gap:14px;
-      margin-top:10px;
-    }
-    @media (max-width: 760px){ .evidence{grid-template-columns:1fr} }
-    .stat{
-      padding:14px 0;
+      gap:22px;
+      margin-top:12px;
+      padding-top:14px;
       border-top:1px solid var(--line);
     }
-    .stat:first-child{border-top:none}
-    .num{
-      font-size:28px;
+    @media (max-width:760px){.stats{grid-template-columns:1fr}}
+    .stat .value{
+      font-size:30px;
       line-height:1.1;
       font-weight:600;
       letter-spacing:-.3px;
       margin:0 0 6px;
     }
-    .lbl{margin:0;color:var(--muted);font-size:14px}
+    .stat .label{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
 
-    /* Figure (single soft container) */
+    /* Figure */
     figure{margin:0}
     .figure{
       margin-top:10px;
       background:var(--soft);
       border:1px solid var(--line);
-      border-radius:var(--radius);
+      border-radius:14px;
       overflow:hidden;
     }
     .figure img{display:block;width:100%;height:auto}
@@ -180,30 +184,35 @@
       border-top:1px solid var(--line);
     }
 
-    /* Sidebar (light, not boxy) */
-    .side{
+    /* Sidebar: margin-note style */
+    aside{
       border-left:1px solid var(--line);
-      padding-left:22px;
+      padding-left:24px;
+      color:var(--muted);
     }
-    @media (max-width: 980px){
-      .side{border-left:none;padding-left:0;border-top:1px solid var(--line);padding-top:18px}
+    @media (max-width:980px){
+      aside{border-left:none;padding-left:0;border-top:1px solid var(--line);padding-top:18px}
     }
-    .side h3{
+    .sideblock{padding:14px 0}
+    .sideblock + .sideblock{border-top:1px solid var(--line)}
+    .sidehead{
       margin:0 0 10px;
       font-family:"Libre Baskerville",serif;
       font-size:16px;
+      color:var(--ink);
       letter-spacing:-.2px;
     }
     .kv{margin:0}
-    .kv dt{color:var(--muted);font-size:13px;margin-top:10px}
-    .kv dd{margin:2px 0 0}
-    .links{margin:8px 0 0;padding-left:18px}
-    .links li{margin:6px 0}
+    .kv dt{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-top:10px}
+    .kv dd{margin:2px 0 0;color:var(--muted)}
+    .links{margin:0;padding-left:18px}
+    .links li{margin:7px 0}
+    .small{font-size:13px;color:var(--faint)}
 
     footer{
       border-top:1px solid var(--line);
       padding:18px 0 28px;
-      color:var(--muted);
+      color:var(--faint);
       font-size:13px;
     }
   </style>
@@ -226,74 +235,81 @@
 
   <div class="page">
     <header>
-      <span class="kicker">Policy evidence · Institutions and behavior</span>
+      <div class="kicker">Policy evidence · Institutions and behavior</div>
       <h1>Symbolic penalties and civic participation</h1>
       <p class="subtitle">
-        I study whether legal obligations can change behavior even when enforcement is limited. Using Argentina’s youth voting rules, I estimate the causal impact of becoming legally required to vote at age 18.
+        I study whether legal obligations can change behavior when enforcement is limited. Using Argentina’s youth voting rules,
+        I estimate the causal impact of becoming legally required to vote at age 18.
       </p>
 
-      <div class="meta" aria-label="Topics">
-        <span>Behavioral public policy</span>
-        <span>Compliance and institutions</span>
-        <span>Youth participation</span>
-        <span>Causal inference (RDD)</span>
+      <div class="actions">
+        <!-- Replace targets -->
+        <a class="btn" href="assets/summary.pdf">Policy summary (PDF)</a>
+        <a class="actionlink" href="assets/paper.pdf">Full thesis (PDF)</a>
+        <a class="actionlink" href="assets/slides.pdf">Slides</a>
       </div>
 
-      <div class="btnrow">
-        <!-- Replace these with your real assets -->
-        <a class="btn" href="assets/summary.pdf">Policy summary (PDF)</a>
-        <a class="btn secondary" href="assets/paper.pdf">Full thesis (PDF)</a>
-        <a class="btn secondary" href="assets/slides.pdf">Slides</a>
+      <div class="meta" aria-label="Meta">
+        <span>Behavioral public policy</span><span class="dot"></span>
+        <span>Compliance and institutions</span><span class="dot"></span>
+        <span>Youth participation</span><span class="dot"></span>
+        <span>Regression discontinuity</span>
       </div>
     </header>
 
-    <main class="grid">
+    <main>
 
-      <!-- MAIN -->
+      <!-- MAIN COLUMN -->
       <section>
 
         <div class="section" id="takeaway">
           <h2>Executive takeaway</h2>
-          <p>
-            The shift from optional voting (ages 16–17) to compulsory voting (age 18+) produces a large increase in turnout,
-            despite an abstention fine that is nominal and rarely enforced. The evidence is consistent with a norm-signaling channel:
+          <p class="lead">
+            The shift from optional voting (ages 16–17) to compulsory voting (age 18+) produces a large increase in turnout, despite
+            an abstention fine that is nominal and rarely enforced. The evidence is consistent with a norm-signaling channel:
             legal obligation itself appears to move behavior.
           </p>
 
-          <div class="evidence" aria-label="Key evidence">
+          <div class="stats" aria-label="Key results">
             <div class="stat">
-              <p class="num">~20pp</p>
-              <p class="lbl">Turnout increase at age 18 (RDD estimate)</p>
+              <p class="value">~20pp</p>
+              <p class="label">Turnout increase at age 18 (RDD estimate)</p>
             </div>
             <div class="stat">
-              <p class="num">50 pesos</p>
-              <p class="lbl">Nominal abstention fine (low real value)</p>
+              <p class="value">50 pesos</p>
+              <p class="label">Nominal abstention fine (low real value)</p>
             </div>
             <div class="stat">
-              <p class="num">Low-cost lever</p>
-              <p class="lbl">Clear rules can activate civic norms</p>
+              <p class="value">Low-cost lever</p>
+              <p class="label">Clear rules can activate civic norms</p>
             </div>
           </div>
         </div>
 
         <div class="section" id="relevance">
-          <h2>Why this is useful for policy and practice</h2>
-          <p class="muted">
-            This is a general result about how “light-touch” mandates can work when enforcement capacity is limited.
-            It speaks to program design in settings where compliance is essential but monitoring is costly.
-          </p>
+          <h2>Policy relevance</h2>
           <p>
-            Examples include registration and reporting requirements, civic participation initiatives, and other rules where the main
-            channel may be clarity and legitimacy rather than deterrence.
+            This speaks to the design of “light-touch” mandates in settings where monitoring is costly. When enforcement capacity is limited,
+            the formal status of a rule can still matter if it is salient, credible, and socially legible.
           </p>
+        </div>
+
+        <div class="section" id="implications">
+          <h2>Implications for practice</h2>
+          <p class="muted" style="margin-bottom:10px">Where this generalizes beyond voting:</p>
+          <ul class="links">
+            <li>Registration, reporting, or compliance requirements where enforcement is thin.</li>
+            <li>Public programs that rely on broad participation and low administrative burden.</li>
+            <li>Institutional design questions where legitimacy and clarity may substitute for deterrence.</li>
+          </ul>
         </div>
 
         <div class="section" id="approach">
           <h2>Approach (plain language)</h2>
           <p>
             I use a regression discontinuity design at the age-18 threshold. Individuals just below and just above 18 are comparable,
-            but they face different legal voting status. The discontinuity in turnout at the cutoff identifies the causal effect of
-            legal obligation under weak enforcement.
+            but they face different legal voting status. The discontinuity in turnout at the cutoff identifies the causal effect of legal obligation
+            under weak enforcement.
           </p>
         </div>
 
@@ -311,9 +327,9 @@
       </section>
 
       <!-- SIDEBAR -->
-      <aside class="side" aria-label="Thesis details and links">
-        <div class="section" style="padding-top:0">
-          <h3>At a glance</h3>
+      <aside aria-label="Details">
+        <div class="sideblock" style="padding-top:0">
+          <p class="sidehead">At a glance</p>
           <dl class="kv">
             <dt>Topic</dt><dd>Symbolic enforcement and compliance</dd>
             <dt>Setting</dt><dd>Argentina · youth voting rules</dd>
@@ -322,21 +338,19 @@
           </dl>
         </div>
 
-        <div class="section">
-          <h3>Downloads</h3>
+        <div class="sideblock">
+          <p class="sidehead">Downloads</p>
           <ul class="links">
             <li><a href="assets/summary.pdf">Policy summary (PDF)</a></li>
             <li><a href="assets/paper.pdf">Full thesis (PDF)</a></li>
             <li><a href="assets/slides.pdf">Slides (PDF)</a></li>
           </ul>
-          <p class="muted" style="margin-top:10px;font-size:13px">
-            Recommended filenames: summary.pdf, paper.pdf, slides.pdf.
-          </p>
+          <p class="small" style="margin-top:10px">Recommended filenames: summary.pdf, paper.pdf, slides.pdf.</p>
         </div>
 
-        <div class="section">
-          <h3>Contact</h3>
-          <p class="muted" style="margin-bottom:8px">For questions or collaboration:</p>
+        <div class="sideblock">
+          <p class="sidehead">Contact</p>
+          <p class="small" style="margin:0 0 8px">For questions or collaboration:</p>
           <p style="margin:0"><a href="mailto:YOUR.EMAIL@domain.com">YOUR.EMAIL@domain.com</a></p>
           <p style="margin:6px 0 0"><a href="https://www.linkedin.com/in/YOURHANDLE/">LinkedIn</a></p>
         </div>
@@ -345,13 +359,12 @@
     </main>
 
     <footer>
-      <span>© <span id="y"></span> Miriam Malament · Built for policy, consulting, and applied roles</span>
+      © <span id="y"></span> Miriam Malament
     </footer>
   </div>
 
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>
