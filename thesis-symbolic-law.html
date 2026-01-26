@@ -3,16 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Master’s Thesis — Symbolic Law</title>
-  <meta name="description" content="Do symbolic penalties work? Causal evidence from Argentina’s compulsory voting law using a regression discontinuity design." />
+  <title>Master’s Thesis — Symbolic Law & Youth Voting</title>
+  <meta name="description" content="Policy-relevant evidence on how symbolic legal obligations change behavior: a regression discontinuity study of compulsory voting in Argentina." />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
     :root{
       --ink:#111;
       --muted:#444;
+      --muted2:#666;
       --line:#e9e9e9;
-      --soft:#f7f7f7;
+      --soft:#f6f6f6;
       --card:#fff;
       --radius:16px;
       --shadow: 0 10px 25px rgba(0,0,0,.06);
@@ -23,27 +24,28 @@
       background:#fff;
       color:var(--ink);
       font-family:"Source Sans 3",system-ui,-apple-system,Segoe UI,Roboto,Arial;
-      line-height:1.6;
+      line-height:1.65;
     }
-    .page{max-width:1100px;margin:0 auto;padding:0 24px}
+    .page{max-width:1120px;margin:0 auto;padding:0 24px}
     a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
-    a:hover{opacity:.85}
+    a:hover{opacity:.86}
 
-    /* Top strip (optional) */
+    /* Top bar */
     .top{
       position:sticky;top:0;z-index:50;
-      background:rgba(255,255,255,.86);
+      background:rgba(255,255,255,.9);
       backdrop-filter:saturate(180%) blur(10px);
       border-bottom:1px solid var(--line);
     }
-    .top .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+    .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
     .brand{
       font-family:"Libre Baskerville",serif;
       font-weight:700;
       letter-spacing:-.2px;
       text-decoration:none;
+      white-space:nowrap;
     }
-    .nav{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-end}
+    .nav{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}
     .nav a{
       text-decoration:none;
       padding:8px 10px;
@@ -56,7 +58,7 @@
     .nav a.active{border-color:var(--ink);color:var(--ink)}
 
     /* Hero */
-    header{padding:52px 0 18px}
+    header{padding:44px 0 16px}
     .kicker{
       display:inline-flex;align-items:center;gap:10px;
       color:var(--muted);
@@ -69,23 +71,23 @@
     h1{
       margin:14px 0 8px;
       font-family:"Libre Baskerville",serif;
-      font-size:44px;
+      font-size:42px;
       letter-spacing:-.4px;
       line-height:1.15;
-      max-width:900px;
+      max-width:980px;
     }
     .subtitle{
       margin:0;
       color:var(--muted);
       font-size:18px;
-      max-width:900px;
+      max-width:980px;
     }
-    .hero-row{
-      margin-top:18px;
+    .tagrow{
+      margin-top:16px;
       display:flex;flex-wrap:wrap;gap:10px;
       align-items:center;
     }
-    .pill{
+    .tag{
       display:inline-flex;align-items:center;gap:8px;
       border:1px solid var(--line);
       background:#fff;
@@ -95,15 +97,38 @@
       color:var(--muted);
     }
 
+    /* Buttons */
+    .btnrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      gap:8px;
+      border:1px solid var(--ink);
+      background:var(--ink);
+      color:#fff;
+      border-radius:12px;
+      padding:10px 12px;
+      text-decoration:none;
+      font-size:14px;
+      font-weight:600;
+      white-space:nowrap;
+    }
+    .btn.secondary{
+      background:#fff;
+      color:var(--ink);
+      border-color:var(--line);
+    }
+    .btn.secondary:hover{border-color:var(--ink)}
+    .btn:active{transform:translateY(1px)}
+
     /* Layout */
     .grid{
       display:grid;
       grid-template-columns: 1.35fr .65fr;
-      gap:26px;
+      gap:22px;
       align-items:start;
       padding:18px 0 70px;
     }
-    @media (max-width: 980px){ .grid{grid-template-columns:1fr} header{padding-top:36px} h1{font-size:38px}}
+    @media (max-width: 980px){ .grid{grid-template-columns:1fr} header{padding-top:34px} h1{font-size:38px}}
     @media (max-width: 520px){ h1{font-size:34px} .page{padding:0 18px}}
 
     /* Cards */
@@ -120,37 +145,35 @@
       letter-spacing:-.2px;
     }
     .card h2{font-size:20px}
-    .card h3{font-size:16px;color:var(--ink)}
+    .card h3{font-size:16px}
     .muted{color:var(--muted)}
+    .muted2{color:var(--muted2)}
     .tight{margin:0}
-    .spacer{height:12px}
+    .stack{display:grid;gap:14px}
+    .hr{height:1px;background:var(--line);margin:12px 0}
 
-    /* Key results */
-    .kpi-grid{
+    /* Evidence tiles */
+    .tiles{
       display:grid;
       grid-template-columns: repeat(3, minmax(0,1fr));
       gap:12px;
-      margin-top:12px;
+      margin-top:10px;
     }
-    @media (max-width: 760px){ .kpi-grid{grid-template-columns:1fr} }
-    .kpi{
+    @media (max-width: 760px){ .tiles{grid-template-columns:1fr} }
+    .tile{
       border:1px solid var(--line);
       border-radius:14px;
-      padding:14px 14px 12px;
+      padding:14px;
       background:linear-gradient(180deg, #fff, #fbfbfb);
     }
-    .kpi .num{
+    .tile .big{
       font-size:28px;
       line-height:1.1;
       font-weight:600;
       letter-spacing:-.3px;
-      margin:0 0 4px;
+      margin:0 0 6px;
     }
-    .kpi .lbl{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
-    }
+    .tile .lbl{margin:0;color:var(--muted);font-size:14px}
 
     /* Figure */
     figure{margin:0}
@@ -169,42 +192,21 @@
       background:#fff;
     }
 
-    /* Buttons */
-    .btnrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      gap:8px;
-      border:1px solid var(--ink);
-      background:var(--ink);
-      color:#fff;
-      border-radius:12px;
-      padding:10px 12px;
-      text-decoration:none;
-      font-size:14px;
-      font-weight:600;
-    }
-    .btn.secondary{
-      background:#fff;
-      color:var(--ink);
-      border-color:var(--line);
-    }
-    .btn.secondary:hover{border-color:var(--ink)}
-    .btn:active{transform:translateY(1px)}
-
-    /* Sidebar list */
+    /* Lists */
     .list{margin:0;padding-left:18px}
-    .list li{margin:6px 0}
+    .list li{margin:7px 0}
+    .callout{
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:14px;
+      padding:14px;
+    }
     .small{font-size:13px;color:var(--muted)}
-
-    /* Section rhythm */
-    .stack{display:grid;gap:14px}
-    .hr{height:1px;background:var(--line);margin:10px 0}
   </style>
 </head>
 
 <body>
 
-  <!-- Optional sticky top bar -->
   <div class="top">
     <div class="page">
       <div class="bar">
@@ -220,22 +222,23 @@
 
   <div class="page">
     <header>
-      <span class="kicker">Master’s thesis · Applied political economy</span>
-      <h1>Do Symbolic Penalties Work?</h1>
+      <span class="kicker">Evidence for policy and practice</span>
+      <h1>Symbolic penalties and civic participation</h1>
       <p class="subtitle">
-        Causal evidence from Argentina’s compulsory voting law: a sharp turnout jump at age 18 even when
-        sanctions are tiny and rarely enforced.
+        This thesis asks whether laws can change behavior even when material enforcement is weak. Using Argentina’s voting rules for 16–20 year-olds, I estimate the causal impact of becoming legally required to vote at age 18.
       </p>
 
-      <div class="hero-row" aria-label="Highlights">
-        <span class="pill">Regression discontinuity (age-18 cutoff)</span>
-        <span class="pill">Administrative elections data (2015–2023)</span>
-        <span class="pill">Mechanisms: expressive compliance vs deterrence</span>
+      <div class="tagrow" aria-label="Topics">
+        <span class="tag">Behavioral public policy</span>
+        <span class="tag">Institutions and compliance</span>
+        <span class="tag">Youth political participation</span>
+        <span class="tag">Causal inference (RDD)</span>
       </div>
 
       <div class="btnrow">
-        <!-- Replace these href targets with your real files/links -->
-        <a class="btn" href="assets/paper.pdf">Read the paper (PDF)</a>
+        <!-- Replace href targets with your files/links -->
+        <a class="btn" href="assets/summary.pdf">Two-page policy summary (PDF)</a>
+        <a class="btn secondary" href="assets/paper.pdf">Full thesis (PDF)</a>
         <a class="btn secondary" href="assets/slides.pdf">Slides</a>
         <a class="btn secondary" href="assets/replication/">Replication</a>
       </div>
@@ -243,105 +246,115 @@
 
     <main class="grid">
 
-      <!-- LEFT COLUMN -->
+      <!-- LEFT -->
       <section class="stack">
 
-        <div class="card" id="overview">
-          <h2>One-paragraph summary</h2>
+        <div class="card" id="takeaway">
+          <h2>Executive takeaway</h2>
           <p class="tight">
-            Argentina’s abstention penalty is formally codified but economically negligible: a fixed 50-peso fine that
-            has eroded to just a few cents in real value, with extremely limited enforcement. Exploiting the 2012 reform
-            that made voting optional at 16–17 but compulsory from 18 onward, I estimate a sharp regression discontinuity
-            at the age-18 threshold. Using administrative records from 15 national elections, turnout increases by about
-            <strong>20 percentage points</strong> at age 18. Survey evidence is more consistent with <strong>expressive compliance</strong> than deterrence:
-            the law appears to act as a norm signal that activates civic duty rather than fear of punishment.
+            The transition from optional voting (ages 16–17) to compulsory voting (age 18+) generates a large increase in turnout, despite a nominal abstention fine that is economically negligible and rarely enforced. The evidence is consistent with a norm-signaling channel: legal obligation itself appears to shift behavior.
           </p>
-        </div>
 
-        <div class="card" id="results">
-          <h2>Key results (punchy)</h2>
-
-          <div class="kpi-grid" role="list">
-            <div class="kpi" role="listitem">
-              <p class="num">+20pp</p>
-              <p class="lbl">Turnout jump at age 18 (RDD)</p>
+          <div class="tiles" role="list" aria-label="Key evidence">
+            <div class="tile" role="listitem">
+              <p class="big">~20pp</p>
+              <p class="lbl">Turnout increase at age 18 (RDD estimate)</p>
             </div>
-            <div class="kpi" role="listitem">
-              <p class="num">50 pesos</p>
-              <p class="lbl">Nominal fine, largely symbolic</p>
+            <div class="tile" role="listitem">
+              <p class="big">50 pesos</p>
+              <p class="lbl">Nominal abstention fine, low real value</p>
             </div>
-            <div class="kpi" role="listitem">
-              <p class="num">Stronger</p>
-              <p class="lbl">Effects among lower-SES youth</p>
+            <div class="tile" role="listitem">
+              <p class="big">Policy lever</p>
+              <p class="lbl">Formal obligation can activate civic norms</p>
             </div>
           </div>
 
           <div class="hr"></div>
 
-          <p class="tight muted">
-            The discontinuity is stable across election cycles, and attitudes such as political interest and democratic support
-            do not show a corresponding age-18 break — consistent with a norm-activation channel rather than maturation.
+          <div class="callout">
+            <p class="tight"><strong>What a policymaker should take from this:</strong></p>
+            <p class="tight muted" style="margin-top:6px">
+              Small, low-cost legal obligations can meaningfully shift participation when they operate as clear public signals. The design here separates the effect of obligation from substantial deterrence.
+            </p>
+          </div>
+        </div>
+
+        <div class="card" id="policy">
+          <h2>Policy relevance</h2>
+          <ul class="list">
+            <li><strong>Design of “light-touch” mandates:</strong> if enforcement is limited, clarity and salience of the rule matter.</li>
+            <li><strong>Youth engagement:</strong> obligation can reduce participation gaps, especially where baseline turnout is low.</li>
+            <li><strong>Beyond voting:</strong> results speak to compliance with low-enforcement rules in public programs (e.g., registration, reporting, civic requirements).</li>
+          </ul>
+          <p class="small" style="margin-top:10px">
+            This framing is intentionally general so it reads well for consulting, policy, and applied roles.
           </p>
         </div>
 
-        <div class="card" id="figure">
-          <h2>Signature visual</h2>
-          <p class="tight muted" style="margin-bottom:12px">
-            Swap in your cleanest RD figure or infographic. This section is designed to look good on mobile.
+        <div class="card" id="methods">
+          <h2>Approach (in plain language)</h2>
+          <p class="tight">
+            I use a regression discontinuity design around the age-18 threshold. Individuals just below and just above 18 are similar in observable ways, but they face different legal voting status. The discontinuity in turnout at the cutoff identifies the causal effect of legal obligation under weak enforcement.
           </p>
+          <div class="hr"></div>
+          <p class="tight muted">
+            Data combine administrative election records across multiple national elections and complementary survey evidence on beliefs and motivations.
+          </p>
+        </div>
 
+        <div class="card" id="visual">
+          <h2>Key figure</h2>
+          <p class="tight muted" style="margin-bottom:12px">
+            Replace this image with your cleanest RD plot or infographic.
+          </p>
           <div class="figure">
-            <!-- Replace with your image file -->
-            <img src="assets/rd-figure.png" alt="Regression discontinuity: turnout jumps at age 18" loading="lazy">
+            <img src="assets/rd-figure.png" alt="Turnout shows a sharp increase at the age-18 cutoff (RDD)" loading="lazy">
             <div class="figcap">
-              Suggested caption: Turnout by weeks from the age-18 cutoff with local linear fits on each side.
+              Suggested caption: Turnout by weeks from the 18th birthday with local linear fits on each side of the cutoff.
             </div>
           </div>
         </div>
 
-        <div class="card" id="contribution">
-          <h2>Why this matters</h2>
-          <ul class="list">
-            <li><strong>Identification:</strong> isolates legal obligation from meaningful enforcement using a sharp age rule.</li>
-            <li><strong>Mechanism:</strong> provides evidence that laws can work as normative signals (expressive function of law).</li>
-            <li><strong>Inclusion:</strong> suggests symbolic mandates can disproportionately mobilize under-represented youth.</li>
-          </ul>
-        </div>
-
       </section>
 
-      <!-- RIGHT COLUMN -->
+      <!-- RIGHT -->
       <aside class="stack">
 
         <div class="card">
-          <h2>Quick details</h2>
-          <p class="tight"><strong>Title:</strong> Do Symbolic Penalties Work? Evidence from Compulsory Voting Laws in Argentina</p>
-          <p class="tight"><strong>Author:</strong> Miriam Malament</p>
-          <p class="tight"><strong>Method:</strong> Sharp RDD at age 18</p>
-          <p class="tight"><strong>Data:</strong> Admin elections records + LAPOP survey</p>
-          <p class="small" style="margin-top:10px">
-            (You can add: advisors, department, year, awards.)
-          </p>
+          <h2>At a glance</h2>
+          <p class="tight"><strong>Topic:</strong> Symbolic enforcement and compliance</p>
+          <p class="tight"><strong>Setting:</strong> Argentina, youth voting rules</p>
+          <p class="tight"><strong>Method:</strong> Sharp RDD (age 18 cutoff)</p>
+          <p class="tight"><strong>Outputs:</strong> policy summary, thesis PDF, slides, replication</p>
+        </div>
+
+        <div class="card">
+          <h2>Use cases</h2>
+          <ul class="list">
+            <li>Evidence memos and policy notes</li>
+            <li>Program design and evaluation</li>
+            <li>Behavioral insights and compliance analysis</li>
+            <li>Applied econometrics in real-world settings</li>
+          </ul>
         </div>
 
         <div class="card">
           <h2>Downloads</h2>
           <ul class="list">
-            <!-- Replace targets -->
-            <li><a href="assets/paper.pdf">Paper (PDF)</a></li>
-            <li><a href="assets/appendix.pdf">Appendix</a></li>
+            <li><a href="assets/summary.pdf">Two-page policy summary</a></li>
+            <li><a href="assets/paper.pdf">Full thesis</a></li>
             <li><a href="assets/slides.pdf">Slides</a></li>
             <li><a href="assets/replication/">Replication materials</a></li>
           </ul>
-          <div class="spacer"></div>
-          <p class="small">
-            Tip: keep filenames short and predictable (paper.pdf, slides.pdf, appendix.pdf).
+          <p class="small" style="margin-top:10px">
+            Keep filenames short: summary.pdf, paper.pdf, slides.pdf.
           </p>
         </div>
 
         <div class="card">
           <h2>Contact</h2>
-          <p class="tight muted">For questions, citations, or collaboration:</p>
+          <p class="tight muted">For questions or collaboration:</p>
           <p class="tight"><a href="mailto:YOUR.EMAIL@domain.com">YOUR.EMAIL@domain.com</a></p>
           <p class="tight"><a href="https://www.linkedin.com/in/YOURHANDLE/">LinkedIn</a></p>
           <p class="tight"><a href="https://github.com/YOURHANDLE">GitHub</a></p>
@@ -352,7 +365,7 @@
     </main>
 
     <p class="small" style="padding-bottom:30px">
-      Content based on the thesis manuscript (turnout jump, enforcement context, mechanism framing). :contentReference[oaicite:1]{index=1}
+      Empirical context and headline results drawn from the thesis manuscript. :contentReference[oaicite:0]{index=0}
     </p>
   </div>
 
