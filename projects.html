@@ -1,10 +1,6 @@
 <!--
-Copy this EXACT structure for every page.
-Only change:
-1) <title>
-2) <meta name="description">
-3) Which nav link has class="active"
-4) The <h2> and the placeholder content inside <section>
+Projects page (file can still be research.html).
+More “portfolio / applied” tone, all titles in English, cleaner mobile, fixed relative links.
 -->
 
 <!doctype html>
@@ -13,7 +9,7 @@ Only change:
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Projects — Miriam Malament</title>
-  <meta name="description" content="Research by Miriam Malament on institutions, compliance, and causal inference, including her thesis on symbolic penalties and compulsory voting in Argentina." />
+  <meta name="description" content="Projects by Miriam Malament — applied economics using administrative and survey data to quantify behavioural responses to rules, incentives, and policy changes." />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -39,49 +35,76 @@ Only change:
     nav a{text-decoration:none;color:#111;padding:10px 22px;display:inline-block}
     nav a.active{background:#555;color:#fff;border-radius:4px}
 
-    /* Single-column layout (no right sidebar) */
+    /* Single-column layout */
     .content{display:block;margin:56px 0}
-
     section[id]{scroll-margin-top:120px}
 
     h2{font-family:"Libre Baskerville",serif;font-size:28px;margin:0 0 16px}
     p{margin:0 0 14px}
     a{color:#111}
 
-    /* Research blocks */
-    .block{border:1px solid #e6e6e6;border-radius:10px;padding:18px;background:#fff;margin:18px 0}
+    /* Cards */
+    .block{border:1px solid #e6e6e6;border-radius:12px;padding:18px;background:#fff;margin:18px 0}
     .eyebrow{margin:0 0 8px;color:#666;font-size:13px;letter-spacing:0.08em;text-transform:uppercase}
     .title{margin:0 0 10px;font-family:"Libre Baskerville",serif;font-size:22px;line-height:1.25}
     .hook{margin:0 0 10px;color:#222;font-size:17px}
+    .small{font-size:14px;color:#555}
+
     .kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:14px 0 12px}
     @media(max-width:560px){.kpis{grid-template-columns:1fr}}
     .kpi{border:1px solid #ededed;border-radius:10px;padding:10px 12px;background:#fafafa}
     .kpi .val{font-weight:700;font-size:18px}
     .kpi .lab{color:#666;font-size:13px;margin-top:2px}
+
     .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-    .btn{display:inline-block;text-decoration:none;border-radius:8px;padding:10px 12px;border:1px solid #d9d9d9}
+    .btn{display:inline-block;text-decoration:none;border-radius:10px;padding:10px 12px;border:1px solid #d9d9d9}
     .btn.primary{background:#555;color:#fff;border-color:#555}
     .btn.ghost{background:#fff;color:#111}
-    .small{font-size:14px;color:#555}
-    ul.clean{margin:10px 0 0 18px}
-    ul.clean li{margin:6px 0}
+
     hr{border:0;border-top:1px solid #eee;margin:22px 0}
 
-    /* Thesis plot image (smaller) */
+    /* Thesis plot */
     .feature-img{
-  width: min(520px, 100%);   /* good desktop size, responsive */
-  height: auto;
-  display: block;
-  margin: 0 auto;           /* centers it */
-  border: 1px solid #e6e6e6;
-  border-radius: 10px;
-  background: #fff;
-}
-
+      width:min(520px, 100%);
+      height:auto;
+      display:block;
+      margin:0 auto;
+      border:1px solid #e6e6e6;
+      border-radius:10px;
+      background:#fff;
+    }
     figure{margin:12px 0 14px}
-    figcaption{margin-top:8px;color:#666;font-size:13px}
-    @media(max-width:560px){
-      .feature-img{width:60%; min-width:0; max-width:100%;}
+
+    /* Subtle “portfolio header” */
+    .focus{
+      background:#fafafa;
+      border-style:dashed;
+    }
+    .pillrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .pill{
+      font-size:13px;
+      color:#333;
+      background:#fff;
+      border:1px solid #e6e6e6;
+      border-radius:999px;
+      padding:6px 10px;
+    }
+
+    /* Phone polish */
+    @media (max-width: 600px){
+      .page{padding:0 16px;}
+      header{padding:34px 0 16px;}
+      header h1{font-size:32px;}
+      header .subtitle{font-size:17px;}
+      nav{margin-top:18px;}
+      nav ul{gap:10px; padding:10px 0;}
+      nav li{font-size:16px;}
+      nav a{padding:9px 12px;}
+      .content{margin:28px 0;}
+      h2{font-size:24px;}
+      .hook{font-size:16px;}
+      .block{padding:16px 14px;border-radius:12px;}
+      .feature-img{width:100%;}
     }
 
     footer{text-align:center;color:#777;font-size:14px;padding:32px 0}
@@ -95,29 +118,42 @@ Only change:
       <div class="subtitle">Applied Economist</div>
     </header>
 
-    <!-- NAV: identical across pages, only one link gets .active -->
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="experience.html">Experience</a></li>
-        <li><a href="projects.html" class="active">Projects</a></li>
+        <!-- keep the file as research.html if you want; just label it Projects -->
+        <li><a href="research.html" class="active">Projects</a></li>
         <li><a href="outreach.html">Outreach</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
 
     <main class="content">
-      <section id="research" aria-labelledby="research-heading">
-        <h2 id="research-heading">Projects</h2>
+      <section id="projects" aria-labelledby="projects-heading">
+        <h2 id="projects-heading">Projects</h2>
 
         <p>
-          My work sits at the intersection of institutions and behaviour. I am interested in settings where rules exist
-          on paper but enforcement is weak, and where the central question is why behaviour changes anyway. Empirically,
-          I work with administrative and survey microdata and prioritise transparent, reproducible design.
+          I build empirical evidence that helps answer practical policy and strategy questions: when rules change, who responds, by how much, and why.
+          My projects use administrative and survey microdata to quantify behavioural responses to real-world incentives and turn the results into clear takeaways.
         </p>
 
+        <div class="block focus" aria-label="Focus areas">
+          <p class="eyebrow">Focus</p>
+          <p class="small" style="margin:0;">
+            Institutions & compliance · beliefs & expectations · applied micro/macro · causal inference
+          </p>
+          <div class="pillrow" aria-hidden="true">
+            <span class="pill">Administrative data</span>
+            <span class="pill">Survey microdata</span>
+            <span class="pill">RDD / thresholds</span>
+            <span class="pill">Policy evaluation</span>
+          </div>
+        </div>
+
+        <!-- FEATURED PROJECT -->
         <div class="block" aria-labelledby="thesis-title">
-          <p class="eyebrow">Featured research</p>
+          <p class="eyebrow">Featured project</p>
           <h3 id="thesis-title" class="title">Do symbolic penalties work?</h3>
 
           <p class="hook">
@@ -135,12 +171,11 @@ Only change:
           </figure>
 
           <p class="small">
-            My master’s thesis studies Argentina’s compulsory voting threshold as a clean test of whether legal
-            obligation can change behaviour even when deterrence is basically absent. The evidence is most consistent
-            with <strong>expressive compliance</strong>: the law works as a normative signal rather than a credible threat.
+            This project asks a simple question: can a legal obligation change behaviour even when enforcement is basically zero?
+            Using Argentina’s compulsory voting threshold, I estimate a sharp jump in turnout at 18 and show patterns consistent with the law acting as a social signal rather than a deterrent.
           </p>
 
-          <div class="kpis" role="list" aria-label="Key thesis facts">
+          <div class="kpis" role="list" aria-label="Key project facts">
             <div class="kpi" role="listitem">
               <div class="val">~20pp</div>
               <div class="lab">turnout jump at 18</div>
@@ -156,206 +191,151 @@ Only change:
           </div>
 
           <div class="btnrow">
-            <a class="btn primary" href="/research/thesis-symbolic-law">Explore the thesis</a>
-            <a class="btn ghost" href="/assets/Malament_SymbolicLaw_OnePager.pdf">Download 1-page brief</a>
+            <!-- IMPORTANT: use relative links (no leading /) for GitHub Pages -->
+            <a class="btn primary" href="thesis-symbolic-law.html">Explore the thesis</a>
+            <a class="btn ghost" href="assets/Malament_SymbolicLaw_OnePager.pdf">Download 1-page brief</a>
           </div>
 
           <details style="margin-top:12px;">
             <summary style="cursor:pointer;font-weight:600;">What is “expressive compliance”?</summary>
             <p class="small" style="margin-top:10px;">
-              Behaviour can change not because people fear punishment, but because the law signals a shared norm
-              (what citizens are expected to do). In that view, even symbolic penalties can matter.
+              Behaviour can change not because people fear punishment, but because the law signals a shared norm.
+              In that view, even symbolic penalties can matter.
             </p>
           </details>
         </div>
 
         <hr />
 
+        <!-- PROJECT 1 -->
+        <div class="block" aria-labelledby="paper-stab-title">
+          <p class="eyebrow">Macroeconomics · Expectations · 2023</p>
+          <h3 id="paper-stab-title" class="title" style="font-size:20px;">
+            Announced Stabilization Programs: Expectations and Macro Dynamics
+          </h3>
 
-<div class="block" aria-labelledby="paper-stab-title">
-  <p class="eyebrow">Macro stabilization · Expectations · 2023</p>
-  <h3 id="paper-stab-title" class="title" style="font-size:20px;">
-    Programas de Estabilización Anticipados
-  </h3>
+          <p class="hook" style="margin-bottom:8px;">
+            When a stabilization plan is <strong>announced in advance</strong>, expectations move first. I study how that anticipation reshapes the transition path and the familiar boom–bust patterns.
+          </p>
 
-  <p class="hook" style="margin-bottom:8px;">
-    What changes when a stabilization program is <strong>announced in advance</strong>, rather than introduced as a surprise?
-    I study how anticipation and credibility reshape the classic boom–bust patterns in money-based and exchange-rate-based stabilizations.
-  </p>
+          <p class="small" style="margin:0;">
+            Takeaway: timing and credibility can flip the textbook “surprise stabilization” dynamics.
+          </p>
 
-  <p class="small" style="margin:0;">
-    The core takeaway is about timing and beliefs: once policy is anticipated, the dynamics can flip relative to the standard
-    “surprise” stabilization playbook.
-  </p>
+          <div class="btnrow">
+            <a class="btn primary" href="https://aaep.org.ar/works/works2023/4697.pdf" target="_blank" rel="noopener">PDF</a>
+            <a class="btn ghost" href="https://ideas.repec.org/p/aep/anales/4697.html" target="_blank" rel="noopener">Link</a>
+          </div>
+        </div>
 
-  <div class="btnrow">
-    <a class="btn primary" href="https://aaep.org.ar/works/works2023/4697.pdf" target="_blank" rel="noopener">PDF</a>
-    <a class="btn ghost" href="https://ideas.repec.org/p/aep/anales/4697.html" target="_blank" rel="noopener">Link</a>
+        <!-- PROJECT 2 -->
+        <div class="block" aria-labelledby="paper-fund-title">
+          <p class="eyebrow">Fiscal policy · Institutions · Feb 2023</p>
+          <h3 id="paper-fund-title" class="title" style="font-size:20px;">
+            Designing a Countercyclical Fiscal Fund
+          </h3>
+
+          <p class="hook" style="margin-bottom:8px;">
+            A practical blueprint for an <strong>anti-cyclical fiscal fund</strong> when revenues are volatile and politics makes smoothing hard.
+          </p>
+
+          <p class="small" style="margin:0;">
+            The approach is deliberately implementable: it builds fund rules around real constraints (market access, credibility, political economy).
+            <span class="small" style="color:#666;">(Co-authored with Mariano Fernández.)</span>
+          </p>
+
+          <div class="btnrow">
+            <a class="btn primary" href="https://www.econstor.eu/bitstream/10419/297776/1/847.pdf" target="_blank" rel="noopener">PDF</a>
+            <a class="btn ghost" href="https://www.econstor.eu/handle/10419/297776" target="_blank" rel="noopener">Link</a>
+          </div>
+        </div>
+
+        <!-- PROJECT 3 -->
+        <div class="block" aria-labelledby="paper-ug-title">
+          <p class="eyebrow">Labour · Human capital · Argentina · 2023</p>
+          <h3 id="paper-ug-title" class="title" style="font-size:20px;">
+            Returns to Education and Human Capital Investment: Evidence from Argentina
+          </h3>
+
+          <p class="hook" style="margin-bottom:8px;">
+            How large is the payoff to schooling in Argentina, and has it changed? I estimate returns to education using household survey microdata and track patterns over time.
+          </p>
+
+          <p class="small" style="margin:0;">
+            Emphasis: consistent estimates across waves and clear results by education level.
+          </p>
+
+          <div class="btnrow">
+            <a class="btn primary" href="https://aaep.org.ar/works/works2023/4665.pdf" target="_blank" rel="noopener">PDF</a>
+            <a class="btn ghost" href="https://ideas.repec.org/p/aep/anales/4665.html" target="_blank" rel="noopener">Link</a>
+          </div>
+        </div>
+
+        <h3 class="title" style="font-size:20px;margin-top:10px;">Selected collaborations</h3>
+
+        <p class="small" style="margin:0 0 10px;">
+          I have also contributed to some cool projects supporting work in labour economics, macroeconomics, and political economy.
+        </p>
+
+        <!-- COLLAB 1 -->
+        <div class="block" aria-labelledby="collab-33903-title">
+          <p class="eyebrow">Labour · Field experiments · NBER WP 33903</p>
+          <h3 id="collab-33903-title" class="title" style="font-size:20px;">
+            Pushing the Envelope: The Effects of Salary Negotiations
+          </h3>
+
+          <p class="hook" style="margin-bottom:8px;">
+            What happens when more workers negotiate? The paper uses large-scale field experiments to measure wage effects and distributional impacts.
+          </p>
+
+          <div class="btnrow">
+            <a class="btn primary" href="https://www.nber.org/papers/w33903" target="_blank" rel="noopener">NBER page</a>
+            <a class="btn ghost" href="https://www.nber.org/system/files/working_papers/w33903/w33903.pdf" target="_blank" rel="noopener">PDF</a>
+          </div>
+        </div>
+
+        <!-- COLLAB 2 -->
+        <div class="block" aria-labelledby="collab-28281-title">
+          <p class="eyebrow">Macro expectations · Consumer finance · NBER WP 28281</p>
+          <h3 id="collab-28281-title" class="title" style="font-size:20px;">
+            Macroeconomic Expectations and Credit Card Spending
+          </h3>
+
+          <p class="hook" style="margin-bottom:8px;">
+            The paper shifts inflation and exchange rate expectations and tracks how consumers adjust spending using transaction-level credit card data.
+          </p>
+
+          <div class="btnrow">
+            <a class="btn primary" href="https://www.nber.org/papers/w28281" target="_blank" rel="noopener">NBER page</a>
+            <a class="btn ghost" href="https://www.nber.org/system/files/working_papers/w28281/w28281.pdf" target="_blank" rel="noopener">PDF</a>
+          </div>
+        </div>
+
+        <!-- COLLAB 3 -->
+        <div class="block" aria-labelledby="collab-32712-title">
+          <p class="eyebrow">Political economy · Beliefs · NBER WP 32712</p>
+          <h3 id="collab-32712-title" class="title" style="font-size:20px;">
+            Billionaire Superstar: Public Image and Demand for Taxation
+          </h3>
+
+          <p class="hook" style="margin-bottom:8px;">
+            The paper uses a survey experiment to test how narratives about billionaires shift beliefs, perceived fairness, and support for taxing the very rich.
+          </p>
+
+          <div class="btnrow">
+            <a class="btn primary" href="https://www.nber.org/papers/w32712" target="_blank" rel="noopener">NBER page</a>
+            <a class="btn ghost" href="https://www.nber.org/system/files/working_papers/w32712/w32712.pdf" target="_blank" rel="noopener">PDF</a>
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        Oxford, United Kingdom · <a href="mailto:mmalament@eit.org">mmalament@eit.org</a>
+      </div>
+    </footer>
   </div>
-
-  <details style="margin-top:12px;">
-    <summary style="cursor:pointer;font-weight:600;">What is the “anticipation” angle?</summary>
-    <p class="small" style="margin-top:10px;">
-      If households and firms adjust before the policy is implemented, the transition path matters as much as the policy itself.
-      The paper uses that lens to compare MBS vs ERBS dynamics under advance announcements.
-    </p>
-  </details>
-</div>
-
-<div class="block" aria-labelledby="paper-fund-title">
-  <p class="eyebrow">Fiscal institutions · Macro policy · Feb 2023</p>
-  <h3 id="paper-fund-title" class="title" style="font-size:20px;">
-    Hacia la construcción de un fondo fiscal anticíclico
-  </h3>
-
-  <p class="hook" style="margin-bottom:8px;">
-    A practical framework for designing an <strong>anti-cyclical fiscal fund</strong> when revenue is volatile and politics
-    makes smoothing hard.
-  </p>
-
-  <p class="small" style="margin:0;">
-    The contribution is deliberately second-best: it puts constraints on the table (market access, credibility, political economy)
-    and builds a fund logic that is implementable, not idealized.
-    <span class="small" style="color:#666;">(Co-authored with Mariano Fernández.)</span>
-  </p>
-
-  <div class="btnrow">
-    <a class="btn primary" href="https://www.econstor.eu/bitstream/10419/297776/1/847.pdf" target="_blank" rel="noopener">PDF</a>
-    <a class="btn ghost" href="https://www.econstor.eu/handle/10419/297776" target="_blank" rel="noopener">Link</a>
-  </div>
-
-  <details style="margin-top:12px;">
-    <summary style="cursor:pointer;font-weight:600;">What is the fund design question?</summary>
-    <p class="small" style="margin-top:10px;">
-      How large should the buffer be, what triggers saving vs spending, and how should rules respond to the cycle?
-      The paper lays out the sizing logic and illustrates it with Argentina-style revenue dynamics.
-    </p>
-  </details>
-</div>
-
-<div class="block" aria-labelledby="paper-ug-title">
-  <p class="eyebrow">Undergraduate thesis · Applied micro · Argentina · 2023</p>
-  <h3 id="paper-ug-title" class="title" style="font-size:20px;">
-    Retornos a la Educación e Inversión en Capital Humano: El Caso Argentino
-  </h3>
-
-  <p class="hook" style="margin-bottom:8px;">
-    What is the payoff to schooling in Argentina, and has it changed? I estimate returns to education using household survey microdata
-    and track how the relationship evolves over time.
-  </p>
-
-  <p class="small" style="margin:0;">
-    The emphasis is on comparability and interpretability: a standard Mincer setup, carefully aligned across waves,
-    plus results by education level.
-  </p>
-
-  <div class="btnrow">
-    <a class="btn primary" href="https://aaep.org.ar/works/works2023/4665.pdf" target="_blank" rel="noopener">PDF</a>
-    <a class="btn ghost" href="https://ideas.repec.org/p/aep/anales/4665.html" target="_blank" rel="noopener">Link</a>
-  </div>
-
-  <details style="margin-top:12px;">
-    <summary style="cursor:pointer;font-weight:600;">What is the empirical core?</summary>
-    <p class="small" style="margin-top:10px;">
-      Standard earnings regressions (Mincer) using EPH microdata, with a focus on tracking estimates consistently across time
-      and making the trend easy to read.
-    </p>
-  </details>
-</div>
-        <h3 class="title" style="font-size:20px;margin-top:0;">Other work</h3>
-
-<p class="small" style="margin:0 0 10px;">
-  I also assisted some cool research, often focusing on data work and reproducible pipelines.
-  Below are a few papers I have supported.
-</p>
-<div class="block" aria-labelledby="collab-33903-title">
-  <p class="eyebrow">Labour · Field experiments · NBER WP 33903</p>
-  <h3 id="collab-33903-title" class="title" style="font-size:20px;">
-    Pushing the Envelope: The Effects of Salary Negotiations
-  </h3>
-
-  <p class="hook" style="margin-bottom:8px;">
-    What happens when more workers negotiate? Using large-scale field experiments, the paper studies how negotiation affects wages,
-    and whether the returns differ across workers and workplaces.
-  </p>
-
-  <p class="small" style="margin:0;">
-    The design links negotiation behaviour to pay outcomes and speaks directly to information frictions and inequality in wage setting.
-  </p>
-
-  <div class="btnrow">
-    <a class="btn primary" href="https://www.nber.org/papers/w33903" target="_blank" rel="noopener">NBER page</a>
-    <a class="btn ghost" href="https://www.nber.org/system/files/working_papers/w33903/w33903.pdf" target="_blank" rel="noopener">PDF</a>
-  </div>
-
-  <details style="margin-top:12px;">
-    <summary style="cursor:pointer;font-weight:600;">What I would take away in one line</summary>
-    <p class="small" style="margin-top:10px;">
-      Negotiation is not just a personality trait; it responds to the environment—and changing that environment can move pay.
-    </p>
-  </details>
-</div>
-
-<div class="block" aria-labelledby="collab-28281-title">
-  <p class="eyebrow">Macro expectations · Consumer finance · NBER WP 28281</p>
-  <h3 id="collab-28281-title" class="title" style="font-size:20px;">
-    Macroeconomic Expectations and Credit Card Spending
-  </h3>
-
-  <p class="hook" style="margin-bottom:8px;">
-    Do expectations change behaviour? The paper provides information that shifts inflation and exchange rate expectations and then tracks
-    how consumers adjust spending using transaction-level credit card data.
-  </p>
-
-  <p class="small" style="margin:0;">
-    It is a clean link between beliefs and real choices: when expectations move, spending patterns move in measurable ways—especially for
-    goods where timing and intertemporal substitution matter.
-  </p>
-
-  <div class="btnrow">
-    <a class="btn primary" href="https://www.nber.org/papers/w28281" target="_blank" rel="noopener">NBER page</a>
-    <a class="btn ghost" href="https://www.nber.org/system/files/working_papers/w28281/w28281.pdf" target="_blank" rel="noopener">PDF</a>
-  </div>
-
-  <details style="margin-top:12px;">
-    <summary style="cursor:pointer;font-weight:600;">One-line intuition</summary>
-    <p class="small" style="margin-top:10px;">
-      If you change what people think will happen to prices, you can change what they buy today.
-    </p>
-  </details>
-</div>
-
-<div class="block" aria-labelledby="collab-32712-title">
-  <p class="eyebrow">Political economy · Beliefs · NBER WP 32712</p>
-  <h3 id="collab-32712-title" class="title" style="font-size:20px;">
-    Billionaire Superstar: Public Image and Demand for Taxation
-  </h3>
-
-  <p class="hook" style="margin-bottom:8px;">
-    Why do people support (or oppose) taxing the very rich? The paper uses a survey experiment to test how narratives about billionaires
-    shift beliefs, perceived fairness, and preferences for redistribution.
-  </p>
-
-  <p class="small" style="margin:0;">
-    The central idea is that “who billionaires are” in the public imagination—innovators, rent-seekers, philanthropists—changes what people
-    think the tax system should do.
-  </p>
-
-  <div class="btnrow">
-    <a class="btn primary" href="https://www.nber.org/papers/w32712" target="_blank" rel="noopener">NBER page</a>
-    <a class="btn ghost" href="https://www.nber.org/system/files/working_papers/w32712/w32712.pdf" target="_blank" rel="noopener">PDF</a>
-  </div>
-
-  <details style="margin-top:12px;">
-    <summary style="cursor:pointer;font-weight:600;">What makes it interesting</summary>
-    <p class="small" style="margin-top:10px;">
-      Preferences over taxation are not only about self-interest; they are also about beliefs—and beliefs can be moved by framing.
-    </p>
-  </details>
-</div>
-
-
-
-
 </body>
 </html>
