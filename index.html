@@ -114,14 +114,43 @@
     hr{border:none;border-top:1px solid #e6e6e6;margin:18px 0 0}
 
     /* Contact info block on index */
-.contact-card{
-  margin-top: 18px;
-  padding: 14px 16px;
-  border: 1px solid #e1e1e1;
-  border-radius: 6px;
-  background: #fafafa;
-  max-width: 720px;
+/* Contact (clean inline) */
+.contact-inline{
+  margin-top:16px;
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+  align-items:center;
 }
+
+.contact-link{
+  display:inline-flex;
+  gap:10px;
+  align-items:center;
+  padding:8px 10px;
+  border-radius:12px;
+  text-decoration:none;
+  color:#111;
+  border:1px solid #e6e6e6;
+  background:#fff;
+}
+
+.contact-link svg{
+  width:18px;
+  height:18px;
+  fill:#111;
+  flex:0 0 auto;
+}
+
+.contact-link:hover{
+  border-color:#cfcfcf;
+}
+
+.contact-link:focus-visible{
+  outline:2px solid #111;
+  outline-offset:2px;
+}
+
 .contact-card .label{
   font-size:13px;
   letter-spacing:0.06em;
@@ -202,26 +231,23 @@
           <a href="https://eit.org/economics" target="_blank" rel="noopener noreferrer">Ellison Institute of Technology, Oxford</a>.
         </p>
 
-    <!-- Contact icons ON INDEX -->
-<div class="contact-card" aria-label="Contact links">
-  <div class="label">Contact</div>
+<!-- Contact (clean inline) -->
+<div class="contact-inline" aria-label="Contact links">
+  <a class="contact-link" href="mailto:miriammalament@gmail.com" aria-label="Email Miriam">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M20 6H4v12h16V6Zm-1.6 1.5L12 12.2 5.6 7.5h12.8ZM5.5 16.9V8.7l6.1 4.8.4.3.4-.3 6.1-4.8v8.2H5.5Z"/>
+    </svg>
+    <span>Email</span>
+  </a>
 
-  <div class="contact-icons">
-    <!-- Email -->
-    <a class="contact-icon-link" href="mailto:miriammalament@gmail.com" aria-label="Email Miriam">
-      <svg class="contact-icon" viewBox="0 0 24 24" role="img" aria-hidden="true">
-        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"></path>
-      </svg>
-    </a>
-
-    <!-- LinkedIn -->
-    <a class="contact-icon-link" href="LINKEDIN_URL" target="_blank" rel="noopener noreferrer" aria-label="Miriam on LinkedIn">
-      <svg class="contact-icon" viewBox="0 0 24 24" role="img" aria-hidden="true">
-        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM8.34 18.34H6V10h2.34v8.34zM7.17 9.02c-.75 0-1.36-.62-1.36-1.38 0-.76.61-1.38 1.36-1.38.75 0 1.36.62 1.36 1.38 0 .76-.61 1.38-1.36 1.38zM18.34 18.34H16v-4.33c0-1.03-.02-2.35-1.43-2.35-1.43 0-1.65 1.12-1.65 2.27v4.41H10.6V10h2.25v1.14h.03c.31-.59 1.08-1.21 2.23-1.21 2.38 0 2.82 1.57 2.82 3.61v4.8z"></path>
-      </svg>
-    </a>
-  </div>
+  <a class="contact-link" href="LINKEDIN_URL" target="_blank" rel="noopener noreferrer" aria-label="Miriam on LinkedIn">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M6.5 9H4v11h2.5V9ZM5.25 4C4.56 4 4 4.56 4 5.25S4.56 6.5 5.25 6.5 6.5 5.94 6.5 5.25 5.94 4 5.25 4ZM20 20h-2.5v-5.7c0-1.36-.03-3.1-1.9-3.1-1.9 0-2.19 1.48-2.19 3v5.8H11V9h2.4v1.5h.03c.33-.62 1.15-1.9 2.88-1.9 3.08 0 3.66 2.03 3.66 4.68V20Z"/>
+    </svg>
+    <span>LinkedIn</span>
+  </a>
 </div>
+
 
 
         <hr />
