@@ -1,11 +1,10 @@
 <!--
-Copy this EXACT structure for every page.
-Only change:
-1) <title>
-2) <meta name="description">
-3) Which nav link has class="active"
-4) The <h2> and the placeholder content inside <section>
-5) Optional: the right-side <aside> content (keep the same wrapper)
+Drop-in replacement for your Experience page.
+Keeps your overall structure, but:
+- makes the timeline table responsive (stacked “cards” on phones)
+- adds consistent spacing + subtle section headers
+- makes Experience/Education blocks visually cleaner
+- updates nav label/link to Projects (if you already renamed Research → Projects)
 -->
 
 <!doctype html>
@@ -40,32 +39,121 @@ Only change:
     nav a{text-decoration:none;color:#111;padding:10px 22px;display:inline-block}
     nav a.active{background:#555;color:#fff;border-radius:4px}
 
-    /* Full-page layout for this page */
+    /* Page layout */
     .content{display:grid;grid-template-columns:1fr;gap:0;margin:56px 0}
     aside{display:none}
 
     section[id]{scroll-margin-top:120px}
 
-    h2{font-family:"Libre Baskerville",serif;font-size:28px;margin:0 0 16px}
-    h3{font-family:"Libre Baskerville",serif;font-size:18px;margin:26px 0 10px}
+    h2{font-family:"Libre Baskerville",serif;font-size:28px;margin:0 0 14px}
     p{margin:0 0 14px}
     a{color:#111}
 
-    .lead{font-size:18px;color:#222}
-    .muted{color:#555}
+    /* Section framing */
+    .section-head{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:16px;
+      border-bottom:1px solid #e6e6e6;
+      padding-bottom:10px;
+      margin:0 0 18px;
+    }
+    .section-note{color:#666;font-size:14px}
 
-    .block{border:1px solid #e6e6e6;border-radius:10px;padding:20px 22px;background:#fff;margin:18px 0}
-    .row{display:grid;grid-template-columns:1fr 220px;gap:18px;align-items:start}
-    @media(max-width:700px){.row{grid-template-columns:1fr}}
+    .lead{font-size:18px;color:#222;max-width:880px}
 
-    .meta{color:#666;font-size:14px;margin-top:2px}
-    ul{margin:8px 0 0 18px}
-    li{margin:6px 0}
+    /* Cards */
+    .block{
+      border:1px solid #e6e6e6;
+      border-radius:10px;
+      padding:18px 20px;
+      background:#fff;
+      margin:16px 0 26px;
+    }
 
-    .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-    .btn{display:inline-block;text-decoration:none;border-radius:8px;padding:10px 12px;border:1px solid #d9d9d9}
-    .btn.primary{background:#555;color:#fff;border-color:#555}
-    .btn.ghost{background:#fff;color:#111}
+    /* Timeline table (desktop) */
+    .cv-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+    .cv-table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:700px; /* keeps columns readable on desktop; phones will switch to cards below */
+    }
+    .cv-table td{
+      padding:14px 10px;
+      vertical-align:top;
+      border-bottom:1px solid #f0f0f0;
+    }
+    .cv-table tr:last-child td{border-bottom:none}
+
+    .cv-date{
+      width:220px;
+      white-space:nowrap;
+      color:#666;
+      font-size:14px;
+      padding-right:14px;
+    }
+    .cv-entry{font-size:16px}
+    .cv-entry strong{font-weight:600}
+
+    /* Education list (desktop) */
+    .cv-list{display:flex;flex-direction:column;gap:10px}
+    .cv-row{
+      display:grid;
+      grid-template-columns:220px 1fr;
+      gap:14px;
+      padding:14px 10px;
+      border-bottom:1px solid #f0f0f0;
+    }
+    .cv-row:last-child{border-bottom:none}
+
+    /* Phone polish */
+    @media (max-width: 600px){
+      .page{padding:0 16px;}
+      header{padding:34px 0 16px;}
+      header h1{font-size:32px;}
+      header .subtitle{font-size:17px;}
+      nav{margin-top:18px;}
+      nav ul{gap:10px; padding:10px 0;}
+      nav li{font-size:16px;}
+      nav a{padding:9px 12px;}
+      .content{margin:28px 0;}
+      h2{font-size:24px;}
+      .lead{font-size:16.5px;}
+
+      .block{padding:16px 14px;border-radius:12px;}
+
+      /* Turn the Experience table into stacked cards on phones */
+      .cv-table-wrap{overflow:visible}
+      .cv-table{min-width:0}
+      .cv-table, .cv-table tbody, .cv-table tr, .cv-table td{display:block;width:100%}
+      .cv-table tr{
+        border:1px solid #efefef;
+        border-radius:12px;
+        padding:12px 12px 10px;
+        margin:10px 0;
+        background:#fff;
+      }
+      .cv-table td{border:none;padding:0}
+      .cv-date{
+        width:auto;
+        white-space:normal;
+        font-size:13px;
+        color:#666;
+        margin:0 0 6px;
+      }
+      .cv-entry{font-size:15.5px}
+
+      /* Education rows as cards too */
+      .cv-row{
+        grid-template-columns:1fr;
+        gap:6px;
+        border:1px solid #efefef;
+        border-radius:12px;
+        padding:12px 12px 10px;
+        margin:10px 0;
+      }
+    }
 
     footer{text-align:center;color:#777;font-size:14px;padding:32px 0}
   </style>
@@ -82,7 +170,7 @@ Only change:
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="experience.html" class="active">Experience</a></li>
-        <li><a href="research.html">Research</a></li>
+        <li><a href="projects.html">Projects</a></li>
         <li><a href="outreach.html">Outreach</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
@@ -90,94 +178,100 @@ Only change:
 
     <main class="content">
       <section id="experience" aria-labelledby="page-heading">
-  <h2 id="page-heading">Experience</h2>
+        <div class="section-head">
+          <h2 id="page-heading">Experience</h2>
+          <div class="section-note">Selected roles · empirical research</div>
+        </div>
 
-  <p>
-    I have worked across academic, policy, and applied research environments in roles centred on empirical analysis and evidence-building.
-  </p>
+        <p class="lead">
+          I have worked across academic, policy, and applied research environments in roles centred on empirical analysis and evidence-building.
+        </p>
 
-  <div class="cv-table-wrap">
-    <table class="cv-table" aria-label="Experience timeline">
-      <tbody>
-        <tr>
-          <td class="cv-date">Aug 2025 – present</td>
-          <td class="cv-entry">
-            <strong>Ellison Institute of Technology, Oxford</strong>, Economics Researcher (Oxford, UK)
-          </td>
-        </tr>
-        <tr>
-          <td class="cv-date">Aug 2024 – Jul 2025</td>
-          <td class="cv-entry">
-            <strong>Yale University</strong>, Research Fellow (Fox International Fellowship) (New Haven, US)
-          </td>
-        </tr>
-        <tr>
-          <td class="cv-date">Mar 2024 – Aug 2024</td>
-          <td class="cv-entry">
-            <strong>Massachusetts Institute of Technology</strong>, Research Assistant for Prof. Daron Acemoglu and Prof. Cevat Giray Aksoy
-          </td>
-        </tr>
-        <tr>
-          <td class="cv-date">Jan 2024 – Aug 2024</td>
-          <td class="cv-entry">
-            <strong>The World Bank</strong>, Short-Term Consultant (Washington, DC)
-          </td>
-        </tr>
-        <tr>
-          <td class="cv-date">Jun 2023 – Aug 2024</td>
-          <td class="cv-entry">
-            <strong>UC Berkeley (Haas)</strong>, Research Assistant for Prof. Ricardo Perez-Truglia
-          </td>
-        </tr>
-        <tr>
-          <td class="cv-date">Sep 2021 – Apr 2023</td>
-          <td class="cv-entry">
-            <strong>University of Chicago</strong>, Research Assistant for Prof. John A. List and Prof. Julio Elías
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
+        <div class="block">
+          <div class="cv-table-wrap">
+            <table class="cv-table" aria-label="Experience timeline">
+              <tbody>
+                <tr>
+                  <td class="cv-date">Aug 2025 – present</td>
+                  <td class="cv-entry">
+                    <strong>Ellison Institute of Technology, Oxford</strong>, Economics Researcher (Oxford, UK)
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cv-date">Aug 2024 – Jul 2025</td>
+                  <td class="cv-entry">
+                    <strong>Yale University</strong>, Research Fellow (Fox International Fellowship) (New Haven, US)
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cv-date">Mar 2024 – Aug 2024</td>
+                  <td class="cv-entry">
+                    <strong>Massachusetts Institute of Technology</strong>, Research Assistant for Prof. Daron Acemoglu and Prof. Cevat Giray Aksoy
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cv-date">Jan 2024 – Aug 2024</td>
+                  <td class="cv-entry">
+                    <strong>The World Bank</strong>, Short-Term Consultant (Washington, DC)
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cv-date">Jun 2023 – Aug 2024</td>
+                  <td class="cv-entry">
+                    <strong>UC Berkeley (Haas)</strong>, Research Assistant for Prof. Ricardo Perez-Truglia
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cv-date">Sep 2021 – Apr 2023</td>
+                  <td class="cv-entry">
+                    <strong>University of Chicago</strong>, Research Assistant for Prof. John A. List and Prof. Julio Elías
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
 
+      <section id="education" aria-labelledby="education-heading">
+        <div class="section-head">
+          <h2 id="education-heading">Education</h2>
+          <div class="section-note">Economics · training</div>
+        </div>
 
-<section id="education" aria-labelledby="education-heading">
-  <h2 id="education-heading">Education</h2>
+        <div class="block">
+          <div class="cv-list" role="list" aria-label="Education timeline">
+            <div class="cv-row" role="listitem">
+              <div class="cv-date">Aug 2024 – Jul 2025</div>
+              <div class="cv-entry">
+                <strong>Yale University</strong>, Visiting Graduate Student, Economics
+              </div>
+            </div>
 
-  <div class="cv-list" role="list">
-    <div class="cv-row" role="listitem">
-      <div class="cv-date">Aug 2024 – Jul 2025</div>
-      <div class="cv-entry">
-        <strong>Yale University</strong>, Visiting Graduate Student, Economics
-      </div>
-    </div>
+            <div class="cv-row" role="listitem">
+              <div class="cv-date">Feb 2023 – Dec 2023</div>
+              <div class="cv-entry">
+                <strong>Universidad de San Andrés</strong>, Master’s degree, Economics
+              </div>
+            </div>
 
-    <div class="cv-row" role="listitem">
-      <div class="cv-date">Feb 2023 – Dec 2023</div>
-      <div class="cv-entry">
-        <strong>Universidad de San Andrés</strong>, Master’s degree, Economics
-      </div>
-    </div>
+            <div class="cv-row" role="listitem">
+              <div class="cv-date">2019 – 2022</div>
+              <div class="cv-entry">
+                <strong>Universidad del CEMA</strong>, Bachelor’s degree, Economics
+              </div>
+            </div>
 
-    <div class="cv-row" role="listitem">
-      <div class="cv-date">2019 – 2022</div>
-      <div class="cv-entry">
-        <strong>Universidad del CEMA</strong>, Bachelor’s degree, Economics
-      </div>
-    </div>
+            <div class="cv-row" role="listitem">
+              <div class="cv-date">2014 – 2018</div>
+              <div class="cv-entry">
+                <strong>Colegio Nacional de Buenos Aires</strong>, High School Diploma
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <div class="cv-row" role="listitem">
-      <div class="cv-date">2014 – 2018</div>
-      <div class="cv-entry">
-        <strong>Colegio Nacional de Buenos Aires</strong>, High School Diploma
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-      <!-- Keep the wrapper to match your structure, but it is intentionally unused on this page -->
       <aside></aside>
     </main>
 
