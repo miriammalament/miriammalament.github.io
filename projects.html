@@ -1,6 +1,6 @@
 <!--
 Projects page (file can still be research.html).
-More “portfolio / applied” tone, all titles in English, cleaner mobile, fixed relative links.
+Minimal portfolio layout: featured strip + clean list items + strong mobile.
 -->
 
 <!doctype html>
@@ -14,7 +14,13 @@ More “portfolio / applied” tone, all titles in English, cleaner mobile, fixe
 
   <style>
     html { scroll-behavior: smooth; }
-    body{margin:0;background:#ffffff;color:#111;font-family:"Source Sans 3",system-ui,-apple-system,Segoe UI,Roboto,Arial;line-height:1.6}
+    body{
+      margin:0;
+      background:#ffffff;
+      color:#111;
+      font-family:"Source Sans 3",system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      line-height:1.6
+    }
     .page{max-width:1050px;margin:0 auto;padding:0 24px}
 
     header{text-align:center;padding:48px 0 24px}
@@ -35,52 +41,25 @@ More “portfolio / applied” tone, all titles in English, cleaner mobile, fixe
     nav a{text-decoration:none;color:#111;padding:10px 22px;display:inline-block}
     nav a.active{background:#555;color:#fff;border-radius:4px}
 
-    /* Single-column layout */
-    .content{display:block;margin:56px 0}
+    .content{margin:56px 0}
     section[id]{scroll-margin-top:120px}
 
     h2{font-family:"Libre Baskerville",serif;font-size:28px;margin:0 0 16px}
     p{margin:0 0 14px}
     a{color:#111}
 
-    /* Cards */
-    .block{border:1px solid #e6e6e6;border-radius:12px;padding:18px;background:#fff;margin:18px 0}
-    .eyebrow{margin:0 0 8px;color:#666;font-size:13px;letter-spacing:0.08em;text-transform:uppercase}
-    .title{margin:0 0 10px;font-family:"Libre Baskerville",serif;font-size:22px;line-height:1.25}
-    .hook{margin:0 0 10px;color:#222;font-size:17px}
+    /* --- Minimal “portfolio” pieces --- */
+    .muted{color:#555}
     .small{font-size:14px;color:#555}
-
-    .kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:14px 0 12px}
-    @media(max-width:560px){.kpis{grid-template-columns:1fr}}
-    .kpi{border:1px solid #ededed;border-radius:10px;padding:10px 12px;background:#fafafa}
-    .kpi .val{font-weight:700;font-size:18px}
-    .kpi .lab{color:#666;font-size:13px;margin-top:2px}
-
-    .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-    .btn{display:inline-block;text-decoration:none;border-radius:10px;padding:10px 12px;border:1px solid #d9d9d9}
-    .btn.primary{background:#555;color:#fff;border-color:#555}
-    .btn.ghost{background:#fff;color:#111}
-
-    hr{border:0;border-top:1px solid #eee;margin:22px 0}
-
-    /* Thesis plot */
-    .feature-img{
-      width:min(520px, 100%);
-      height:auto;
-      display:block;
-      margin:0 auto;
-      border:1px solid #e6e6e6;
-      border-radius:10px;
-      background:#fff;
+    .eyebrow{
+      margin:0 0 8px;
+      color:#666;
+      font-size:12px;
+      letter-spacing:0.10em;
+      text-transform:uppercase
     }
-    figure{margin:12px 0 14px}
 
-    /* Subtle “portfolio header” */
-    .focus{
-      background:#fafafa;
-      border-style:dashed;
-    }
-    .pillrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .pillrow{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 0}
     .pill{
       font-size:13px;
       color:#333;
@@ -90,7 +69,125 @@ More “portfolio / applied” tone, all titles in English, cleaner mobile, fixe
       padding:6px 10px;
     }
 
+    /* Featured strip (not a card) */
+    .featured{
+      margin:22px 0 28px;
+      padding:18px 18px;
+      background:#fafafa;
+      border-radius:16px;
+    }
+    .featured-grid{
+      display:grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap:18px;
+      align-items:start;
+    }
+    .featured h3{
+      margin:0 0 8px;
+      font-family:"Libre Baskerville",serif;
+      font-size:22px;
+      line-height:1.25;
+    }
+    .featured .hook{
+      margin:0 0 10px;
+      font-size:17px;
+      color:#222;
+    }
+
+    figure{margin:0}
+    .feature-img{
+      width:100%;
+      max-width:420px;
+      height:auto;
+      display:block;
+      margin: 4px auto 0;
+      border-radius:12px;
+      border:1px solid #e6e6e6;
+      background:#fff;
+    }
+    .mini-kpis{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin:10px 0 0;
+      padding:0;
+      list-style:none;
+    }
+    .mini-kpis li{
+      font-size:13px;
+      color:#444;
+      border-left:3px solid #9a9a9a;
+      padding-left:10px;
+    }
+    .mini-kpis strong{font-family:"Libre Baskerville",serif;font-weight:700}
+
+    .linkrow{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:12px;
+      align-items:center;
+    }
+    .linkrow a{
+      text-decoration:none;
+      border-bottom:1px solid #bbb;
+      padding-bottom:2px;
+    }
+    .linkrow a:hover{border-bottom-color:#111}
+
+    /* Project list (no boxes) */
+    .list{
+      margin-top: 10px;
+      border-top:1px solid #eee;
+    }
+    .item{
+      padding:18px 0;
+      border-bottom:1px solid #eee;
+      display:grid;
+      grid-template-columns: 1fr auto;
+      gap:14px;
+      align-items:start;
+    }
+    .item h3{
+      margin:0 0 6px;
+      font-family:"Libre Baskerville",serif;
+      font-size:18px;
+      line-height:1.3;
+    }
+    .meta{font-size:13px;color:#666;margin:0 0 8px;letter-spacing:0.02em}
+    .item .right{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      align-items:center;
+      min-width: 160px;
+    }
+    .chiplink{
+      display:inline-block;
+      text-decoration:none;
+      font-size:13px;
+      padding:8px 10px;
+      border:1px solid #e6e6e6;
+      border-radius:999px;
+      background:#fff;
+      white-space:nowrap;
+    }
+    .chiplink:hover{border-color:#bbb}
+
+    /* Section header for “Other projects” */
+    .section-title{
+      margin:26px 0 10px;
+      font-family:"Libre Baskerville",serif;
+      font-size:20px;
+    }
+
     /* Phone polish */
+    @media (max-width: 900px){
+      .featured-grid{grid-template-columns:1fr}
+      .item{grid-template-columns:1fr}
+      .item .right{justify-content:flex-start}
+    }
     @media (max-width: 600px){
       .page{padding:0 16px;}
       header{padding:34px 0 16px;}
@@ -102,9 +199,8 @@ More “portfolio / applied” tone, all titles in English, cleaner mobile, fixe
       nav a{padding:9px 12px;}
       .content{margin:28px 0;}
       h2{font-size:24px;}
-      .hook{font-size:16px;}
-      .block{padding:16px 14px;border-radius:12px;}
-      .feature-img{width:100%;}
+      .featured{padding:16px;border-radius:14px}
+      .featured .hook{font-size:16px}
     }
 
     footer{text-align:center;color:#777;font-size:14px;padding:32px 0}
@@ -122,7 +218,6 @@ More “portfolio / applied” tone, all titles in English, cleaner mobile, fixe
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="experience.html">Experience</a></li>
-        <!-- keep the file as research.html if you want; just label it Projects -->
         <li><a href="research.html" class="active">Projects</a></li>
         <li><a href="outreach.html">Outreach</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -133,208 +228,160 @@ More “portfolio / applied” tone, all titles in English, cleaner mobile, fixe
       <section id="projects" aria-labelledby="projects-heading">
         <h2 id="projects-heading">Projects</h2>
 
-        <p>
-          I build empirical evidence that helps answer practical policy and strategy questions: when rules change, who responds, by how much, and why.
-          My projects use administrative and survey microdata to quantify behavioural responses to real-world incentives and turn the results into clear takeaways.
+        <p class="muted">
+          I build empirical evidence for practical policy and strategy questions: when rules change, who responds, by how much, and why.
+          My work uses administrative and survey microdata and prioritises clean identification and clear takeaways.
         </p>
 
-        <div class="block focus" aria-label="Focus areas">
-          <p class="eyebrow">Focus</p>
-          <p class="small" style="margin:0;">
-            Institutions & compliance · beliefs & expectations · applied micro/macro · causal inference
-          </p>
-          <div class="pillrow" aria-hidden="true">
-            <span class="pill">Administrative data</span>
-            <span class="pill">Survey microdata</span>
-            <span class="pill">RDD / thresholds</span>
-            <span class="pill">Policy evaluation</span>
-          </div>
+        <div class="pillrow" aria-label="Methods and data">
+          <span class="pill">Administrative data</span>
+          <span class="pill">Survey microdata</span>
+          <span class="pill">RDD / thresholds</span>
+          <span class="pill">Policy evaluation</span>
         </div>
 
-        <!-- FEATURED PROJECT -->
-        <div class="block" aria-labelledby="thesis-title">
-          <p class="eyebrow">Featured project</p>
-          <h3 id="thesis-title" class="title">Do symbolic penalties work?</h3>
+        <!-- FEATURED (clean strip, not a big card) -->
+        <div class="featured" aria-labelledby="feat-title">
+          <div class="featured-grid">
+            <div>
+              <p class="eyebrow">Featured</p>
+              <h3 id="feat-title">Do Symbolic Penalties Work? Evidence from Argentina’s Compulsory Voting Law</h3>
 
-          <p class="hook">
-            A <strong>$0.05 fine</strong> that is almost never enforced still coincides with a
-            <strong>~20-point jump</strong> in turnout at age 18.
-          </p>
+              <p class="hook">
+                A <strong>$0.05</strong> fine that is almost never enforced still lines up with a <strong>~20pp</strong> jump in turnout at age 18.
+              </p>
 
-          <figure>
-            <img
-              src="thesis_plot.jpg"
-              alt="Plot showing the discontinuity in turnout at age 18 in Argentina"
-              class="feature-img"
-              loading="lazy"
-            />
-          </figure>
+              <p class="small" style="margin:0;">
+                The project asks whether legal obligation can change behaviour when deterrence is basically absent.
+                Using the age-18 threshold, the patterns are most consistent with the law acting as a social signal rather than a credible threat.
+              </p>
 
-          <p class="small">
-            This project asks a simple question: can a legal obligation change behaviour even when enforcement is basically zero?
-            Using Argentina’s compulsory voting threshold, I estimate a sharp jump in turnout at 18 and show patterns consistent with the law acting as a social signal rather than a deterrent.
-          </p>
+              <ul class="mini-kpis" aria-label="Key facts">
+                <li><strong>~20pp</strong> turnout jump</li>
+                <li><strong>15</strong> national elections (2015–2023)</li>
+                <li><strong>$0.05</strong> real fine (approx.)</li>
+              </ul>
 
-          <div class="kpis" role="list" aria-label="Key project facts">
-            <div class="kpi" role="listitem">
-              <div class="val">~20pp</div>
-              <div class="lab">turnout jump at 18</div>
+              <div class="linkrow">
+                <a href="thesis-symbolic-law.html">Project page</a>
+                <a href="assets/Malament_SymbolicLaw_OnePager.pdf">1-page brief</a>
+              </div>
             </div>
-            <div class="kpi" role="listitem">
-              <div class="val">15</div>
-              <div class="lab">national elections (2015–2023)</div>
+
+            <figure>
+              <img
+                src="thesis_plot.jpg"
+                alt="Plot showing the discontinuity in turnout at age 18 in Argentina"
+                class="feature-img"
+                loading="lazy"
+              />
+            </figure>
+          </div>
+        </div>
+
+        <!-- MAIN PROJECTS LIST (no boxes) -->
+        <div class="list" aria-label="Selected projects">
+
+          <div class="item" aria-labelledby="p1">
+            <div>
+              <div class="meta">Macroeconomics · Expectations · 2023</div>
+              <h3 id="p1">Announced Stabilization Programs: Expectations and Macro Dynamics</h3>
+              <p class="small" style="margin:0;">
+                When policy is announced in advance, expectations move first. I study how anticipation reshapes the transition path and boom–bust dynamics.
+              </p>
             </div>
-            <div class="kpi" role="listitem">
-              <div class="val">$0.05</div>
-              <div class="lab">real fine value (approx.)</div>
+            <div class="right" aria-label="Links">
+              <a class="chiplink" href="https://aaep.org.ar/works/works2023/4697.pdf" target="_blank" rel="noopener">PDF</a>
+              <a class="chiplink" href="https://ideas.repec.org/p/aep/anales/4697.html" target="_blank" rel="noopener">Link</a>
             </div>
           </div>
 
-          <div class="btnrow">
-            <!-- IMPORTANT: use relative links (no leading /) for GitHub Pages -->
-            <a class="btn primary" href="thesis-symbolic-law.html">Explore the thesis</a>
-            <a class="btn ghost" href="assets/Malament_SymbolicLaw_OnePager.pdf">Download 1-page brief</a>
+          <div class="item" aria-labelledby="p2">
+            <div>
+              <div class="meta">Fiscal Policy · Institutions · 2023</div>
+              <h3 id="p2">Designing a Countercyclical Fiscal Fund</h3>
+              <p class="small" style="margin:0;">
+                A practical blueprint for an anti-cyclical fiscal fund when revenues are volatile and politics makes smoothing hard. (Co-authored with Mariano Fernández.)
+              </p>
+            </div>
+            <div class="right" aria-label="Links">
+              <a class="chiplink" href="https://www.econstor.eu/bitstream/10419/297776/1/847.pdf" target="_blank" rel="noopener">PDF</a>
+              <a class="chiplink" href="https://www.econstor.eu/handle/10419/297776" target="_blank" rel="noopener">Link</a>
+            </div>
           </div>
 
-          <details style="margin-top:12px;">
-            <summary style="cursor:pointer;font-weight:600;">What is “expressive compliance”?</summary>
-            <p class="small" style="margin-top:10px;">
-              Behaviour can change not because people fear punishment, but because the law signals a shared norm.
-              In that view, even symbolic penalties can matter.
-            </p>
-          </details>
-        </div>
-
-        <hr />
-
-        <!-- PROJECT 1 -->
-        <div class="block" aria-labelledby="paper-stab-title">
-          <p class="eyebrow">Macroeconomics · Expectations · 2023</p>
-          <h3 id="paper-stab-title" class="title" style="font-size:20px;">
-            Announced Stabilization Programs: Expectations and Macro Dynamics
-          </h3>
-
-          <p class="hook" style="margin-bottom:8px;">
-            When a stabilization plan is <strong>announced in advance</strong>, expectations move first. I study how that anticipation reshapes the transition path and the familiar boom–bust patterns.
-          </p>
-
-          <p class="small" style="margin:0;">
-            Takeaway: timing and credibility can flip the textbook “surprise stabilization” dynamics.
-          </p>
-
-          <div class="btnrow">
-            <a class="btn primary" href="https://aaep.org.ar/works/works2023/4697.pdf" target="_blank" rel="noopener">PDF</a>
-            <a class="btn ghost" href="https://ideas.repec.org/p/aep/anales/4697.html" target="_blank" rel="noopener">Link</a>
+          <div class="item" aria-labelledby="p3">
+            <div>
+              <div class="meta">Labour · Human Capital · Argentina · 2023</div>
+              <h3 id="p3">Returns to Education and Human Capital Investment: Evidence from Argentina</h3>
+              <p class="small" style="margin:0;">
+                I estimate returns to schooling using household survey microdata and track how the relationship evolves over time.
+              </p>
+            </div>
+            <div class="right" aria-label="Links">
+              <a class="chiplink" href="https://aaep.org.ar/works/works2023/4665.pdf" target="_blank" rel="noopener">PDF</a>
+              <a class="chiplink" href="https://ideas.repec.org/p/aep/anales/4665.html" target="_blank" rel="noopener">Link</a>
+            </div>
           </div>
+
         </div>
 
-        <!-- PROJECT 2 -->
-        <div class="block" aria-labelledby="paper-fund-title">
-          <p class="eyebrow">Fiscal policy · Institutions · Feb 2023</p>
-          <h3 id="paper-fund-title" class="title" style="font-size:20px;">
-            Designing a Countercyclical Fiscal Fund
-          </h3>
-
-          <p class="hook" style="margin-bottom:8px;">
-            A practical blueprint for an <strong>anti-cyclical fiscal fund</strong> when revenues are volatile and politics makes smoothing hard.
-          </p>
-
-          <p class="small" style="margin:0;">
-            The approach is deliberately implementable: it builds fund rules around real constraints (market access, credibility, political economy).
-            <span class="small" style="color:#666;">(Co-authored with Mariano Fernández.)</span>
-          </p>
-
-          <div class="btnrow">
-            <a class="btn primary" href="https://www.econstor.eu/bitstream/10419/297776/1/847.pdf" target="_blank" rel="noopener">PDF</a>
-            <a class="btn ghost" href="https://www.econstor.eu/handle/10419/297776" target="_blank" rel="noopener">Link</a>
-          </div>
-        </div>
-
-        <!-- PROJECT 3 -->
-        <div class="block" aria-labelledby="paper-ug-title">
-          <p class="eyebrow">Labour · Human capital · Argentina · 2023</p>
-          <h3 id="paper-ug-title" class="title" style="font-size:20px;">
-            Returns to Education and Human Capital Investment: Evidence from Argentina
-          </h3>
-
-          <p class="hook" style="margin-bottom:8px;">
-            How large is the payoff to schooling in Argentina, and has it changed? I estimate returns to education using household survey microdata and track patterns over time.
-          </p>
-
-          <p class="small" style="margin:0;">
-            Emphasis: consistent estimates across waves and clear results by education level.
-          </p>
-
-          <div class="btnrow">
-            <a class="btn primary" href="https://aaep.org.ar/works/works2023/4665.pdf" target="_blank" rel="noopener">PDF</a>
-            <a class="btn ghost" href="https://ideas.repec.org/p/aep/anales/4665.html" target="_blank" rel="noopener">Link</a>
-          </div>
-        </div>
-
-        <h3 class="title" style="font-size:20px;margin-top:10px;">Other projects</h3>
-
-        <p class="small" style="margin:0 0 10px;">
-          I have also contributed to some cool projects supporting work in labour economics, macroeconomics, and political economy.
+        <h3 class="section-title">Other projects (contributor)</h3>
+        <p class="small" style="margin:0 0 8px;">
+          Selected projects I contributed to, often focused on data work and reproducible pipelines.
         </p>
 
-        <!-- COLLAB 1 -->
-        <div class="block" aria-labelledby="collab-33903-title">
-          <p class="eyebrow">Labour · Field experiments · NBER WP 33903</p>
-          <h3 id="collab-33903-title" class="title" style="font-size:20px;">
-            Pushing the Envelope: The Effects of Salary Negotiations
-          </h3>
+        <div class="list" aria-label="Other projects">
 
-          <p class="hook" style="margin-bottom:8px;">
-            What happens when more workers negotiate? The paper uses large-scale field experiments to measure wage effects and distributional impacts.
-          </p>
-
-          <div class="btnrow">
-            <a class="btn primary" href="https://www.nber.org/papers/w33903" target="_blank" rel="noopener">NBER page</a>
-            <a class="btn ghost" href="https://www.nber.org/system/files/working_papers/w33903/w33903.pdf" target="_blank" rel="noopener">PDF</a>
+          <div class="item" aria-labelledby="c1">
+            <div>
+              <div class="meta">Labour · Field Experiments · NBER WP 33903</div>
+              <h3 id="c1">Pushing the Envelope: The Effects of Salary Negotiations</h3>
+              <p class="small" style="margin:0;">
+                Large-scale field experiments measuring wage effects and distributional impacts when more workers negotiate.
+              </p>
+            </div>
+            <div class="right">
+              <a class="chiplink" href="https://www.nber.org/papers/w33903" target="_blank" rel="noopener">NBER</a>
+              <a class="chiplink" href="https://www.nber.org/system/files/working_papers/w33903/w33903.pdf" target="_blank" rel="noopener">PDF</a>
+            </div>
           </div>
-        </div>
 
-        <!-- COLLAB 2 -->
-        <div class="block" aria-labelledby="collab-28281-title">
-          <p class="eyebrow">Macro expectations · Consumer finance · NBER WP 28281</p>
-          <h3 id="collab-28281-title" class="title" style="font-size:20px;">
-            Macroeconomic Expectations and Credit Card Spending
-          </h3>
-
-          <p class="hook" style="margin-bottom:8px;">
-            The paper shifts inflation and exchange rate expectations and tracks how consumers adjust spending using transaction-level credit card data.
-          </p>
-
-          <div class="btnrow">
-            <a class="btn primary" href="https://www.nber.org/papers/w28281" target="_blank" rel="noopener">NBER page</a>
-            <a class="btn ghost" href="https://www.nber.org/system/files/working_papers/w28281/w28281.pdf" target="_blank" rel="noopener">PDF</a>
+          <div class="item" aria-labelledby="c2">
+            <div>
+              <div class="meta">Macro Expectations · Consumer Finance · NBER WP 28281</div>
+              <h3 id="c2">Macroeconomic Expectations and Credit Card Spending</h3>
+              <p class="small" style="margin:0;">
+                Shifts inflation and FX expectations, then tracks spending responses using transaction-level credit card data.
+              </p>
+            </div>
+            <div class="right">
+              <a class="chiplink" href="https://www.nber.org/papers/w28281" target="_blank" rel="noopener">NBER</a>
+              <a class="chiplink" href="https://www.nber.org/system/files/working_papers/w28281/w28281.pdf" target="_blank" rel="noopener">PDF</a>
+            </div>
           </div>
-        </div>
 
-        <!-- COLLAB 3 -->
-        <div class="block" aria-labelledby="collab-32712-title">
-          <p class="eyebrow">Political economy · Beliefs · NBER WP 32712</p>
-          <h3 id="collab-32712-title" class="title" style="font-size:20px;">
-            Billionaire Superstar: Public Image and Demand for Taxation
-          </h3>
-
-          <p class="hook" style="margin-bottom:8px;">
-            The paper uses a survey experiment to test how narratives about billionaires shift beliefs, perceived fairness, and support for taxing the very rich.
-          </p>
-
-          <div class="btnrow">
-            <a class="btn primary" href="https://www.nber.org/papers/w32712" target="_blank" rel="noopener">NBER page</a>
-            <a class="btn ghost" href="https://www.nber.org/system/files/working_papers/w32712/w32712.pdf" target="_blank" rel="noopener">PDF</a>
+          <div class="item" aria-labelledby="c3">
+            <div>
+              <div class="meta">Political Economy · Beliefs · NBER WP 32712</div>
+              <h3 id="c3">Billionaire Superstar: Public Image and Demand for Taxation</h3>
+              <p class="small" style="margin:0;">
+                Survey experiment on how narratives about billionaires shift beliefs, perceived fairness, and support for taxing the very rich.
+              </p>
+            </div>
+            <div class="right">
+              <a class="chiplink" href="https://www.nber.org/papers/w32712" target="_blank" rel="noopener">NBER</a>
+              <a class="chiplink" href="https://www.nber.org/system/files/working_papers/w32712/w32712.pdf" target="_blank" rel="noopener">PDF</a>
+            </div>
           </div>
+
         </div>
 
       </section>
     </main>
 
     <footer>
-      <div>
-        Oxford, United Kingdom · <a href="mailto:mmalament@eit.org">mmalament@eit.org</a>
-      </div>
+      <div><a href="mailto:miriammalament@gmail.com">miriammalament@gmail.com</a></div>
     </footer>
   </div>
 </body>
