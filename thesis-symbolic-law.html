@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Master’s Thesis — Symbolic Law</title>
+  <meta name="description" content="Do symbolic penalties work? Causal evidence from Argentina’s compulsory voting law using a regression discontinuity design." />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --ink:#111;
+      --muted:#444;
+      --line:#e9e9e9;
+      --soft:#f7f7f7;
+      --card:#fff;
+      --radius:16px;
+      --shadow: 0 10px 25px rgba(0,0,0,.06);
+    }
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:#fff;
+      color:var(--ink);
+      font-family:"Source Sans 3",system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      line-height:1.6;
+    }
+    .page{max-width:1100px;margin:0 auto;padding:0 24px}
+    a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+    a:hover{opacity:.85}
+
+    /* Top strip (optional) */
+    .top{
+      position:sticky;top:0;z-index:50;
+      background:rgba(255,255,255,.86);
+      backdrop-filter:saturate(180%) blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .top .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+    .brand{
+      font-family:"Libre Baskerville",serif;
+      font-weight:700;
+      letter-spacing:-.2px;
+      text-decoration:none;
+    }
+    .nav{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-end}
+    .nav a{
+      text-decoration:none;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid transparent;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .nav a:hover{border-color:var(--line);background:#fff}
+    .nav a.active{border-color:var(--ink);color:var(--ink)}
+
+    /* Hero */
+    header{padding:52px 0 18px}
+    .kicker{
+      display:inline-flex;align-items:center;gap:10px;
+      color:var(--muted);
+      font-size:14px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:7px 12px;
+      background:#fff;
+    }
+    h1{
+      margin:14px 0 8px;
+      font-family:"Libre Baskerville",serif;
+      font-size:44px;
+      letter-spacing:-.4px;
+      line-height:1.15;
+      max-width:900px;
+    }
+    .subtitle{
+      margin:0;
+      color:var(--muted);
+      font-size:18px;
+      max-width:900px;
+    }
+    .hero-row{
+      margin-top:18px;
+      display:flex;flex-wrap:wrap;gap:10px;
+      align-items:center;
+    }
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:999px;
+      padding:8px 12px;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    /* Layout */
+    .grid{
+      display:grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap:26px;
+      align-items:start;
+      padding:18px 0 70px;
+    }
+    @media (max-width: 980px){ .grid{grid-template-columns:1fr} header{padding-top:36px} h1{font-size:38px}}
+    @media (max-width: 520px){ h1{font-size:34px} .page{padding:0 18px}}
+
+    /* Cards */
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
+    }
+    .card h2,.card h3{
+      margin:0 0 10px;
+      font-family:"Libre Baskerville",serif;
+      letter-spacing:-.2px;
+    }
+    .card h2{font-size:20px}
+    .card h3{font-size:16px;color:var(--ink)}
+    .muted{color:var(--muted)}
+    .tight{margin:0}
+    .spacer{height:12px}
+
+    /* Key results */
+    .kpi-grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:12px;
+      margin-top:12px;
+    }
+    @media (max-width: 760px){ .kpi-grid{grid-template-columns:1fr} }
+    .kpi{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:14px 14px 12px;
+      background:linear-gradient(180deg, #fff, #fbfbfb);
+    }
+    .kpi .num{
+      font-size:28px;
+      line-height:1.1;
+      font-weight:600;
+      letter-spacing:-.3px;
+      margin:0 0 4px;
+    }
+    .kpi .lbl{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    /* Figure */
+    figure{margin:0}
+    .figure{
+      border:1px solid var(--line);
+      border-radius:14px;
+      overflow:hidden;
+      background:var(--soft);
+    }
+    .figure img{display:block;width:100%;height:auto}
+    .figcap{
+      padding:10px 12px;
+      font-size:13px;
+      color:var(--muted);
+      border-top:1px solid var(--line);
+      background:#fff;
+    }
+
+    /* Buttons */
+    .btnrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      gap:8px;
+      border:1px solid var(--ink);
+      background:var(--ink);
+      color:#fff;
+      border-radius:12px;
+      padding:10px 12px;
+      text-decoration:none;
+      font-size:14px;
+      font-weight:600;
+    }
+    .btn.secondary{
+      background:#fff;
+      color:var(--ink);
+      border-color:var(--line);
+    }
+    .btn.secondary:hover{border-color:var(--ink)}
+    .btn:active{transform:translateY(1px)}
+
+    /* Sidebar list */
+    .list{margin:0;padding-left:18px}
+    .list li{margin:6px 0}
+    .small{font-size:13px;color:var(--muted)}
+
+    /* Section rhythm */
+    .stack{display:grid;gap:14px}
+    .hr{height:1px;background:var(--line);margin:10px 0}
+  </style>
+</head>
+
+<body>
+
+  <!-- Optional sticky top bar -->
+  <div class="top">
+    <div class="page">
+      <div class="bar">
+        <a class="brand" href="index.html">Miriam Malament</a>
+        <nav class="nav" aria-label="Site">
+          <a href="projects.html">Projects</a>
+          <a class="active" href="thesis-symbolic-law.html">Thesis</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div class="page">
+    <header>
+      <span class="kicker">Master’s thesis · Applied political economy</span>
+      <h1>Do Symbolic Penalties Work?</h1>
+      <p class="subtitle">
+        Causal evidence from Argentina’s compulsory voting law: a sharp turnout jump at age 18 even when
+        sanctions are tiny and rarely enforced.
+      </p>
+
+      <div class="hero-row" aria-label="Highlights">
+        <span class="pill">Regression discontinuity (age-18 cutoff)</span>
+        <span class="pill">Administrative elections data (2015–2023)</span>
+        <span class="pill">Mechanisms: expressive compliance vs deterrence</span>
+      </div>
+
+      <div class="btnrow">
+        <!-- Replace these href targets with your real files/links -->
+        <a class="btn" href="assets/paper.pdf">Read the paper (PDF)</a>
+        <a class="btn secondary" href="assets/slides.pdf">Slides</a>
+        <a class="btn secondary" href="assets/replication/">Replication</a>
+      </div>
+    </header>
+
+    <main class="grid">
+
+      <!-- LEFT COLUMN -->
+      <section class="stack">
+
+        <div class="card" id="overview">
+          <h2>One-paragraph summary</h2>
+          <p class="tight">
+            Argentina’s abstention penalty is formally codified but economically negligible: a fixed 50-peso fine that
+            has eroded to just a few cents in real value, with extremely limited enforcement. Exploiting the 2012 reform
+            that made voting optional at 16–17 but compulsory from 18 onward, I estimate a sharp regression discontinuity
+            at the age-18 threshold. Using administrative records from 15 national elections, turnout increases by about
+            <strong>20 percentage points</strong> at age 18. Survey evidence is more consistent with <strong>expressive compliance</strong> than deterrence:
+            the law appears to act as a norm signal that activates civic duty rather than fear of punishment.
+          </p>
+        </div>
+
+        <div class="card" id="results">
+          <h2>Key results (punchy)</h2>
+
+          <div class="kpi-grid" role="list">
+            <div class="kpi" role="listitem">
+              <p class="num">+20pp</p>
+              <p class="lbl">Turnout jump at age 18 (RDD)</p>
+            </div>
+            <div class="kpi" role="listitem">
+              <p class="num">50 pesos</p>
+              <p class="lbl">Nominal fine, largely symbolic</p>
+            </div>
+            <div class="kpi" role="listitem">
+              <p class="num">Stronger</p>
+              <p class="lbl">Effects among lower-SES youth</p>
+            </div>
+          </div>
+
+          <div class="hr"></div>
+
+          <p class="tight muted">
+            The discontinuity is stable across election cycles, and attitudes such as political interest and democratic support
+            do not show a corresponding age-18 break — consistent with a norm-activation channel rather than maturation.
+          </p>
+        </div>
+
+        <div class="card" id="figure">
+          <h2>Signature visual</h2>
+          <p class="tight muted" style="margin-bottom:12px">
+            Swap in your cleanest RD figure or infographic. This section is designed to look good on mobile.
+          </p>
+
+          <div class="figure">
+            <!-- Replace with your image file -->
+            <img src="assets/rd-figure.png" alt="Regression discontinuity: turnout jumps at age 18" loading="lazy">
+            <div class="figcap">
+              Suggested caption: Turnout by weeks from the age-18 cutoff with local linear fits on each side.
+            </div>
+          </div>
+        </div>
+
+        <div class="card" id="contribution">
+          <h2>Why this matters</h2>
+          <ul class="list">
+            <li><strong>Identification:</strong> isolates legal obligation from meaningful enforcement using a sharp age rule.</li>
+            <li><strong>Mechanism:</strong> provides evidence that laws can work as normative signals (expressive function of law).</li>
+            <li><strong>Inclusion:</strong> suggests symbolic mandates can disproportionately mobilize under-represented youth.</li>
+          </ul>
+        </div>
+
+      </section>
+
+      <!-- RIGHT COLUMN -->
+      <aside class="stack">
+
+        <div class="card">
+          <h2>Quick details</h2>
+          <p class="tight"><strong>Title:</strong> Do Symbolic Penalties Work? Evidence from Compulsory Voting Laws in Argentina</p>
+          <p class="tight"><strong>Author:</strong> Miriam Malament</p>
+          <p class="tight"><strong>Method:</strong> Sharp RDD at age 18</p>
+          <p class="tight"><strong>Data:</strong> Admin elections records + LAPOP survey</p>
+          <p class="small" style="margin-top:10px">
+            (You can add: advisors, department, year, awards.)
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Downloads</h2>
+          <ul class="list">
+            <!-- Replace targets -->
+            <li><a href="assets/paper.pdf">Paper (PDF)</a></li>
+            <li><a href="assets/appendix.pdf">Appendix</a></li>
+            <li><a href="assets/slides.pdf">Slides</a></li>
+            <li><a href="assets/replication/">Replication materials</a></li>
+          </ul>
+          <div class="spacer"></div>
+          <p class="small">
+            Tip: keep filenames short and predictable (paper.pdf, slides.pdf, appendix.pdf).
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Contact</h2>
+          <p class="tight muted">For questions, citations, or collaboration:</p>
+          <p class="tight"><a href="mailto:YOUR.EMAIL@domain.com">YOUR.EMAIL@domain.com</a></p>
+          <p class="tight"><a href="https://www.linkedin.com/in/YOURHANDLE/">LinkedIn</a></p>
+          <p class="tight"><a href="https://github.com/YOURHANDLE">GitHub</a></p>
+        </div>
+
+      </aside>
+
+    </main>
+
+    <p class="small" style="padding-bottom:30px">
+      Content based on the thesis manuscript (turnout jump, enforcement context, mechanism framing). :contentReference[oaicite:1]{index=1}
+    </p>
+  </div>
+
+</body>
+</html>
