@@ -114,28 +114,52 @@
     hr{border:none;border-top:1px solid #e6e6e6;margin:18px 0 0}
 
     /* Contact info block on index */
-    .contact-card{
-      margin-top: 18px;
-      padding: 14px 16px;
-      border: 1px solid #e1e1e1;
-      border-radius: 6px;
-      background: #fafafa;
-      max-width: 720px;
-    }
-    .contact-card .row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px 18px;
-      align-items:center;
-    }
-    .contact-card .label{
-      font-size:13px;
-      letter-spacing:0.06em;
-      text-transform:uppercase;
-      color:#666;
-      margin-bottom:6px;
-    }
-    .contact-card a{white-space:nowrap}
+.contact-card{
+  margin-top: 18px;
+  padding: 14px 16px;
+  border: 1px solid #e1e1e1;
+  border-radius: 6px;
+  background: #fafafa;
+  max-width: 720px;
+}
+.contact-card .label{
+  font-size:13px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:#666;
+  margin-bottom:10px;
+}
+
+.contact-icons{
+  display:flex;
+  gap:18px;
+  align-items:center;
+}
+
+.contact-icon-link{
+  width:46px;
+  height:46px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  border:1px solid #e1e1e1;
+  border-radius:10px;
+  background:#fff;
+}
+
+.contact-icon{
+  width:22px;
+  height:22px;
+  fill:#111;
+}
+
+.contact-icon-link:hover{border-color:#bbb;}
+
+@media (max-width:600px){
+  .contact-icon-link{width:52px;height:52px}
+  .contact-icon{width:24px;height:24px}
+}
 
     footer{text-align:center;color:#777;font-size:14px;padding:32px 0}
     a{color:#111}
@@ -178,15 +202,27 @@
           <a href="https://eit.org/economics" target="_blank" rel="noopener noreferrer">Ellison Institute of Technology, Oxford</a>.
         </p>
 
-        <!-- Contact info ON INDEX -->
-        <div class="contact-card" aria-label="Contact information">
-          <div class="label">Contact</div>
-          <div class="row">
-            <span>Oxford, United Kingdom</span>
-            <span>·</span>
-            <a href="mailto:mmalament@eit.org">mmalament@eit.org</a>
-          </div>
-        </div>
+    <!-- Contact icons ON INDEX -->
+<div class="contact-card" aria-label="Contact links">
+  <div class="label">Contact</div>
+
+  <div class="contact-icons">
+    <!-- Email -->
+    <a class="contact-icon-link" href="mailto:miriammalament@gmail.com" aria-label="Email Miriam">
+      <svg class="contact-icon" viewBox="0 0 24 24" role="img" aria-hidden="true">
+        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"></path>
+      </svg>
+    </a>
+
+    <!-- LinkedIn -->
+    <a class="contact-icon-link" href="LINKEDIN_URL" target="_blank" rel="noopener noreferrer" aria-label="Miriam on LinkedIn">
+      <svg class="contact-icon" viewBox="0 0 24 24" role="img" aria-hidden="true">
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM8.34 18.34H6V10h2.34v8.34zM7.17 9.02c-.75 0-1.36-.62-1.36-1.38 0-.76.61-1.38 1.36-1.38.75 0 1.36.62 1.36 1.38 0 .76-.61 1.38-1.36 1.38zM18.34 18.34H16v-4.33c0-1.03-.02-2.35-1.43-2.35-1.43 0-1.65 1.12-1.65 2.27v4.41H10.6V10h2.25v1.14h.03c.31-.59 1.08-1.21 2.23-1.21 2.38 0 2.82 1.57 2.82 3.61v4.8z"></path>
+      </svg>
+    </a>
+  </div>
+</div>
+
 
         <hr />
       </section>
