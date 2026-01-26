@@ -1,6 +1,6 @@
 <!--
 Projects page (file can still be research.html).
-Minimal portfolio layout: featured strip + clean list items + strong mobile.
+Minimal portfolio layout: featured strip + visual thumbs + richer “case-study” text for YOUR projects.
 -->
 
 <!doctype html>
@@ -9,7 +9,7 @@ Minimal portfolio layout: featured strip + clean list items + strong mobile.
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Projects — Miriam Malament</title>
-  <meta name="description" content="Projects by Miriam Malament — applied economics using administrative and survey data to quantify behavioural responses to rules, incentives, and policy changes." />
+  <meta name="description" content="Projects by Miriam Malament — applied economics using administrative and survey data to quantify behavioral responses to rules, incentives, and policy changes." />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -69,7 +69,7 @@ Minimal portfolio layout: featured strip + clean list items + strong mobile.
       padding:6px 10px;
     }
 
-    /* Featured strip (not a card) */
+    /* Featured strip */
     .featured{
       margin:22px 0 28px;
       padding:18px 18px;
@@ -135,19 +135,34 @@ Minimal portfolio layout: featured strip + clean list items + strong mobile.
     }
     .linkrow a:hover{border-bottom-color:#111}
 
-    /* Project list (no boxes) */
+    /* List */
     .list{
       margin-top: 10px;
       border-top:1px solid #eee;
     }
+
+    /* New: portfolio item layout with small visual thumb */
     .item{
       padding:18px 0;
       border-bottom:1px solid #eee;
       display:grid;
-      grid-template-columns: 1fr auto;
-      gap:14px;
+      grid-template-columns: 86px 1fr auto;
+      gap:16px;
       align-items:start;
     }
+
+    .thumb{
+      width:86px;
+      height:86px;
+      border:1px solid #e6e6e6;
+      border-radius:14px;
+      background:#fafafa;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .thumb svg{width:54px;height:54px;fill:none;stroke:#666;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
     .item h3{
       margin:0 0 6px;
       font-family:"Libre Baskerville",serif;
@@ -155,13 +170,44 @@ Minimal portfolio layout: featured strip + clean list items + strong mobile.
       line-height:1.3;
     }
     .meta{font-size:13px;color:#666;margin:0 0 8px;letter-spacing:0.02em}
-    .item .right{
+
+    /* “Case-study” lines */
+    .lines{margin:0}
+    .line{
+      margin:0 0 6px;
+      font-size:14px;
+      color:#333;
+    }
+    .line b{
+      font-weight:700;
+      color:#111;
+    }
+
+    .outputs{
+      margin-top:10px;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .tag{
+      font-size:12px;
+      color:#444;
+      border:1px solid #e6e6e6;
+      border-radius:999px;
+      background:#fff;
+      padding:6px 10px;
+      white-space:nowrap;
+    }
+
+    .right{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
       justify-content:flex-end;
       align-items:center;
       min-width: 160px;
+      padding-top: 4px;
     }
     .chiplink{
       display:inline-block;
@@ -175,18 +221,21 @@ Minimal portfolio layout: featured strip + clean list items + strong mobile.
     }
     .chiplink:hover{border-color:#bbb}
 
-    /* Section header for “Other projects” */
     .section-title{
       margin:26px 0 10px;
       font-family:"Libre Baskerville",serif;
       font-size:20px;
     }
 
-    /* Phone polish */
+    /* Subtle hover to make it feel “producty” */
+    .item:hover .thumb{border-color:#bbb}
+    .item:hover .chiplink{border-color:#bbb}
+
+    /* Responsive */
     @media (max-width: 900px){
       .featured-grid{grid-template-columns:1fr}
-      .item{grid-template-columns:1fr}
-      .item .right{justify-content:flex-start}
+      .item{grid-template-columns: 86px 1fr}
+      .right{justify-content:flex-start; min-width:0}
     }
     @media (max-width: 600px){
       .page{padding:0 16px;}
@@ -201,6 +250,9 @@ Minimal portfolio layout: featured strip + clean list items + strong mobile.
       h2{font-size:24px;}
       .featured{padding:16px;border-radius:14px}
       .featured .hook{font-size:16px}
+      .item{grid-template-columns: 72px 1fr; gap:14px}
+      .thumb{width:72px;height:72px;border-radius:12px}
+      .thumb svg{width:44px;height:44px}
     }
 
     footer{text-align:center;color:#777;font-size:14px;padding:32px 0}
@@ -230,7 +282,7 @@ Minimal portfolio layout: featured strip + clean list items + strong mobile.
 
         <p class="muted">
           I build empirical evidence for practical policy and strategy questions: when rules change, who responds, by how much, and why.
-          My work uses administrative and survey microdata and prioritises clean identification and clear takeaways.
+          My work uses administrative and survey microdata, clean identification, and clear takeaways.
         </p>
 
         <div class="pillrow" aria-label="Methods and data">
@@ -240,7 +292,7 @@ Minimal portfolio layout: featured strip + clean list items + strong mobile.
           <span class="pill">Policy evaluation</span>
         </div>
 
-        <!-- FEATURED (clean strip, not a big card) -->
+        <!-- FEATURED -->
         <div class="featured" aria-labelledby="feat-title">
           <div class="featured-grid">
             <div>
@@ -252,8 +304,8 @@ Minimal portfolio layout: featured strip + clean list items + strong mobile.
               </p>
 
               <p class="small" style="margin:0;">
-                The project asks whether legal obligation can change behaviour when deterrence is basically absent.
-                Using the age-18 threshold, the patterns are most consistent with the law acting as a social signal rather than a credible threat.
+                The project tests whether legal obligation can change behavior when deterrence is basically absent.
+                Using the age-18 threshold, patterns are most consistent with the law acting as a social signal rather than a credible threat.
               </p>
 
               <ul class="mini-kpis" aria-label="Key facts">
@@ -279,45 +331,109 @@ Minimal portfolio layout: featured strip + clean list items + strong mobile.
           </div>
         </div>
 
-        <!-- MAIN PROJECTS LIST (no boxes) -->
+        <!-- YOUR PROJECTS -->
         <div class="list" aria-label="Selected projects">
 
+          <!-- Project 1 -->
           <div class="item" aria-labelledby="p1">
+            <div class="thumb" aria-hidden="true">
+              <!-- Minimal timeline icon -->
+              <svg viewBox="0 0 24 24">
+                <path d="M4 7h16"></path>
+                <path d="M6 7v10"></path>
+                <path d="M12 7v6"></path>
+                <path d="M18 7v12"></path>
+                <path d="M6 17h6"></path>
+                <path d="M12 13h6"></path>
+              </svg>
+            </div>
+
             <div>
               <div class="meta">Macroeconomics · Expectations · 2023</div>
               <h3 id="p1">Announced Stabilization Programs: Expectations and Macro Dynamics</h3>
-              <p class="small" style="margin:0;">
-                When policy is announced in advance, expectations move first. I study how anticipation reshapes the transition path and boom–bust dynamics.
-              </p>
+
+              <div class="lines" aria-label="Project snapshot">
+                <p class="line"><b>Problem:</b> Stabilization plans are often evaluated as “surprises,” but many are announced early.</p>
+                <p class="line"><b>What I did:</b> Studied how anticipation and credibility shift the transition path in money-based and exchange-rate-based stabilizations.</p>
+                <p class="line"><b>Why it matters:</b> Timing changes the mechanism. Expectations move first, and the boom–bust pattern can flip.</p>
+              </div>
+
+              <div class="outputs" aria-label="Outputs">
+                <span class="tag">Working paper</span>
+                <span class="tag">Macro dynamics</span>
+                <span class="tag">Expectations channel</span>
+              </div>
             </div>
+
             <div class="right" aria-label="Links">
               <a class="chiplink" href="https://aaep.org.ar/works/works2023/4697.pdf" target="_blank" rel="noopener">PDF</a>
               <a class="chiplink" href="https://ideas.repec.org/p/aep/anales/4697.html" target="_blank" rel="noopener">Link</a>
             </div>
           </div>
 
+          <!-- Project 2 -->
           <div class="item" aria-labelledby="p2">
+            <div class="thumb" aria-hidden="true">
+              <!-- Minimal “buffer / fund” icon -->
+              <svg viewBox="0 0 24 24">
+                <path d="M7 7c0-2.2 2.2-4 5-4s5 1.8 5 4-2.2 4-5 4-5-1.8-5-4Z"></path>
+                <path d="M7 7v10c0 2.2 2.2 4 5 4s5-1.8 5-4V7"></path>
+                <path d="M9 14h6"></path>
+              </svg>
+            </div>
+
             <div>
               <div class="meta">Fiscal Policy · Institutions · 2023</div>
               <h3 id="p2">Designing a Countercyclical Fiscal Fund</h3>
-              <p class="small" style="margin:0;">
-                A practical blueprint for an anti-cyclical fiscal fund when revenues are volatile and politics makes smoothing hard. (Co-authored with Mariano Fernández.)
-              </p>
+
+              <div class="lines" aria-label="Project snapshot">
+                <p class="line"><b>Problem:</b> Volatile revenues and political constraints make smoothing difficult in practice.</p>
+                <p class="line"><b>What I did:</b> Built an implementable fund framework that makes constraints explicit (market access, credibility, political economy).</p>
+                <p class="line"><b>Why it matters:</b> It turns “save in booms, spend in busts” into rules that can survive real-world incentives.</p>
+              </div>
+
+              <div class="outputs" aria-label="Outputs">
+                <span class="tag">Policy design</span>
+                <span class="tag">Fiscal rules</span>
+                <span class="tag">Co-authored</span>
+              </div>
             </div>
+
             <div class="right" aria-label="Links">
               <a class="chiplink" href="https://www.econstor.eu/bitstream/10419/297776/1/847.pdf" target="_blank" rel="noopener">PDF</a>
               <a class="chiplink" href="https://www.econstor.eu/handle/10419/297776" target="_blank" rel="noopener">Link</a>
             </div>
           </div>
 
+          <!-- Project 3 -->
           <div class="item" aria-labelledby="p3">
-            <div>
-              <div class="meta">Labour · Human Capital · Argentina · 2023</div>
-              <h3 id="p3">Returns to Education and Human Capital Investment: Evidence from Argentina</h3>
-              <p class="small" style="margin:0;">
-                I estimate returns to schooling using household survey microdata and track how the relationship evolves over time.
-              </p>
+            <div class="thumb" aria-hidden="true">
+              <!-- Minimal “returns” icon -->
+              <svg viewBox="0 0 24 24">
+                <path d="M5 19V5"></path>
+                <path d="M5 19h14"></path>
+                <path d="M7 15l4-4 3 3 5-6"></path>
+                <path d="M19 8v4h-4"></path>
+              </svg>
             </div>
+
+            <div>
+              <div class="meta">Labor · Human Capital · Argentina · 2023</div>
+              <h3 id="p3">Returns to Education and Human Capital Investment: Evidence from Argentina</h3>
+
+              <div class="lines" aria-label="Project snapshot">
+                <p class="line"><b>Problem:</b> How large is the payoff to schooling, and how stable is it over time?</p>
+                <p class="line"><b>What I did:</b> Estimated returns to education using household survey microdata, aligned consistently across waves.</p>
+                <p class="line"><b>Why it matters:</b> Clear, comparable estimates help interpret wage inequality and the incentives to invest in education.</p>
+              </div>
+
+              <div class="outputs" aria-label="Outputs">
+                <span class="tag">Applied micro</span>
+                <span class="tag">Mincer-style estimates</span>
+                <span class="tag">Time comparisons</span>
+              </div>
+            </div>
+
             <div class="right" aria-label="Links">
               <a class="chiplink" href="https://aaep.org.ar/works/works2023/4665.pdf" target="_blank" rel="noopener">PDF</a>
               <a class="chiplink" href="https://ideas.repec.org/p/aep/anales/4665.html" target="_blank" rel="noopener">Link</a>
@@ -326,6 +442,7 @@ Minimal portfolio layout: featured strip + clean list items + strong mobile.
 
         </div>
 
+        <!-- Contributor projects unchanged -->
         <h3 class="section-title">Other projects (contributor)</h3>
         <p class="small" style="margin:0 0 8px;">
           Selected projects I contributed to, often focused on data work and reproducible pipelines.
@@ -334,8 +451,16 @@ Minimal portfolio layout: featured strip + clean list items + strong mobile.
         <div class="list" aria-label="Other projects">
 
           <div class="item" aria-labelledby="c1">
+            <div class="thumb" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M6 18V6"></path>
+                <path d="M10 18V10"></path>
+                <path d="M14 18V8"></path>
+                <path d="M18 18V12"></path>
+              </svg>
+            </div>
             <div>
-              <div class="meta">Labour · Field Experiments · NBER WP 33903</div>
+              <div class="meta">Labor · Field Experiments · NBER WP 33903</div>
               <h3 id="c1">Pushing the Envelope: The Effects of Salary Negotiations</h3>
               <p class="small" style="margin:0;">
                 Large-scale field experiments measuring wage effects and distributional impacts when more workers negotiate.
@@ -348,6 +473,12 @@ Minimal portfolio layout: featured strip + clean list items + strong mobile.
           </div>
 
           <div class="item" aria-labelledby="c2">
+            <div class="thumb" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 16c3-7 5-7 8 0 3 7 5 7 8 0"></path>
+                <path d="M4 8h16"></path>
+              </svg>
+            </div>
             <div>
               <div class="meta">Macro Expectations · Consumer Finance · NBER WP 28281</div>
               <h3 id="c2">Macroeconomic Expectations and Credit Card Spending</h3>
@@ -362,6 +493,14 @@ Minimal portfolio layout: featured strip + clean list items + strong mobile.
           </div>
 
           <div class="item" aria-labelledby="c3">
+            <div class="thumb" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M7 20V9"></path>
+                <path d="M12 20V4"></path>
+                <path d="M17 20v-7"></path>
+                <path d="M4 20h16"></path>
+              </svg>
+            </div>
             <div>
               <div class="meta">Political Economy · Beliefs · NBER WP 32712</div>
               <h3 id="c3">Billionaire Superstar: Public Image and Demand for Taxation</h3>
