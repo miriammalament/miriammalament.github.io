@@ -3,20 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Symbolic penalties and civic participation — Miriam Malament</title>
-  <meta name="description" content="Causal evidence from compulsory voting in Argentina: how symbolic legal obligations change behavior." />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet" />
+  <title>Miriam Malament</title>
+  <meta name="description" content="Miriam Malament — Applied Economist focused on incentives, institutions, and policy-relevant analysis." />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
-    html { scroll-behavior:smooth; }
-    body{margin:0;background:#fff;color:#111;font-family:"Source Sans 3",system-ui,-apple-system,Segoe UI,Roboto,Arial;line-height:1.6}
+    html { scroll-behavior: smooth; }
+    body{margin:0;background:#ffffff;color:#111;font-family:"Source Sans 3",system-ui,-apple-system,Segoe UI,Roboto,Arial;line-height:1.6}
     .page{max-width:1050px;margin:0 auto;padding:0 24px}
 
     header{text-align:center;padding:48px 0 24px}
-    header h1{margin:0;font-family:"Libre Baskerville",serif;font-size:42px;letter-spacing:.02em}
+    header h1{margin:0;font-family:"Libre Baskerville",serif;font-size:42px;letter-spacing:0.02em}
     header .subtitle{margin-top:8px;color:#555;font-size:20px;font-family:"Libre Baskerville",serif}
 
     nav{
@@ -34,59 +31,77 @@
     nav a.active{background:#555;color:#fff;border-radius:4px}
 
     .content{display:grid;grid-template-columns:1fr 360px;gap:48px;margin:56px 0}
-    @media(max-width:900px){ .content{grid-template-columns:1fr;padding:0 12px} }
+
+    @media(max-width:900px){
+      .content{grid-template-columns:1fr;padding:0 12px}
+    }
 
     /* Phone polish */
-    @media (max-width:600px){
-      .page{padding:0 16px}
-      header{padding:34px 0 16px}
-      header h1{font-size:32px}
-      header .subtitle{font-size:17px}
-      nav{margin-top:18px}
-      nav ul{gap:10px;padding:10px 0}
-      nav li{font-size:16px}
-      nav a{padding:9px 12px}
-      .content{gap:22px;margin:28px 0}
-      h2{font-size:24px}
+    @media (max-width: 600px){
+      .page{padding:0 16px;}
+      header{padding:34px 0 16px;}
+      header h1{font-size:32px;}
+      header .subtitle{font-size:17px;}
+      nav{margin-top:18px;}
+      nav ul{gap:10px; padding:10px 0;}
+      nav li{font-size:16px;}
+      nav a{padding:9px 12px;}
+      .content{gap:22px; margin:28px 0;}
+      h2{font-size:24px;}
+      .photo{min-height:240px;}
     }
 
     section[id]{scroll-margin-top:120px}
     h2{font-family:"Libre Baskerville",serif;font-size:28px;margin:0 0 16px}
     p{margin:0 0 14px}
     .lead{font-size:19px; line-height:1.7}
+    .bullets{margin:16px 0 0; padding-left:18px}
+    .bullets li{margin:6px 0}
 
     .photo{width:100%;border-radius:2px;background:#efefef;min-height:320px;display:block;object-fit:cover}
 
-    /* Clean blocks (match your site vibe) */
+    /* Featured project card (centered) */
     .block{
-      border:1px solid #ddd;
-      border-radius:6px;
-      padding:18px 18px 16px;
+      grid-column: 1 / -1;
+      margin-top: 22px;
+      padding: 18px 18px 16px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      width: 100%;
+      max-width: 900px;      /* keeps it from stretching too wide */
+      margin-left: auto;     /* centers the “square” */
+      margin-right: auto;    /* centers the “square” */
     }
-    .block + .block{margin-top:18px}
+    .block .inner{max-width: 820px; margin:0 auto;} /* center content inside the card */
+
     .eyebrow{
       text-transform:uppercase;
       font-size:12px;
-      letter-spacing:.08em;
+      letter-spacing:0.08em;
       color:#666;
       margin:0 0 6px;
     }
-    .kpis{display:flex;gap:18px;flex-wrap:wrap;margin:10px 0 2px}
+    .title{
+      font-family:"Libre Baskerville",serif;
+      font-size:20px;
+      margin:0 0 8px;
+    }
+    .hook{font-size:15.5px; margin:0 0 12px; color:#222;}
+
+    figure{margin:12px 0 10px}
+.feature-img{
+  width:100%;
+  max-width:520px;
+  border-radius:3px;
+  display:block;
+  margin: 0 auto;
+}
+    .small{font-size:14.5px;color:#333;margin:0 0 12px}
+
+    .kpis{display:flex;gap:18px;flex-wrap:wrap;margin:10px 0 12px}
     .kpi{border-left:3px solid #9a9a9a;padding-left:10px}
     .kpi .val{font-family:"Libre Baskerville",serif;font-size:18px;line-height:1.2}
     .kpi .lab{font-size:13px;color:#555}
-
-    ul{margin:12px 0 0; padding-left:18px}
-    li{margin:6px 0}
-
-    figure{margin:12px 0 0}
-    .feature-img{
-      width:100%;
-      border-radius:3px;
-      display:block;
-      background:#efefef;
-      object-fit:cover;
-    }
 
     .btnrow{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
     .btn{padding:8px 12px;border-radius:4px;text-decoration:none;font-size:14px;display:inline-block}
@@ -95,9 +110,85 @@
 
     details summary{cursor:pointer;font-weight:600;font-size:14px}
     details p.small{margin-top:10px}
-    .small{font-size:14.5px;color:#333;margin:0 0 12px}
 
     hr{border:none;border-top:1px solid #e6e6e6;margin:18px 0 0}
+
+    /* Contact info block on index */
+/* Contact (clean inline) */
+.contact-inline{
+  margin-top:16px;
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+.contact-link{
+  display:inline-flex;
+  gap:10px;
+  align-items:center;
+  padding:8px 10px;
+  border-radius:12px;
+  text-decoration:none;
+  color:#111;
+  border:1px solid #e6e6e6;
+  background:#fff;
+}
+
+.contact-link svg{
+  width:18px;
+  height:18px;
+  fill:#111;
+  flex:0 0 auto;
+}
+
+.contact-link:hover{
+  border-color:#cfcfcf;
+}
+
+.contact-link:focus-visible{
+  outline:2px solid #111;
+  outline-offset:2px;
+}
+
+.contact-card .label{
+  font-size:13px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:#666;
+  margin-bottom:10px;
+}
+
+.contact-icons{
+  display:flex;
+  gap:18px;
+  align-items:center;
+}
+
+.contact-icon-link{
+  width:46px;
+  height:46px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  border:1px solid #e1e1e1;
+  border-radius:10px;
+  background:#fff;
+}
+
+.contact-icon{
+  width:22px;
+  height:22px;
+  fill:#111;
+}
+
+.contact-icon-link:hover{border-color:#bbb;}
+
+@media (max-width:600px){
+  .contact-icon-link{width:52px;height:52px}
+  .contact-icon{width:24px;height:24px}
+}
 
     footer{text-align:center;color:#777;font-size:14px;padding:32px 0}
     a{color:#111}
@@ -108,7 +199,7 @@
   <div class="page">
     <header>
       <h1>Miriam Malament</h1>
-      <div class="subtitle">Applied Economist &amp; Data Scientist</div>
+<div class="subtitle">Applied Economist &amp; Data Scientist</div>
     </header>
 
     <nav>
@@ -122,135 +213,98 @@
     </nav>
 
     <main class="content">
-      <!-- MAIN -->
-      <section aria-labelledby="page-title">
-        <h2 id="page-title">Symbolic penalties and civic participation</h2>
+      <section id="about" aria-labelledby="about-heading">
+        <h2 id="about-heading">About me</h2>
 
         <p class="lead">
-          I study whether legal obligations can change behavior when enforcement is limited. Using Argentina’s youth voting rules,
-          I estimate the causal impact of becoming legally required to vote at age 18.
+          I use economic tools to make sense of how people and institutions respond to rules, incentives, and uncertainty — often in ways that standard assumptions miss.
         </p>
 
-        <div class="btnrow" aria-label="Downloads">
-          <a class="btn primary" href="assets/summary.pdf">Policy summary (PDF)</a>
-          <a class="btn ghost" href="assets/paper.pdf">Full thesis (PDF)</a>
-          <a class="btn ghost" href="assets/slides.pdf">Slides (PDF)</a>
-        </div>
+        <p class="lead">
+          My work focuses on applied questions at the intersection of policy and institutions, with an emphasis on participation decisions, regulatory thresholds, and equilibrium responses. I combine causal analysis with a strong focus on clarity and decision relevance.
+        </p>
 
-        <div class="block" id="takeaway" style="margin-top:18px">
-          <p class="eyebrow">Executive takeaway</p>
-          <p class="lead" style="margin-bottom:10px">
-            The shift from optional voting (ages 16–17) to compulsory voting (age 18+) produces a large increase in turnout,
-            despite an abstention fine that is nominal and rarely enforced. The evidence is consistent with a norm-signaling channel:
-            legal obligation itself appears to move behavior.
+        <p class="lead">
+          I have experience across academic and applied research environments in Europe and the United States, including
+          <a href="https://macmillan.yale.edu/foxfellowship/person/miriam-malament" target="_blank" rel="noopener noreferrer">Yale University</a>
+          and now at the
+          <a href="https://eit.org/economics" target="_blank" rel="noopener noreferrer">Ellison Institute of Technology, Oxford</a>.
+        </p>
+
+<!-- Contact (clean inline) -->
+<div class="contact-inline" aria-label="Contact links">
+  <a class="contact-link" href="mailto:miriammalament@gmail.com" aria-label="Email Miriam">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M20 6H4v12h16V6Zm-1.6 1.5L12 12.2 5.6 7.5h12.8ZM5.5 16.9V8.7l6.1 4.8.4.3.4-.3 6.1-4.8v8.2H5.5Z"/>
+    </svg>
+    <span>Email</span>
+  </a>
+
+  <a class="contact-link" href="https://www.linkedin.com/in/miriam-malament/" target="_blank" rel="noopener noreferrer" aria-label="Miriam on LinkedIn">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M6.5 9H4v11h2.5V9ZM5.25 4C4.56 4 4 4.56 4 5.25S4.56 6.5 5.25 6.5 6.5 5.94 6.5 5.25 5.94 4 5.25 4ZM20 20h-2.5v-5.7c0-1.36-.03-3.1-1.9-3.1-1.9 0-2.19 1.48-2.19 3v5.8H11V9h2.4v1.5h.03c.33-.62 1.15-1.9 2.88-1.9 3.08 0 3.66 2.03 3.66 4.68V20Z"/>
+    </svg>
+    <span>LinkedIn</span>
+  </a>
+</div>
+
+
+
+        <hr />
+      </section>
+
+      <aside>
+        <img src="photo.jpg" alt="Portrait of Miriam Malament" class="photo" />
+      </aside>
+
+      <!-- FEATURED PROJECT CARD (CENTERED + FULL-WIDTH ROW) -->
+      <div class="block" aria-labelledby="thesis-title">
+        <div class="inner">
+          <p class="eyebrow">Featured project - Master's thesis</p>
+          <h3 id="thesis-title" class="title">Do symbolic penalties work?</h3>
+
+          <p class="hook">
+            A <strong>$0.05 fine</strong> that is almost never enforced still coincides with a <strong>~20-point jump</strong>
+            in turnout at age 18 — consistent with a large participation response at a legal threshold.
           </p>
 
-          <div class="kpis" role="list" aria-label="Key results">
+          <figure>
+            <img src="thesis_plot.jpg" alt="Plot showing the discontinuity in turnout at age 18 in Argentina" class="feature-img" loading="lazy" />
+          </figure>
+
+          <p class="small">
+            This project uses Argentina’s compulsory voting threshold as a clean test of how participation incentives shift at a regulatory cutoff when expected penalties are near zero.
+            The evidence is most consistent with <strong>expressive compliance</strong>: the law operates as a normative signal rather than a credible threat.
+          </p>
+
+          <div class="kpis" role="list" aria-label="Key project facts">
             <div class="kpi" role="listitem">
               <div class="val">~20pp</div>
-              <div class="lab">turnout jump at 18 (RDD)</div>
+              <div class="lab">turnout jump at 18</div>
             </div>
             <div class="kpi" role="listitem">
-              <div class="val">50 pesos</div>
-              <div class="lab">nominal abstention fine</div>
+              <div class="val">15</div>
+              <div class="lab">national elections (2015–2023)</div>
             </div>
             <div class="kpi" role="listitem">
-              <div class="val">Low-cost lever</div>
-              <div class="lab">rules can activate norms</div>
+              <div class="val">$0.05</div>
+              <div class="lab">approx. real fine value</div>
             </div>
           </div>
-        </div>
 
-        <div class="block" id="relevance">
-          <p class="eyebrow">Policy relevance</p>
-          <p>
-            This speaks to “light-touch” mandates in settings where monitoring is costly. When enforcement capacity is limited,
-            the formal status of a rule can still matter if it is salient, credible, and socially legible.
-          </p>
-        </div>
+          <div class="btnrow">
+            <a class="btn primary" href="research.html">Explore the project</a>
+            <a class="btn ghost" href="https://ideas.repec.org/p/sad/ypaper/17.html">Full paper</a>
+          </div>
 
-        <div class="block" id="implications">
-          <p class="eyebrow">Implications for practice</p>
-          <ul>
-            <li>Registration, reporting, or compliance requirements where enforcement is thin.</li>
-            <li>Public programs that rely on broad participation and low administrative burden.</li>
-            <li>Institutional design where legitimacy and clarity may substitute for deterrence.</li>
-          </ul>
-        </div>
-
-        <div class="block" id="approach">
-          <p class="eyebrow">Approach (plain language)</p>
-          <p>
-            I use a regression discontinuity design at the age-18 threshold. Individuals just below and just above 18 are comparable,
-            but they face different legal voting status. The discontinuity in turnout at the cutoff identifies the causal effect of legal obligation
-            under weak enforcement.
-          </p>
-        </div>
-
-        <div class="block" id="figure">
-          <p class="eyebrow">Key figure</p>
-          <figure>
-            <img class="feature-img" src="assets/rd-figure.png" alt="Turnout increases sharply at the age-18 cutoff (RDD)" loading="lazy" />
-          </figure>
-          <p class="small" style="margin-top:10px">
-            Suggested caption: Turnout by weeks from the 18th birthday with local linear fits on each side of the cutoff.
-          </p>
-        </div>
-
-        <div class="block" id="notes">
-          <p class="eyebrow">Notes</p>
-          <details>
+          <details style="margin-top:12px;">
             <summary>What is “expressive compliance”?</summary>
-            <p class="small">
-              Behaviour can change not because people fear punishment, but because the law shifts expectations about what is normal or required.
-              In that view, even symbolic penalties can generate meaningful participation responses.
+            <p class="small" style="margin-top:10px;">
+              Behaviour can change not because people fear punishment, but because the law shifts expectations about what is normal or required. In that view, even symbolic penalties can generate meaningful participation responses.
             </p>
           </details>
         </div>
-      </section>
-
-      <!-- SIDEBAR -->
-      <aside aria-label="Details">
-        <div class="block" style="padding:18px 18px 16px">
-          <p class="eyebrow">At a glance</p>
-          <p class="small" style="margin:0 0 10px">
-            Quick reference details.
-          </p>
-
-          <div class="kpis" role="list" aria-label="Project facts">
-            <div class="kpi" role="listitem">
-              <div class="val">Topic</div>
-              <div class="lab">symbolic enforcement</div>
-            </div>
-            <div class="kpi" role="listitem">
-              <div class="val">Setting</div>
-              <div class="lab">Argentina · youth voting</div>
-            </div>
-            <div class="kpi" role="listitem">
-              <div class="val">Method</div>
-              <div class="lab">sharp RDD at 18</div>
-            </div>
-          </div>
-
-          <hr />
-
-          <p class="small" style="margin:14px 0 10px"><strong>Downloads</strong></p>
-          <ul style="margin-top:0">
-            <li><a href="assets/summary.pdf">Policy summary (PDF)</a></li>
-            <li><a href="assets/paper.pdf">Full thesis (PDF)</a></li>
-            <li><a href="assets/slides.pdf">Slides (PDF)</a></li>
-          </ul>
-
-          <hr />
-
-          <p class="small" style="margin:14px 0 8px"><strong>Contact</strong></p>
-          <p class="small" style="margin:0"><a href="mailto:mmalament@eit.org">mmalament@eit.org</a></p>
-          <p class="small" style="margin:6px 0 0"><a href="https://www.linkedin.com/in/miriam-malament/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
-        </div>
-
-        <!-- Optional image slot to mirror other pages with a right column visual -->
-        <!-- <img src="photo.jpg" alt="Portrait of Miriam Malament" class="photo" /> -->
-      </aside>
+      </div>
     </main>
 
     <footer>
@@ -264,11 +318,9 @@
         'index.html': 'nav-home',
         '': 'nav-home',
         'experience.html': 'nav-experience',
-        'projects.html': 'nav-projects',
         'research.html': 'nav-projects',
         'outreach.html': 'nav-outreach',
-        'contact.html': 'nav-contact',
-        'thesis-symbolic-law.html': 'nav-projects' // or whichever tab you prefer
+        'contact.html': 'nav-contact'
       };
       var current = location.pathname.split('/').pop();
       var activeId = map[current] || null;
