@@ -9,21 +9,17 @@
 
   <style>
     html { scroll-behavior: smooth; }
-    body{margin:0;background:#ffffff;color:#111;font-family:"Source Sans 3",system-ui,-apple-system,Segoe UI,Roboto,Arial;line-height:1.6}
+    body{
+      margin:0;
+      background:#ffffff;
+      color:#111;
+      font-family:"Source Sans 3",system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      line-height:1.6
+    }
     .page{max-width:1050px;margin:0 auto;padding:0 24px}
 
     header{text-align:center;padding:48px 0 24px}
     header h1{margin:0;font-family:"Libre Baskerville",serif;font-size:42px;letter-spacing:0.02em}
-
-    /* replaced subtitle with simple links */
-    header .subtitle{
-      margin-top:10px;
-      color:#555;
-      font-size:18px;
-      font-family:"Libre Baskerville",serif;
-    }
-    header .subtitle a{color:#555;text-decoration:none}
-    header .subtitle a:hover{text-decoration:underline}
 
     nav{
       border-top:1px solid #bbb;
@@ -50,7 +46,6 @@
       .page{padding:0 16px;}
       header{padding:34px 0 16px;}
       header h1{font-size:32px;}
-      header .subtitle{font-size:16px;}
       nav{margin-top:18px;}
       nav ul{gap:10px; padding:10px 0;}
       nav li{font-size:16px;}
@@ -58,6 +53,8 @@
       .content{gap:22px; margin:28px 0;}
       h2{font-size:24px;}
       .photo{min-height:240px;}
+      .featured{padding:16px;border-radius:14px}
+      .featured .hook{font-size:16px}
     }
 
     section[id]{scroll-margin-top:120px}
@@ -69,58 +66,83 @@
 
     .photo{width:100%;border-radius:2px;background:#efefef;min-height:320px;display:block;object-fit:cover}
 
-    /* Featured project card (centered) */
-    .block{
-      grid-column: 1 / -1;
-      margin-top: 22px;
-      padding: 18px 18px 16px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      width: 100%;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .block .inner{max-width: 820px; margin:0 auto;}
-
+    /* --- Shared small text + eyebrow (match Projects page) --- */
+    .small{font-size:14px;color:#555}
     .eyebrow{
-      text-transform:uppercase;
-      font-size:12px;
-      letter-spacing:0.08em;
-      color:#666;
-      margin:0 0 6px;
-    }
-    .title{
-      font-family:"Libre Baskerville",serif;
-      font-size:20px;
       margin:0 0 8px;
+      color:#666;
+      font-size:12px;
+      letter-spacing:0.10em;
+      text-transform:uppercase
     }
-    .hook{font-size:15.5px; margin:0 0 12px; color:#222;}
 
-    figure{margin:12px 0 10px}
+    /* Featured strip (match Projects page) */
+    .featured{
+      grid-column: 1 / -1;
+      margin:22px 0 28px;
+      padding:18px 18px;
+      background:#fafafa;
+      border-radius:16px;
+    }
+    .featured-grid{
+      display:grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap:18px;
+      align-items:start;
+    }
+    .featured h3{
+      margin:0 0 8px;
+      font-family:"Libre Baskerville",serif;
+      font-size:22px;
+      line-height:1.25;
+    }
+    .featured .hook{
+      margin:0 0 10px;
+      font-size:17px;
+      color:#222;
+    }
+
+    figure{margin:0}
     .feature-img{
       width:100%;
-      max-width:520px;
-      border-radius:3px;
+      max-width:420px;
+      height:auto;
       display:block;
-      margin: 0 auto;
+      margin: 4px auto 0;
+      border-radius:12px;
+      border:1px solid #e6e6e6;
+      background:#fff;
     }
-    .small{font-size:14.5px;color:#333;margin:0 0 12px}
 
-    .kpis{display:flex;gap:18px;flex-wrap:wrap;margin:10px 0 12px}
-    .kpi{border-left:3px solid #9a9a9a;padding-left:10px}
-    .kpi .val{font-family:"Libre Baskerville",serif;font-size:18px;line-height:1.2}
-    .kpi .lab{font-size:13px;color:#555}
+    .mini-kpis{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin:10px 0 0;
+      padding:0;
+      list-style:none;
+    }
+    .mini-kpis li{
+      font-size:13px;
+      color:#444;
+      border-left:3px solid #9a9a9a;
+      padding-left:10px;
+    }
+    .mini-kpis strong{font-family:"Libre Baskerville",serif;font-weight:700}
 
-    .btnrow{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
-    .btn{padding:8px 12px;border-radius:4px;text-decoration:none;font-size:14px;display:inline-block}
-    .primary{background:#555;color:#fff}
-    .ghost{border:1px solid #555;color:#555}
-
-    details summary{cursor:pointer;font-weight:600;font-size:14px}
-    details p.small{margin-top:10px}
-
-    hr{border:none;border-top:1px solid #e6e6e6;margin:18px 0 0}
+    .linkrow{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:12px;
+      align-items:center;
+    }
+    .linkrow a{
+      text-decoration:none;
+      border-bottom:1px solid #bbb;
+      padding-bottom:2px;
+    }
+    .linkrow a:hover{border-bottom-color:#111}
 
     /* Contact (clean inline) */
     .contact-inline{
@@ -129,6 +151,7 @@
       gap:16px;
       flex-wrap:wrap;
       align-items:center;
+      justify-content:center;
     }
 
     .contact-link{
@@ -159,6 +182,11 @@
 
     footer{text-align:center;color:#777;font-size:14px;padding:32px 0}
     a{color:#111}
+
+    /* Responsive featured grid */
+    @media (max-width: 900px){
+      .featured-grid{grid-template-columns:1fr}
+    }
   </style>
 </head>
 
@@ -167,11 +195,20 @@
     <header>
       <h1>Miriam Malament</h1>
 
-      <!-- replaced “Applied Economist & Data Scientist” -->
-      <div class="subtitle">
-        <a href="mailto:miriammalament@gmail.com">Email</a>
-        &nbsp;·&nbsp;
-        <a href="https://www.linkedin.com/in/miriam-malament/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <div class="contact-inline" aria-label="Contact links">
+        <a class="contact-link" href="mailto:miriammalament@gmail.com" aria-label="Email Miriam">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 6H4v12h16V6Zm-1.6 1.5L12 12.2 5.6 7.5h12.8ZM5.5 16.9V8.7l6.1 4.8.4.3.4-.3 6.1-4.8v8.2H5.5Z"/>
+          </svg>
+          <span>Email</span>
+        </a>
+
+        <a class="contact-link" href="https://www.linkedin.com/in/miriam-malament/" target="_blank" rel="noopener noreferrer" aria-label="Miriam on LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6.5 9H4v11h2.5V9ZM5.25 4C4.56 4 4 4.56 4 5.25S4.56 6.5 5.25 6.5 6.5 5.94 6.5 5.25 5.94 4 5.25 4ZM20 20h-2.5v-5.7c0-1.36-.03-3.1-1.9-3.1-1.9 0-2.19 1.48-2.19 3v5.8H11V9h2.4v1.5h.03c.33-.62 1.15-1.9 2.88-1.9 3.08 0 3.66 2.03 3.66 4.68V20Z"/>
+          </svg>
+          <span>LinkedIn</span>
+        </a>
       </div>
     </header>
 
@@ -203,23 +240,6 @@
           <a href="https://eit.org/economics" target="_blank" rel="noopener noreferrer">Ellison Institute of Technology, Oxford</a>.
         </p>
 
-        <!-- Contact (clean inline) -->
-        <div class="contact-inline" aria-label="Contact links">
-          <a class="contact-link" href="mailto:miriammalament@gmail.com" aria-label="Email Miriam">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M20 6H4v12h16V6Zm-1.6 1.5L12 12.2 5.6 7.5h12.8ZM5.5 16.9V8.7l6.1 4.8.4.3.4-.3 6.1-4.8v8.2H5.5Z"/>
-            </svg>
-            <span>Email</span>
-          </a>
-
-          <a class="contact-link" href="https://www.linkedin.com/in/miriam-malament/" target="_blank" rel="noopener noreferrer" aria-label="Miriam on LinkedIn">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M6.5 9H4v11h2.5V9ZM5.25 4C4.56 4 4 4.56 4 5.25S4.56 6.5 5.25 6.5 6.5 5.94 6.5 5.25 5.94 4 5.25 4ZM20 20h-2.5v-5.7c0-1.36-.03-3.1-1.9-3.1-1.9 0-2.19 1.48-2.19 3v5.8H11V9h2.4v1.5h.03c.33-.62 1.15-1.9 2.88-1.9 3.08 0 3.66 2.03 3.66 4.68V20Z"/>
-            </svg>
-            <span>LinkedIn</span>
-          </a>
-        </div>
-
         <hr />
       </section>
 
@@ -227,52 +247,42 @@
         <img src="photo.jpg" alt="Portrait of Miriam Malament" class="photo" />
       </aside>
 
-      <!-- FEATURED PROJECT CARD (CENTERED + FULL-WIDTH ROW) -->
-      <div class="block" aria-labelledby="thesis-title">
-        <div class="inner">
-          <p class="eyebrow">Featured project - Master's thesis</p>
-          <h3 id="thesis-title" class="title">Do symbolic penalties work?</h3>
+      <!-- FEATURED (match Projects page) -->
+      <div class="featured" aria-labelledby="feat-title">
+        <div class="featured-grid">
+          <div>
+            <p class="eyebrow">Featured - Master's thesis</p>
+            <h3 id="feat-title">Do Symbolic Penalties Work? Evidence from Argentina’s Compulsory Voting Law</h3>
 
-          <p class="hook">
-            A <strong>$0.05 fine</strong> that is almost never enforced still coincides with a <strong>~20-point jump</strong>
-            in turnout at age 18 — consistent with a large participation response at a legal threshold.
-          </p>
+            <p class="hook">
+              A <strong>$0.05</strong> fine that is almost never enforced still lines up with a <strong>~20pp</strong> jump in turnout at age 18.
+            </p>
+
+            <p class="small" style="margin:0;">
+              The project tests whether legal obligation can change behavior when deterrence is basically absent.
+              Using the age-18 threshold, patterns are most consistent with the law acting as a social signal rather than a credible threat.
+            </p>
+
+            <ul class="mini-kpis" aria-label="Key facts">
+              <li><strong>~20pp</strong> turnout jump</li>
+              <li><strong>15</strong> national elections (2015–2023)</li>
+              <li><strong>$0.05</strong> real fine (approx.)</li>
+            </ul>
+
+            <div class="linkrow">
+              <a href="thesis-symbolic-law.html">Project page</a>
+              <a href="assets/Malament_SymbolicLaw_OnePager.pdf">1-page brief</a>
+            </div>
+          </div>
 
           <figure>
-            <img src="thesis_plot.jpg" alt="Plot showing the discontinuity in turnout at age 18 in Argentina" class="feature-img" loading="lazy" />
+            <img
+              src="thesis_plot.jpg"
+              alt="Plot showing the discontinuity in turnout at age 18 in Argentina"
+              class="feature-img"
+              loading="lazy"
+            />
           </figure>
-
-          <p class="small">
-            This project uses Argentina’s compulsory voting threshold as a clean test of how participation incentives shift at a regulatory cutoff when expected penalties are near zero.
-            The evidence is most consistent with <strong>expressive compliance</strong>: the law operates as a normative signal rather than a credible threat.
-          </p>
-
-          <div class="kpis" role="list" aria-label="Key project facts">
-            <div class="kpi" role="listitem">
-              <div class="val">~20pp</div>
-              <div class="lab">turnout jump at 18</div>
-            </div>
-            <div class="kpi" role="listitem">
-              <div class="val">15</div>
-              <div class="lab">national elections (2015–2023)</div>
-            </div>
-            <div class="kpi" role="listitem">
-              <div class="val">$0.05</div>
-              <div class="lab">approx. real fine value</div>
-            </div>
-          </div>
-
-          <div class="btnrow">
-            <a class="btn primary" href="research.html">Explore the project</a>
-            <a class="btn ghost" href="thesis_masters.pdf">Full paper</a>
-          </div>
-
-          <details style="margin-top:12px;">
-            <summary>What is “expressive compliance”?</summary>
-            <p class="small" style="margin-top:10px;">
-              Behaviour can change not because people fear punishment, but because the law shifts expectations about what is normal or required. In that view, even symbolic penalties can generate meaningful participation responses.
-            </p>
-          </details>
         </div>
       </div>
     </main>
