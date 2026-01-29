@@ -14,7 +14,16 @@
 
     header{text-align:center;padding:48px 0 24px}
     header h1{margin:0;font-family:"Libre Baskerville",serif;font-size:42px;letter-spacing:0.02em}
-    header .subtitle{margin-top:8px;color:#555;font-size:20px;font-family:"Libre Baskerville",serif}
+
+    /* replaced subtitle with simple links */
+    header .subtitle{
+      margin-top:10px;
+      color:#555;
+      font-size:18px;
+      font-family:"Libre Baskerville",serif;
+    }
+    header .subtitle a{color:#555;text-decoration:none}
+    header .subtitle a:hover{text-decoration:underline}
 
     nav{
       border-top:1px solid #bbb;
@@ -41,7 +50,7 @@
       .page{padding:0 16px;}
       header{padding:34px 0 16px;}
       header h1{font-size:32px;}
-      header .subtitle{font-size:17px;}
+      header .subtitle{font-size:16px;}
       nav{margin-top:18px;}
       nav ul{gap:10px; padding:10px 0;}
       nav li{font-size:16px;}
@@ -68,11 +77,11 @@
       border: 1px solid #ddd;
       border-radius: 6px;
       width: 100%;
-      max-width: 900px;      /* keeps it from stretching too wide */
-      margin-left: auto;     /* centers the “square” */
-      margin-right: auto;    /* centers the “square” */
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
     }
-    .block .inner{max-width: 820px; margin:0 auto;} /* center content inside the card */
+    .block .inner{max-width: 820px; margin:0 auto;}
 
     .eyebrow{
       text-transform:uppercase;
@@ -89,13 +98,13 @@
     .hook{font-size:15.5px; margin:0 0 12px; color:#222;}
 
     figure{margin:12px 0 10px}
-.feature-img{
-  width:100%;
-  max-width:520px;
-  border-radius:3px;
-  display:block;
-  margin: 0 auto;
-}
+    .feature-img{
+      width:100%;
+      max-width:520px;
+      border-radius:3px;
+      display:block;
+      margin: 0 auto;
+    }
     .small{font-size:14.5px;color:#333;margin:0 0 12px}
 
     .kpis{display:flex;gap:18px;flex-wrap:wrap;margin:10px 0 12px}
@@ -113,82 +122,40 @@
 
     hr{border:none;border-top:1px solid #e6e6e6;margin:18px 0 0}
 
-    /* Contact info block on index */
-/* Contact (clean inline) */
-.contact-inline{
-  margin-top:16px;
-  display:flex;
-  gap:16px;
-  flex-wrap:wrap;
-  align-items:center;
-}
+    /* Contact (clean inline) */
+    .contact-inline{
+      margin-top:16px;
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
 
-.contact-link{
-  display:inline-flex;
-  gap:10px;
-  align-items:center;
-  padding:8px 10px;
-  border-radius:12px;
-  text-decoration:none;
-  color:#111;
-  border:1px solid #e6e6e6;
-  background:#fff;
-}
+    .contact-link{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding:8px 10px;
+      border-radius:12px;
+      text-decoration:none;
+      color:#111;
+      border:1px solid #e6e6e6;
+      background:#fff;
+    }
 
-.contact-link svg{
-  width:18px;
-  height:18px;
-  fill:#111;
-  flex:0 0 auto;
-}
+    .contact-link svg{
+      width:18px;
+      height:18px;
+      fill:#111;
+      flex:0 0 auto;
+    }
 
-.contact-link:hover{
-  border-color:#cfcfcf;
-}
+    .contact-link:hover{ border-color:#cfcfcf; }
 
-.contact-link:focus-visible{
-  outline:2px solid #111;
-  outline-offset:2px;
-}
-
-.contact-card .label{
-  font-size:13px;
-  letter-spacing:0.06em;
-  text-transform:uppercase;
-  color:#666;
-  margin-bottom:10px;
-}
-
-.contact-icons{
-  display:flex;
-  gap:18px;
-  align-items:center;
-}
-
-.contact-icon-link{
-  width:46px;
-  height:46px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  text-decoration:none;
-  border:1px solid #e1e1e1;
-  border-radius:10px;
-  background:#fff;
-}
-
-.contact-icon{
-  width:22px;
-  height:22px;
-  fill:#111;
-}
-
-.contact-icon-link:hover{border-color:#bbb;}
-
-@media (max-width:600px){
-  .contact-icon-link{width:52px;height:52px}
-  .contact-icon{width:24px;height:24px}
-}
+    .contact-link:focus-visible{
+      outline:2px solid #111;
+      outline-offset:2px;
+    }
 
     footer{text-align:center;color:#777;font-size:14px;padding:32px 0}
     a{color:#111}
@@ -199,7 +166,13 @@
   <div class="page">
     <header>
       <h1>Miriam Malament</h1>
-<div class="subtitle">Applied Economist &amp; Data Scientist</div>
+
+      <!-- replaced “Applied Economist & Data Scientist” -->
+      <div class="subtitle">
+        <a href="mailto:miriammalament@gmail.com">Email</a>
+        &nbsp;·&nbsp;
+        <a href="https://www.linkedin.com/in/miriam-malament/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
     </header>
 
     <nav>
@@ -207,7 +180,6 @@
         <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
         <li><a href="experience.html" class="nav-link" id="nav-experience">Experience</a></li>
         <li><a href="projects.html" class="nav-link" id="nav-projects">Projects</a></li>
-        <li><a href="outreach.html" class="nav-link" id="nav-outreach">Outreach</a></li>
         <li><a href="contact.html" class="nav-link" id="nav-contact">Contact</a></li>
       </ul>
     </nav>
@@ -231,24 +203,22 @@
           <a href="https://eit.org/economics" target="_blank" rel="noopener noreferrer">Ellison Institute of Technology, Oxford</a>.
         </p>
 
-<!-- Contact (clean inline) -->
-<div class="contact-inline" aria-label="Contact links">
-  <a class="contact-link" href="mailto:miriammalament@gmail.com" aria-label="Email Miriam">
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M20 6H4v12h16V6Zm-1.6 1.5L12 12.2 5.6 7.5h12.8ZM5.5 16.9V8.7l6.1 4.8.4.3.4-.3 6.1-4.8v8.2H5.5Z"/>
-    </svg>
-    <span>Email</span>
-  </a>
+        <!-- Contact (clean inline) -->
+        <div class="contact-inline" aria-label="Contact links">
+          <a class="contact-link" href="mailto:miriammalament@gmail.com" aria-label="Email Miriam">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20 6H4v12h16V6Zm-1.6 1.5L12 12.2 5.6 7.5h12.8ZM5.5 16.9V8.7l6.1 4.8.4.3.4-.3 6.1-4.8v8.2H5.5Z"/>
+            </svg>
+            <span>Email</span>
+          </a>
 
-  <a class="contact-link" href="https://www.linkedin.com/in/miriam-malament/" target="_blank" rel="noopener noreferrer" aria-label="Miriam on LinkedIn">
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M6.5 9H4v11h2.5V9ZM5.25 4C4.56 4 4 4.56 4 5.25S4.56 6.5 5.25 6.5 6.5 5.94 6.5 5.25 5.94 4 5.25 4ZM20 20h-2.5v-5.7c0-1.36-.03-3.1-1.9-3.1-1.9 0-2.19 1.48-2.19 3v5.8H11V9h2.4v1.5h.03c.33-.62 1.15-1.9 2.88-1.9 3.08 0 3.66 2.03 3.66 4.68V20Z"/>
-    </svg>
-    <span>LinkedIn</span>
-  </a>
-</div>
-
-
+          <a class="contact-link" href="https://www.linkedin.com/in/miriam-malament/" target="_blank" rel="noopener noreferrer" aria-label="Miriam on LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6.5 9H4v11h2.5V9ZM5.25 4C4.56 4 4 4.56 4 5.25S4.56 6.5 5.25 6.5 6.5 5.94 6.5 5.25 5.94 4 5.25 4ZM20 20h-2.5v-5.7c0-1.36-.03-3.1-1.9-3.1-1.9 0-2.19 1.48-2.19 3v5.8H11V9h2.4v1.5h.03c.33-.62 1.15-1.9 2.88-1.9 3.08 0 3.66 2.03 3.66 4.68V20Z"/>
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+        </div>
 
         <hr />
       </section>
@@ -318,8 +288,8 @@
         'index.html': 'nav-home',
         '': 'nav-home',
         'experience.html': 'nav-experience',
+        'projects.html': 'nav-projects',
         'research.html': 'nav-projects',
-        'outreach.html': 'nav-outreach',
         'contact.html': 'nav-contact'
       };
       var current = location.pathname.split('/').pop();
