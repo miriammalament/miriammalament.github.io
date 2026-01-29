@@ -1,8 +1,3 @@
-<!--
-Projects page (file can still be research.html).
-Minimal portfolio layout: featured strip + visual thumbs + richer “case-study” text for YOUR projects.
--->
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -23,30 +18,71 @@ Minimal portfolio layout: featured strip + visual thumbs + richer “case-study�
     }
     .page{max-width:1050px;margin:0 auto;padding:0 24px}
 
-    header{text-align:center;padding:48px 0 24px}
+    /* Tighter header (match Home / Experience) */
+    header{text-align:center;padding:34px 0 14px}
     header h1{margin:0;font-family:"Libre Baskerville",serif;font-size:42px;letter-spacing:0.02em}
-    header .subtitle{margin-top:8px;color:#555;font-size:20px;font-family:"Libre Baskerville",serif}
 
     nav{
       border-top:1px solid #bbb;
       border-bottom:6px solid #9a9a9a;
-      margin-top:28px;
+      margin-top:16px;
       position:sticky;
       top:0;
       background:#fff;
       z-index:10;
     }
-    nav ul{list-style:none;display:flex;justify-content:center;gap:36px;padding:14px 0;margin:0;flex-wrap:wrap}
+    nav ul{list-style:none;display:flex;justify-content:center;gap:36px;padding:12px 0;margin:0;flex-wrap:wrap}
     nav li{font-family:"Libre Baskerville",serif;font-size:18px}
     nav a{text-decoration:none;color:#111;padding:10px 22px;display:inline-block}
     nav a.active{background:#555;color:#fff;border-radius:4px}
 
-    .content{margin:56px 0}
+    .content{margin:44px 0}
     section[id]{scroll-margin-top:120px}
 
     h2{font-family:"Libre Baskerville",serif;font-size:28px;margin:0 0 16px}
     p{margin:0 0 14px}
-    a{color:#111}
+
+    /* Global link styling (no blue/purple) */
+    a{color:#555;text-decoration:none}
+    a:visited{color:#555}
+    a:hover{color:#111;text-decoration:underline;text-underline-offset:3px}
+    a:focus-visible{outline:2px solid #111;outline-offset:3px;border-radius:6px}
+
+    /* Minimal contact (no boxes) */
+    .contact-inline{
+      margin-top:6px;
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:center;
+    }
+    .contact-link{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:0;
+      border:0;
+      background:transparent;
+      border-radius:0;
+      text-decoration:none;
+      color:#666;
+      font-size:15.5px;
+      line-height:1.2;
+    }
+    .contact-link svg{
+      width:16px;
+      height:16px;
+      fill:#666;
+      flex:0 0 auto;
+    }
+    .contact-link:hover{color:#111}
+    .contact-link:hover svg{fill:#111}
+    .contact-link:focus-visible{
+      outline:2px solid #111;
+      outline-offset:3px;
+      border-radius:6px;
+    }
 
     /* --- Minimal “portfolio” pieces --- */
     .muted{color:#555}
@@ -132,7 +168,9 @@ Minimal portfolio layout: featured strip + visual thumbs + richer “case-study�
       text-decoration:none;
       border-bottom:1px solid #bbb;
       padding-bottom:2px;
+      color:#111; /* keep these prominent */
     }
+    .linkrow a:visited{color:#111}
     .linkrow a:hover{border-bottom-color:#111}
 
     /* List */
@@ -141,7 +179,7 @@ Minimal portfolio layout: featured strip + visual thumbs + richer “case-study�
       border-top:1px solid #eee;
     }
 
-    /* New: portfolio item layout with small visual thumb */
+    /* Portfolio item layout */
     .item{
       padding:18px 0;
       border-bottom:1px solid #eee;
@@ -171,7 +209,6 @@ Minimal portfolio layout: featured strip + visual thumbs + richer “case-study�
     }
     .meta{font-size:13px;color:#666;margin:0 0 8px;letter-spacing:0.02em}
 
-    /* “Case-study” lines */
     .lines{margin:0}
     .line{
       margin:0 0 6px;
@@ -181,23 +218,6 @@ Minimal portfolio layout: featured strip + visual thumbs + richer “case-study�
     .line b{
       font-weight:700;
       color:#111;
-    }
-
-    .outputs{
-      margin-top:10px;
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-    .tag{
-      font-size:12px;
-      color:#444;
-      border:1px solid #e6e6e6;
-      border-radius:999px;
-      background:#fff;
-      padding:6px 10px;
-      white-space:nowrap;
     }
 
     .right{
@@ -218,7 +238,9 @@ Minimal portfolio layout: featured strip + visual thumbs + richer “case-study�
       border-radius:999px;
       background:#fff;
       white-space:nowrap;
+      color:#111;
     }
+    .chiplink:visited{color:#111}
     .chiplink:hover{border-color:#bbb}
 
     .section-title{
@@ -227,9 +249,35 @@ Minimal portfolio layout: featured strip + visual thumbs + richer “case-study�
       font-size:20px;
     }
 
-    /* Subtle hover to make it feel “producty” */
+    /* Subtle hover */
     .item:hover .thumb{border-color:#bbb}
     .item:hover .chiplink{border-color:#bbb}
+
+    /* Footer (match Home / Experience) */
+    .site-footer{
+      border-top:1px solid #e6e6e6;
+      margin-top:32px;
+      padding:18px 0 28px;
+      color:#777;
+      font-size:13px;
+    }
+    .footer-inner{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .footer-split{justify-content:space-between}
+    .footer-link{
+      color:#555;
+      text-decoration:none;
+      border-bottom:1px solid transparent;
+      padding-bottom:2px;
+    }
+    .footer-link:hover{border-bottom-color:#bbb;color:#111}
+    @media (max-width:600px){
+      .footer-split{justify-content:center}
+    }
 
     /* Responsive */
     @media (max-width: 900px){
@@ -239,14 +287,13 @@ Minimal portfolio layout: featured strip + visual thumbs + richer “case-study�
     }
     @media (max-width: 600px){
       .page{padding:0 16px;}
-      header{padding:34px 0 16px;}
+      header{padding:26px 0 12px;}
       header h1{font-size:32px;}
-      header .subtitle{font-size:17px;}
-      nav{margin-top:18px;}
+      nav{margin-top:14px;}
       nav ul{gap:10px; padding:10px 0;}
       nav li{font-size:16px;}
       nav a{padding:9px 12px;}
-      .content{margin:28px 0;}
+      .content{margin:26px 0;}
       h2{font-size:24px;}
       .featured{padding:16px;border-radius:14px}
       .featured .hook{font-size:16px}
@@ -254,25 +301,38 @@ Minimal portfolio layout: featured strip + visual thumbs + richer “case-study�
       .thumb{width:72px;height:72px;border-radius:12px}
       .thumb svg{width:44px;height:44px}
     }
-
-    footer{text-align:center;color:#777;font-size:14px;padding:32px 0}
   </style>
 </head>
 
 <body>
-  <div class="page">
+  <div class="page" id="top">
     <header>
       <h1>Miriam Malament</h1>
-<div class="subtitle">Applied Economist &amp; Data Scientist</div>
+
+      <!-- Match Home: LinkedIn first, then Email -->
+      <div class="contact-inline" aria-label="Contact links">
+        <a class="contact-link" href="https://www.linkedin.com/in/miriam-malament/" target="_blank" rel="noopener noreferrer" aria-label="Miriam on LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6.5 9H4v11h2.5V9ZM5.25 4C4.56 4 4 4.56 4 5.25S4.56 6.5 5.25 6.5 6.5 5.94 6.5 5.25 5.94 4 5.25 4ZM20 20h-2.5v-5.7c0-1.36-.03-3.1-1.9-3.1-1.9 0-2.19 1.48-2.19 3v5.8H11V9h2.4v1.5h.03c.33-.62 1.15-1.9 2.88-1.9 3.08 0 3.66 2.03 3.66 4.68V20Z"/>
+          </svg>
+          <span>LinkedIn</span>
+        </a>
+
+        <a class="contact-link" href="mailto:miriammalament@gmail.com" aria-label="Email Miriam">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 6H4v12h16V6Zm-1.6 1.5L12 12.2 5.6 7.5h12.8ZM5.5 16.9V8.7l6.1 4.8.4.3.4-.3 6.1-4.8v8.2H5.5Z"/>
+          </svg>
+          <span>Email</span>
+        </a>
+      </div>
     </header>
 
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="experience.html">Experience</a></li>
-        <li><a href="projects.html" class="active">Projects</a></li>
-        <li><a href="outreach.html">Outreach</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
+        <li><a href="experience.html" class="nav-link" id="nav-experience">Experience</a></li>
+        <li><a href="projects.html" class="nav-link active" id="nav-projects">Projects</a></li>
+        <li><a href="contact.html" class="nav-link" id="nav-contact">Contact</a></li>
       </ul>
     </nav>
 
@@ -285,28 +345,26 @@ Minimal portfolio layout: featured strip + visual thumbs + richer “case-study�
           My work uses administrative and survey microdata, clean identification, and clear takeaways.
         </p>
 
-
-
         <!-- FEATURED -->
         <div class="featured" aria-labelledby="feat-title">
           <div class="featured-grid">
             <div>
-              <p class="eyebrow">Featured - Master's thesis</p>
-              <h3 id="feat-title">Do Symbolic Penalties Work? Evidence from Argentina’s Compulsory Voting Law</h3>
+              <p class="eyebrow">Featured — Master’s thesis</p>
+              <h3 id="feat-title">Do Symbolic Penalties Work?</h3>
 
               <p class="hook">
-                A <strong>$0.05</strong> fine that is almost never enforced still lines up with a <strong>~20pp</strong> jump in turnout at age 18.
+                A <strong>5-cent</strong> fine that is almost never enforced still lines up with a <strong>~20%</strong> jump in voter turnout at age 18 in Argentina.
               </p>
 
               <p class="small" style="margin:0;">
-                The project tests whether legal obligation can change behavior when deterrence is basically absent.
+                The project tests whether legal obligation can change behaviour when deterrence is basically absent.
                 Using the age-18 threshold, patterns are most consistent with the law acting as a social signal rather than a credible threat.
               </p>
 
               <ul class="mini-kpis" aria-label="Key facts">
-                <li><strong>~20pp</strong> turnout jump</li>
+                <li><strong>~20%</strong> turnout jump</li>
                 <li><strong>15</strong> national elections (2015–2023)</li>
-                <li><strong>$0.05</strong> real fine (approx.)</li>
+                <li><strong>5¢</strong> real fine (approx.)</li>
               </ul>
 
               <div class="linkrow">
@@ -332,7 +390,6 @@ Minimal portfolio layout: featured strip + visual thumbs + richer “case-study�
           <!-- Project 1 -->
           <div class="item" aria-labelledby="p1">
             <div class="thumb" aria-hidden="true">
-              <!-- Minimal timeline icon -->
               <svg viewBox="0 0 24 24">
                 <path d="M4 7h16"></path>
                 <path d="M6 7v10"></path>
@@ -345,12 +402,11 @@ Minimal portfolio layout: featured strip + visual thumbs + richer “case-study�
 
             <div>
               <h3 id="p1">Announced Stabilization Programs: Expectations and Macro Dynamics</h3>
-<div class="lines" aria-label="Project snapshot">
-  <p class="line"><b>Problem:</b> Stabilization plans are often evaluated as “surprises,” but many are announced early.</p>
-  <p class="line"><b>Approach:</b> We study how anticipation and credibility reshape the transition dynamics in money-based and exchange-rate-based stabilizations, focusing on the role of expectations.</p>
-  <p class="line"><b>Takeaway:</b> Timing changes the mechanism. When agents move first, the predicted boom–bust pattern can reverse, altering what “works” and when.</p>
-</div>
-
+              <div class="lines" aria-label="Project snapshot">
+                <p class="line"><b>Problem:</b> Stabilisation plans are often evaluated as “surprises,” but many are announced early.</p>
+                <p class="line"><b>Approach:</b> We study how anticipation and credibility reshape transition dynamics in money-based and exchange-rate-based stabilisations, focusing on expectations.</p>
+                <p class="line"><b>Takeaway:</b> Timing changes the mechanism. When agents move first, the predicted boom–bust pattern can reverse.</p>
+              </div>
             </div>
 
             <div class="right" aria-label="Links">
@@ -362,7 +418,6 @@ Minimal portfolio layout: featured strip + visual thumbs + richer “case-study�
           <!-- Project 2 -->
           <div class="item" aria-labelledby="p2">
             <div class="thumb" aria-hidden="true">
-              <!-- Minimal “buffer / fund” icon -->
               <svg viewBox="0 0 24 24">
                 <path d="M7 7c0-2.2 2.2-4 5-4s5 1.8 5 4-2.2 4-5 4-5-1.8-5-4Z"></path>
                 <path d="M7 7v10c0 2.2 2.2 4 5 4s5-1.8 5-4V7"></path>
@@ -372,13 +427,11 @@ Minimal portfolio layout: featured strip + visual thumbs + richer “case-study�
 
             <div>
               <h3 id="p2">Designing a Countercyclical Fiscal Fund</h3>
-
-<div class="lines" aria-label="Project snapshot">
-  <p class="line"><b>Problem:</b> Volatile revenues and political constraints make smoothing difficult in practice.</p>
-  <p class="line"><b>Approach:</b> We develop a practical fund design that makes constraints explicit—market access, credibility, and political economy—so the rule can be implemented rather than idealized.</p>
-  <p class="line"><b>Takeaway:</b> The framework translates “save in booms, spend in busts” into rules that remain credible under real-world incentives and shocks.</p>
-</div>
-
+              <div class="lines" aria-label="Project snapshot">
+                <p class="line"><b>Problem:</b> Volatile revenues and political constraints make smoothing difficult in practice.</p>
+                <p class="line"><b>Approach:</b> We develop a fund design that makes constraints explicit—market access, credibility, and political economy—so the rule can be implemented rather than idealised.</p>
+                <p class="line"><b>Takeaway:</b> The framework translates “save in booms, spend in busts” into rules that remain credible under real-world incentives and shocks.</p>
+              </div>
             </div>
 
             <div class="right" aria-label="Links">
@@ -390,7 +443,6 @@ Minimal portfolio layout: featured strip + visual thumbs + richer “case-study�
           <!-- Project 3 -->
           <div class="item" aria-labelledby="p3">
             <div class="thumb" aria-hidden="true">
-              <!-- Minimal “returns” icon -->
               <svg viewBox="0 0 24 24">
                 <path d="M5 19V5"></path>
                 <path d="M5 19h14"></path>
@@ -401,13 +453,11 @@ Minimal portfolio layout: featured strip + visual thumbs + richer “case-study�
 
             <div>
               <h3 id="p3">Returns to Education and Human Capital Investment: Evidence from Argentina</h3>
-
-<div class="lines" aria-label="Project snapshot">
-  <p class="line"><b>Problem:</b> How large is the payoff to schooling in Argentina, and how stable is it over time?</p>
-  <p class="line"><b>Approach:</b> I estimate returns to education using household survey microdata, harmonizing definitions across waves to produce clean, comparable results.</p>
-  <p class="line"><b>Takeaway:</b> Consistent estimates help interpret wage inequality and clarify the incentives households face when investing in education.</p>
-</div>
-
+              <div class="lines" aria-label="Project snapshot">
+                <p class="line"><b>Problem:</b> How large is the payoff to schooling in Argentina, and how stable is it over time?</p>
+                <p class="line"><b>Approach:</b> I estimate returns to education using household survey microdata, harmonising definitions across waves to produce clean, comparable results.</p>
+                <p class="line"><b>Takeaway:</b> Consistent estimates help interpret wage inequality and clarify the incentives households face when investing in education.</p>
+              </div>
             </div>
 
             <div class="right" aria-label="Links">
@@ -418,8 +468,7 @@ Minimal portfolio layout: featured strip + visual thumbs + richer “case-study�
 
         </div>
 
-        <!-- Contributor projects unchanged -->
-        <h3 class="section-title">Other projects </h3>
+        <h3 class="section-title">Other projects</h3>
         <p class="small" style="margin:0 0 8px;">
           Selected projects I contributed to, often focused on data work and reproducible pipelines.
         </p>
@@ -437,13 +486,10 @@ Minimal portfolio layout: featured strip + visual thumbs + richer “case-study�
             </div>
             <div>
               <div class="meta">Labor · Field Experiments · NBER WP 33903</div>
-<h3 id="c1">Pushing the Envelope: The Effects of Salary Negotiations</h3>
-<p class="authors">
-  By Zoë B. Cullen, Bobak Pakzad-Hurson, Ricardo Perez-Truglia
-</p>
-<p class="small" style="margin:0;">
-  Large-scale field experiments measuring wage effects and distributional impacts when more workers negotiate.
-</p>
+              <h3 id="c1">Pushing the Envelope: The Effects of Salary Negotiations</h3>
+              <p class="small" style="margin:0;">
+                Large-scale field experiments measuring wage effects and distributional impacts when more workers negotiate.
+              </p>
             </div>
             <div class="right">
               <a class="chiplink" href="https://www.nber.org/papers/w33903" target="_blank" rel="noopener">NBER</a>
@@ -459,13 +505,10 @@ Minimal portfolio layout: featured strip + visual thumbs + richer “case-study�
               </svg>
             </div>
             <div>
-             <h3 id="c2">Macroeconomic Expectations and Credit Card Spending</h3>
-<p class="authors">
-  By Misha Galashin, Martin Kanz, Ricardo Perez-Truglia
-</p>
-<p class="small" style="margin:0;">
-  Shifts inflation and FX expectations, then tracks spending responses using transaction-level credit card data.
-</p>
+              <h3 id="c2">Macroeconomic Expectations and Credit Card Spending</h3>
+              <p class="small" style="margin:0;">
+                Shifts inflation and FX expectations, then tracks spending responses using transaction-level credit card data.
+              </p>
             </div>
             <div class="right">
               <a class="chiplink" href="https://www.nber.org/papers/w28281" target="_blank" rel="noopener">NBER</a>
@@ -484,13 +527,10 @@ Minimal portfolio layout: featured strip + visual thumbs + richer “case-study�
             </div>
             <div>
               <div class="meta">Political Economy · Beliefs · NBER WP 32712</div>
-<h3 id="c3">Billionaire Superstar: Public Image and Demand for Taxation</h3>
-<p class="authors">
-  By Ricardo Perez-Truglia, Jeffrey Yusof
-</p>
-<p class="small" style="margin:0;">
-  Survey experiment on how narratives about billionaires shift beliefs, perceived fairness, and support for taxing the very rich.
-</p>
+              <h3 id="c3">Billionaire Superstar: Public Image and Demand for Taxation</h3>
+              <p class="small" style="margin:0;">
+                Survey experiment on how narratives about billionaires shift beliefs, perceived fairness, and support for taxing the very rich.
+              </p>
             </div>
             <div class="right">
               <a class="chiplink" href="https://www.nber.org/papers/w32712" target="_blank" rel="noopener">NBER</a>
@@ -503,9 +543,35 @@ Minimal portfolio layout: featured strip + visual thumbs + richer “case-study�
       </section>
     </main>
 
-    <footer>
-      <div><a href="mailto:miriammalament@gmail.com">miriammalament@gmail.com</a></div>
+    <footer class="site-footer" role="contentinfo">
+      <div class="footer-inner footer-split">
+        <span>© <span id="year"></span> Miriam Malament</span>
+        <a class="footer-link" href="#top">Back to top</a>
+      </div>
     </footer>
   </div>
+
+  <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Active nav highlight
+    (function(){
+      var map = {
+        'index.html': 'nav-home',
+        '': 'nav-home',
+        'experience.html': 'nav-experience',
+        'projects.html': 'nav-projects',
+        'research.html': 'nav-projects',
+        'contact.html': 'nav-contact'
+      };
+      var current = location.pathname.split('/').pop();
+      var activeId = map[current] || null;
+      if (activeId) {
+        var el = document.getElementById(activeId);
+        if (el) el.classList.add('active');
+      }
+    })();
+  </script>
 </body>
 </html>
