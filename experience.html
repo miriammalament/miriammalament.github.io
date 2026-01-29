@@ -1,52 +1,91 @@
-<!--
-Experience page (drop-in).
-Updates:
-- Removes Outreach from nav
-- Replaces subtitle with Email + LinkedIn (to match your new header style)
-- Adds a Skills section that makes your strengths explicit (methods + data + tools + outputs)
-- Keeps your responsive timeline table + education cards
--->
-
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Experience — Miriam Malament</title>
-  <meta name="description" content="Experience overview for Miriam Malament, highlighting applied and academic research work across experiments, policy research, AI economics, and prevention economics." />
+  <meta name="description" content="Experience overview for Miriam Malament, highlighting applied and academic research work across academic, policy, and applied research environments." />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
     html { scroll-behavior: smooth; }
-    body{margin:0;background:#ffffff;color:#111;font-family:"Source Sans 3",system-ui,-apple-system,Segoe UI,Roboto,Arial;line-height:1.6}
+    body{
+      margin:0;
+      background:#ffffff;
+      color:#111;
+      font-family:"Source Sans 3",system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      line-height:1.6
+    }
     .page{max-width:1050px;margin:0 auto;padding:0 24px}
 
-    header{text-align:center;padding:48px 0 24px}
+    /* Tighter header (match Home) */
+    header{text-align:center;padding:34px 0 14px}
     header h1{margin:0;font-family:"Libre Baskerville",serif;font-size:42px;letter-spacing:0.02em}
 
     nav{
       border-top:1px solid #bbb;
       border-bottom:6px solid #9a9a9a;
-      margin-top:28px;
+      margin-top:16px;
       position:sticky;
       top:0;
       background:#fff;
       z-index:10;
     }
-    nav ul{list-style:none;display:flex;justify-content:center;gap:36px;padding:14px 0;margin:0;flex-wrap:wrap}
+    nav ul{list-style:none;display:flex;justify-content:center;gap:36px;padding:12px 0;margin:0;flex-wrap:wrap}
     nav li{font-family:"Libre Baskerville",serif;font-size:18px}
     nav a{text-decoration:none;color:#111;padding:10px 22px;display:inline-block}
     nav a.active{background:#555;color:#fff;border-radius:4px}
 
     /* Page layout */
-    .content{display:grid;grid-template-columns:1fr;gap:0;margin:56px 0}
+    .content{display:grid;grid-template-columns:1fr;gap:0;margin:44px 0}
     aside{display:none}
 
     section[id]{scroll-margin-top:120px}
 
     h2{font-family:"Libre Baskerville",serif;font-size:28px;margin:0 0 14px}
     p{margin:0 0 14px}
-    a{color:#111}
+
+    /* Global link styling (no blue/purple) */
+    a{color:#555;text-decoration:none}
+    a:visited{color:#555}
+    a:hover{color:#111;text-decoration:underline;text-underline-offset:3px}
+    a:focus-visible{outline:2px solid #111;outline-offset:3px;border-radius:6px}
+
+    /* Minimal contact (match Home: no boxes) */
+    .contact-inline{
+      margin-top:6px;
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:center;
+    }
+    .contact-link{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:0;
+      border:0;
+      background:transparent;
+      border-radius:0;
+      text-decoration:none;
+      color:#666;
+      font-size:15.5px;
+      line-height:1.2;
+    }
+    .contact-link svg{
+      width:16px;
+      height:16px;
+      fill:#666;
+      flex:0 0 auto;
+    }
+    .contact-link:hover{color:#111}
+    .contact-link:hover svg{fill:#111}
+    .contact-link:focus-visible{
+      outline:2px solid #111;
+      outline-offset:3px;
+      border-radius:6px;
+    }
 
     /* Section framing */
     .section-head{
@@ -106,78 +145,42 @@ Updates:
     }
     .cv-row:last-child{border-bottom:none}
 
-    /* Contact (inline chips) */
-    .contact-inline{
-      margin-top:16px;
-      display:flex;
-      gap:16px;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:center;
-    }
-    .contact-link{
-      display:inline-flex;
-      gap:10px;
-      align-items:center;
-      padding:8px 10px;
-      border-radius:12px;
-      text-decoration:none;
-      color:#111;
-      border:1px solid #e6e6e6;
-      background:#fff;
-    }
-    .contact-link svg{
-      width:18px;
-      height:18px;
-      fill:#111;
-      flex:0 0 auto;
-    }
-    .contact-link:hover{ border-color:#cfcfcf; }
-    .contact-link:focus-visible{
-      outline:2px solid #111;
-      outline-offset:2px;
-    }
-
-    /* Skills */
-    .skills-grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:16px;
-    }
-    .skillbox{
-      border:1px solid #f0f0f0;
-      border-radius:12px;
-      padding:14px 14px 12px;
-      background:#fff;
-    }
-    .skillbox h3{
-      margin:0 0 8px;
-      font-family:"Libre Baskerville",serif;
-      font-size:16px;
-      line-height:1.25;
-    }
-    .pillrow{display:flex;gap:8px;flex-wrap:wrap;margin:0}
-    .pill{
+    /* Footer (match Home: minimal, personal) */
+    .site-footer{
+      border-top:1px solid #e6e6e6;
+      margin-top:32px;
+      padding:18px 0 28px;
+      color:#777;
       font-size:13px;
-      color:#333;
-      background:#fff;
-      border:1px solid #e6e6e6;
-      border-radius:999px;
-      padding:6px 10px;
-      white-space:nowrap;
     }
-    .small{font-size:14px;color:#555;margin:0}
+    .footer-inner{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .footer-split{justify-content:space-between}
+    .footer-link{
+      color:#555;
+      text-decoration:none;
+      border-bottom:1px solid transparent;
+      padding-bottom:2px;
+    }
+    .footer-link:hover{border-bottom-color:#bbb;color:#111}
+    @media (max-width:600px){
+      .footer-split{justify-content:center}
+    }
 
     /* Phone polish */
     @media (max-width: 600px){
       .page{padding:0 16px;}
-      header{padding:34px 0 16px;}
+      header{padding:26px 0 12px;}
       header h1{font-size:32px;}
-      nav{margin-top:18px;}
+      nav{margin-top:14px;}
       nav ul{gap:10px; padding:10px 0;}
       nav li{font-size:16px;}
       nav a{padding:9px 12px;}
-      .content{margin:28px 0;}
+      .content{margin:26px 0;}
       h2{font-size:24px;}
       .lead{font-size:16.5px;}
 
@@ -213,42 +216,39 @@ Updates:
         padding:12px 12px 10px;
         margin:10px 0;
       }
-
-      .skills-grid{grid-template-columns:1fr}
     }
-
-    footer{text-align:center;color:#777;font-size:14px;padding:32px 0}
   </style>
 </head>
 
 <body>
-  <div class="page">
+  <div class="page" id="top">
     <header>
       <h1>Miriam Malament</h1>
 
+      <!-- LinkedIn first, then Email (match Home) -->
       <div class="contact-inline" aria-label="Contact links">
-        <a class="contact-link" href="mailto:miriammalament@gmail.com" aria-label="Email Miriam">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M20 6H4v12h16V6Zm-1.6 1.5L12 12.2 5.6 7.5h12.8ZM5.5 16.9V8.7l6.1 4.8.4.3.4-.3 6.1-4.8v8.2H5.5Z"/>
-          </svg>
-          <span>Email</span>
-        </a>
-
         <a class="contact-link" href="https://www.linkedin.com/in/miriam-malament/" target="_blank" rel="noopener noreferrer" aria-label="Miriam on LinkedIn">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M6.5 9H4v11h2.5V9ZM5.25 4C4.56 4 4 4.56 4 5.25S4.56 6.5 5.25 6.5 6.5 5.94 6.5 5.25 5.94 4 5.25 4ZM20 20h-2.5v-5.7c0-1.36-.03-3.1-1.9-3.1-1.9 0-2.19 1.48-2.19 3v5.8H11V9h2.4v1.5h.03c.33-.62 1.15-1.9 2.88-1.9 3.08 0 3.66 2.03 3.66 4.68V20Z"/>
           </svg>
           <span>LinkedIn</span>
         </a>
+
+        <a class="contact-link" href="mailto:miriammalament@gmail.com" aria-label="Email Miriam">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 6H4v12h16V6Zm-1.6 1.5L12 12.2 5.6 7.5h12.8ZM5.5 16.9V8.7l6.1 4.8.4.3.4-.3 6.1-4.8v8.2H5.5Z"/>
+          </svg>
+          <span>Email</span>
+        </a>
       </div>
     </header>
 
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="experience.html" class="active">Experience</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
+        <li><a href="experience.html" class="nav-link active" id="nav-experience">Experience</a></li>
+        <li><a href="projects.html" class="nav-link" id="nav-projects">Projects</a></li>
+        <li><a href="contact.html" class="nav-link" id="nav-contact">Contact</a></li>
       </ul>
     </nav>
 
@@ -309,8 +309,6 @@ Updates:
         </div>
       </section>
 
-  
-
       <section id="education" aria-labelledby="education-heading">
         <div class="section-head">
           <h2 id="education-heading">Education</h2>
@@ -349,15 +347,37 @@ Updates:
           </div>
         </div>
       </section>
-
-      <aside></aside>
     </main>
 
-    <footer>
-      <div>
-        Oxford, United Kingdom · <a href="mailto:mmalament@eit.org">mmalament@eit.org</a>
+    <footer class="site-footer" role="contentinfo">
+      <div class="footer-inner footer-split">
+        <span>© <span id="year"></span> Miriam Malament</span>
+        <a class="footer-link" href="#top">Back to top</a>
       </div>
     </footer>
   </div>
+
+  <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Active nav highlight
+    (function(){
+      var map = {
+        'index.html': 'nav-home',
+        '': 'nav-home',
+        'experience.html': 'nav-experience',
+        'projects.html': 'nav-projects',
+        'research.html': 'nav-projects',
+        'contact.html': 'nav-contact'
+      };
+      var current = location.pathname.split('/').pop();
+      var activeId = map[current] || null;
+      if (activeId) {
+        var el = document.getElementById(activeId);
+        if (el) el.classList.add('active');
+      }
+    })();
+  </script>
 </body>
 </html>
