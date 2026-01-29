@@ -1,10 +1,10 @@
 <!--
-Drop-in replacement for your Experience page.
-Keeps your overall structure, but:
-- makes the timeline table responsive (stacked “cards” on phones)
-- adds consistent spacing + subtle section headers
-- makes Experience/Education blocks visually cleaner
-- updates nav label/link to Projects (if you already renamed Research → Projects)
+Experience page (drop-in).
+Updates:
+- Removes Outreach from nav
+- Replaces subtitle with Email + LinkedIn (to match your new header style)
+- Adds a Skills section that makes your strengths explicit (methods + data + tools + outputs)
+- Keeps your responsive timeline table + education cards
 -->
 
 <!doctype html>
@@ -23,7 +23,6 @@ Keeps your overall structure, but:
 
     header{text-align:center;padding:48px 0 24px}
     header h1{margin:0;font-family:"Libre Baskerville",serif;font-size:42px;letter-spacing:0.02em}
-    header .subtitle{margin-top:8px;color:#555;font-size:20px;font-family:"Libre Baskerville",serif}
 
     nav{
       border-top:1px solid #bbb;
@@ -77,7 +76,7 @@ Keeps your overall structure, but:
     .cv-table{
       width:100%;
       border-collapse:collapse;
-      min-width:700px; /* keeps columns readable on desktop; phones will switch to cards below */
+      min-width:700px;
     }
     .cv-table td{
       padding:14px 10px;
@@ -107,12 +106,73 @@ Keeps your overall structure, but:
     }
     .cv-row:last-child{border-bottom:none}
 
+    /* Contact (inline chips) */
+    .contact-inline{
+      margin-top:16px;
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:center;
+    }
+    .contact-link{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding:8px 10px;
+      border-radius:12px;
+      text-decoration:none;
+      color:#111;
+      border:1px solid #e6e6e6;
+      background:#fff;
+    }
+    .contact-link svg{
+      width:18px;
+      height:18px;
+      fill:#111;
+      flex:0 0 auto;
+    }
+    .contact-link:hover{ border-color:#cfcfcf; }
+    .contact-link:focus-visible{
+      outline:2px solid #111;
+      outline-offset:2px;
+    }
+
+    /* Skills */
+    .skills-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+    }
+    .skillbox{
+      border:1px solid #f0f0f0;
+      border-radius:12px;
+      padding:14px 14px 12px;
+      background:#fff;
+    }
+    .skillbox h3{
+      margin:0 0 8px;
+      font-family:"Libre Baskerville",serif;
+      font-size:16px;
+      line-height:1.25;
+    }
+    .pillrow{display:flex;gap:8px;flex-wrap:wrap;margin:0}
+    .pill{
+      font-size:13px;
+      color:#333;
+      background:#fff;
+      border:1px solid #e6e6e6;
+      border-radius:999px;
+      padding:6px 10px;
+      white-space:nowrap;
+    }
+    .small{font-size:14px;color:#555;margin:0}
+
     /* Phone polish */
     @media (max-width: 600px){
       .page{padding:0 16px;}
       header{padding:34px 0 16px;}
       header h1{font-size:32px;}
-      header .subtitle{font-size:17px;}
       nav{margin-top:18px;}
       nav ul{gap:10px; padding:10px 0;}
       nav li{font-size:16px;}
@@ -153,6 +213,8 @@ Keeps your overall structure, but:
         padding:12px 12px 10px;
         margin:10px 0;
       }
+
+      .skills-grid{grid-template-columns:1fr}
     }
 
     footer{text-align:center;color:#777;font-size:14px;padding:32px 0}
@@ -163,7 +225,22 @@ Keeps your overall structure, but:
   <div class="page">
     <header>
       <h1>Miriam Malament</h1>
-<div class="subtitle">Applied Economist &amp; Data Scientist</div>
+
+      <div class="contact-inline" aria-label="Contact links">
+        <a class="contact-link" href="mailto:miriammalament@gmail.com" aria-label="Email Miriam">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 6H4v12h16V6Zm-1.6 1.5L12 12.2 5.6 7.5h12.8ZM5.5 16.9V8.7l6.1 4.8.4.3.4-.3 6.1-4.8v8.2H5.5Z"/>
+          </svg>
+          <span>Email</span>
+        </a>
+
+        <a class="contact-link" href="https://www.linkedin.com/in/miriam-malament/" target="_blank" rel="noopener noreferrer" aria-label="Miriam on LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6.5 9H4v11h2.5V9ZM5.25 4C4.56 4 4 4.56 4 5.25S4.56 6.5 5.25 6.5 6.5 5.94 6.5 5.25 5.94 4 5.25 4ZM20 20h-2.5v-5.7c0-1.36-.03-3.1-1.9-3.1-1.9 0-2.19 1.48-2.19 3v5.8H11V9h2.4v1.5h.03c.33-.62 1.15-1.9 2.88-1.9 3.08 0 3.66 2.03 3.66 4.68V20Z"/>
+          </svg>
+          <span>LinkedIn</span>
+        </a>
+      </div>
     </header>
 
     <nav>
@@ -171,7 +248,6 @@ Keeps your overall structure, but:
         <li><a href="index.html">Home</a></li>
         <li><a href="experience.html" class="active">Experience</a></li>
         <li><a href="projects.html">Projects</a></li>
-        <li><a href="outreach.html">Outreach</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -229,6 +305,64 @@ Keeps your overall structure, but:
                 </tr>
               </tbody>
             </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" aria-labelledby="skills-heading">
+        <div class="section-head">
+          <h2 id="skills-heading">Skills</h2>
+          <div class="section-note">Methods · tools · outputs</div>
+        </div>
+
+        <div class="block">
+          <div class="skills-grid" role="list" aria-label="Skills groups">
+            <div class="skillbox" role="listitem">
+              <h3>Empirical methods</h3>
+              <div class="pillrow" aria-label="Empirical methods">
+                <span class="pill">Causal inference (RDD, DiD, IV)</span>
+                <span class="pill">Experimental & quasi-experimental design</span>
+                <span class="pill">Panel & microdata analysis</span>
+                <span class="pill">Survey design & measurement</span>
+                <span class="pill">Reproducible research</span>
+              </div>
+            </div>
+
+            <div class="skillbox" role="listitem">
+              <h3>Data work</h3>
+              <div class="pillrow" aria-label="Data work">
+                <span class="pill">Administrative & survey microdata</span>
+                <span class="pill">Data cleaning & harmonisation</span>
+                <span class="pill">Large-file workflows</span>
+                <span class="pill">Web scraping & data pipelines</span>
+                <span class="pill">QA, validation, and checks</span>
+              </div>
+            </div>
+
+            <div class="skillbox" role="listitem">
+              <h3>Tools</h3>
+              <div class="pillrow" aria-label="Tools">
+                <span class="pill">Python</span>
+                <span class="pill">R</span>
+                <span class="pill">Stata</span>
+                <span class="pill">MATLAB</span>
+                <span class="pill">Git</span>
+                <span class="pill">LaTeX</span>
+              </div>
+              <p class="small" style="margin-top:10px;">
+                Comfortable moving from analysis to polished outputs (tables, figures, briefs, slides).
+              </p>
+            </div>
+
+            <div class="skillbox" role="listitem">
+              <h3>Communication</h3>
+              <div class="pillrow" aria-label="Communication">
+                <span class="pill">Clear, decision-relevant writing</span>
+                <span class="pill">Stakeholder-ready synthesis</span>
+                <span class="pill">Research memos & briefs</span>
+                <span class="pill">Presentations for mixed audiences</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
