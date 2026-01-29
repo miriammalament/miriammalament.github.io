@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Contact — Miriam Malament</title>
-  <meta name="description" content="Contact Miriam Malament. The best way to reach Miriam is by email; you can also connect via LinkedIn." />
+  <meta name="description" content="Contact Miriam Malament via LinkedIn or email." />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -19,18 +19,59 @@
       line-height:1.6;
       overflow-x:hidden;
     }
-
     .page{max-width:1050px;margin:0 auto;padding:0 24px}
 
-    header{text-align:center;padding:48px 0 24px}
+    /* Header (match Home/Projects) */
+    header{text-align:center;padding:34px 0 14px}
     header h1{margin:0;font-family:"Libre Baskerville",serif;font-size:42px;letter-spacing:0.02em}
-    header .subtitle{margin-top:8px;color:#555;font-size:20px;font-family:"Libre Baskerville",serif}
 
-    /* Sticky nav: mobile-friendly (no wrap; horizontal scroll) */
+    /* Global link styling (no blue/purple) */
+    a{color:#555;text-decoration:none}
+    a:visited{color:#555}
+    a:hover{color:#111;text-decoration:underline;text-underline-offset:3px}
+    a:focus-visible{outline:2px solid #111;outline-offset:3px;border-radius:6px}
+
+    /* Minimal contact (no boxes) */
+    .contact-inline{
+      margin-top:6px;
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:center;
+    }
+    .contact-link{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:0;
+      border:0;
+      background:transparent;
+      border-radius:0;
+      text-decoration:none;
+      color:#666;
+      font-size:15.5px;
+      line-height:1.2;
+    }
+    .contact-link svg{
+      width:16px;
+      height:16px;
+      fill:#666;
+      flex:0 0 auto;
+    }
+    .contact-link:hover{color:#111}
+    .contact-link:hover svg{fill:#111}
+    .contact-link:focus-visible{
+      outline:2px solid #111;
+      outline-offset:3px;
+      border-radius:6px;
+    }
+
+    /* Nav (match Home/Projects) */
     nav{
       border-top:1px solid #bbb;
       border-bottom:6px solid #9a9a9a;
-      margin-top:28px;
+      margin-top:16px;
       position:sticky;
       top:0;
       background:#fff;
@@ -42,16 +83,11 @@
       list-style:none;
       display:flex;
       justify-content:center;
-      gap:18px;
+      gap:36px;
       padding:12px 0;
       margin:0;
-
-      flex-wrap:nowrap;
-      overflow-x:auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width:none;
+      flex-wrap:wrap;
     }
-    nav ul::-webkit-scrollbar{display:none;}
     nav li{
       font-family:"Libre Baskerville",serif;
       font-size:18px;
@@ -60,148 +96,169 @@
     nav a{
       text-decoration:none;
       color:#111;
-      padding:10px 18px;
+      padding:10px 22px;
       display:inline-block;
       white-space:nowrap;
     }
     nav a.active{background:#555;color:#fff;border-radius:4px}
 
-    .content{display:grid;grid-template-columns:1fr 360px;gap:48px;margin:56px 0}
-
-    /* Better collapse + spacing on smaller screens */
-    @media(max-width:900px){
-      .page{padding:0 18px}
-      .content{grid-template-columns:1fr;gap:28px;margin:32px 0}
-      header{padding:34px 0 18px}
-      header h1{font-size:34px}
-      header .subtitle{font-size:18px}
-    }
-
-    /* Correct anchor offset under sticky nav */
+    /* Layout */
+    .content{margin:44px 0; max-width:820px}
     section[id]{scroll-margin-top:120px}
-    @media(max-width:900px){ section[id]{scroll-margin-top:92px} }
 
     h2{font-family:"Libre Baskerville",serif;font-size:28px;margin:0 0 16px}
     p{margin:0 0 14px}
-    a{color:#111}
 
-    .side-card{border:1px solid #e6e6e6;border-radius:8px;padding:18px;margin:0 0 18px;background:#fff}
-
-    footer{text-align:center;color:#777;font-size:14px;padding:32px 0}
-
-    /* Contact icons: wrap nicely on phones and avoid huge squares */
-    .contact-icons{
+    /* Simple contact panel */
+    .panel{
+      margin-top:14px;
+      padding:18px 18px;
+      background:#fafafa;
+      border-radius:16px;
+    }
+    .panel h3{
+      margin:0 0 10px;
+      font-family:"Libre Baskerville",serif;
+      font-size:18px;
+      line-height:1.25;
+    }
+    .panel .row{
       display:flex;
-      gap:18px;
-      align-items:center;
-      justify-content:flex-start;
+      gap:14px;
       flex-wrap:wrap;
-      margin:18px 0 18px;
-    }
-    .contact-icon-link{
-      display:inline-flex;
       align-items:center;
-      justify-content:center;
-      width:84px;
-      height:84px;
+      margin-top:10px;
+    }
+    .panel .row a{
+      color:#111;
+      border-bottom:1px solid #bbb;
+      padding-bottom:2px;
+    }
+    .panel .row a:visited{color:#111}
+    .panel .row a:hover{border-bottom-color:#111}
+
+    /* Footer (match Home/Projects) */
+    .site-footer{
+      border-top:1px solid #e6e6e6;
+      margin-top:32px;
+      padding:18px 0 28px;
+      color:#777;
+      font-size:13px;
+    }
+    .footer-inner{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .footer-split{justify-content:space-between}
+    .footer-link{
+      color:#555;
       text-decoration:none;
-      border:1px solid #e6e6e6;
-      border-radius:14px;
-      background:#fff;
+      border-bottom:1px solid transparent;
+      padding-bottom:2px;
     }
-    .contact-icon{width:40px;height:40px;display:block}
+    .footer-link:hover{border-bottom-color:#bbb;color:#111}
 
-    /* Make SVGs visible (your paths had no fill defined) */
-    .contact-icon path{ fill: currentColor; }
-    .contact-icon-link{ color:#111; }
-
-    .contact-icon-link:focus-visible{
-      outline:3px solid #9a9a9a;
-      outline-offset:3px;
+    /* Responsive */
+    @media(max-width:900px){
+      .page{padding:0 18px}
+      header{padding:26px 0 12px}
+      header h1{font-size:34px}
+      .content{margin:26px 0}
     }
-
-    @media(max-width:520px){
-      .page{padding:0 14px}
-      nav{margin-top:18px}
-      nav li{font-size:16px}
-      nav a{padding:9px 14px}
-
-      h2{font-size:24px}
-
-      .contact-icon-link{
-        width:68px;
-        height:68px;
-        border-radius:12px;
-      }
-      .contact-icon{width:34px;height:34px}
+    @media(max-width:600px){
+      .page{padding:0 16px;}
+      header h1{font-size:32px;}
+      nav ul{gap:10px; padding:10px 0;}
+      nav li{font-size:16px;}
+      nav a{padding:9px 12px;}
+      h2{font-size:24px;}
+      .footer-split{justify-content:center}
     }
   </style>
 </head>
 
 <body>
-  <div class="page">
+  <div class="page" id="top">
     <header>
       <h1>Miriam Malament</h1>
-    <div class="subtitle">Applied Economist &amp; Data Scientist</div>
+
+      <!-- Match Home: LinkedIn first, then Email -->
+      <div class="contact-inline" aria-label="Contact links">
+        <a class="contact-link" href="https://www.linkedin.com/in/miriam-malament/" target="_blank" rel="noopener noreferrer" aria-label="Miriam on LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6.5 9H4v11h2.5V9ZM5.25 4C4.56 4 4 4.56 4 5.25S4.56 6.5 5.25 6.5 6.5 5.94 6.5 5.25 5.94 4 5.25 4ZM20 20h-2.5v-5.7c0-1.36-.03-3.1-1.9-3.1-1.9 0-2.19 1.48-2.19 3v5.8H11V9h2.4v1.5h.03c.33-.62 1.15-1.9 2.88-1.9 3.08 0 3.66 2.03 3.66 4.68V20Z"/>
+          </svg>
+          <span>LinkedIn</span>
+        </a>
+
+        <a class="contact-link" href="mailto:miriammalament@gmail.com" aria-label="Email Miriam">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 6H4v12h16V6Zm-1.6 1.5L12 12.2 5.6 7.5h12.8ZM5.5 16.9V8.7l6.1 4.8.4.3.4-.3 6.1-4.8v8.2H5.5Z"/>
+          </svg>
+          <span>Email</span>
+        </a>
+      </div>
     </header>
 
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="experience.html">Experience</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="outreach.html">Outreach</a></li>
-        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
+        <li><a href="experience.html" class="nav-link" id="nav-experience">Experience</a></li>
+        <li><a href="projects.html" class="nav-link" id="nav-projects">Projects</a></li>
+        <li><a href="contact.html" class="nav-link active" id="nav-contact">Contact</a></li>
       </ul>
     </nav>
 
     <main class="content">
       <section id="contact" aria-labelledby="page-heading">
-        <h2 id="page-heading">Contact Information</h2>
+        <h2 id="page-heading">Contact</h2>
 
-        <div class="contact-icons" aria-label="Contact links">
-          <!-- Email -->
-          <a class="contact-icon-link" href="mailto:mmalament@eit.org" aria-label="Email Miriam">
-            <svg class="contact-icon" viewBox="0 0 24 24" role="img" aria-hidden="true">
-              <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"></path>
-            </svg>
-          </a>
+        <p class="muted" style="color:#555;">
+          The easiest way to reach me is email. If you prefer, you can also connect on LinkedIn.
+        </p>
 
-          <!-- LinkedIn -->
-          <a class="contact-icon-link" href="LINKEDIN_URL" target="_blank" rel="noopener noreferrer" aria-label="Miriam on LinkedIn">
-            <svg class="contact-icon" viewBox="0 0 24 24" role="img" aria-hidden="true">
-              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM8.34 18.34H6V10h2.34v8.34zM7.17 9.02c-.75 0-1.36-.62-1.36-1.38 0-.76.61-1.38 1.36-1.38.75 0 1.36.62 1.36 1.38 0 .76-.61 1.38-1.36 1.38zM18.34 18.34H16v-4.33c0-1.03-.02-2.35-1.43-2.35-1.43 0-1.65 1.12-1.65 2.27v4.41H10.6V10h2.25v1.14h.03c.31-.59 1.08-1.21 2.23-1.21 2.38 0 2.82 1.57 2.82 3.61v4.8z"></path>
-            </svg>
-          </a>
+        <div class="panel" aria-label="Contact options">
+          <h3>Get in touch</h3>
+          <div class="row">
+            <a href="mailto:miriammalament@gmail.com">miriammalament@gmail.com</a>
+            <span class="small" style="color:#777;">·</span>
+            <a href="https://www.linkedin.com/in/miriam-malament/" target="_blank" rel="noopener noreferrer">LinkedIn profile</a>
+          </div>
         </div>
-
-        <p>
-          The best way to reach me is by email:
-          <a href="mailto:mmalament@eit.org">mmalament@eit.org</a>
-        </p>
-
-        <p>
-          You are also welcome to connect with me on LinkedIn.
-        </p>
       </section>
-
-      <aside>
-        <div class="side-card">
-          <h3 style="margin:0 0 10px;font-family:'Libre Baskerville',serif;font-size:18px;">Quick details</h3>
-          <p style="margin:0;">
-            Oxford, United Kingdom<br />
-            <a href="mailto:mmalament@eit.org">mmalament@eit.org</a><br />
-            <a href="LINKEDIN_URL" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          </p>
-        </div>
-      </aside>
     </main>
 
-    <footer>
-      <div>
-        Oxford, United Kingdom · <a href="mailto:mmalament@eit.org">mmalament@eit.org</a>
+    <footer class="site-footer" role="contentinfo">
+      <div class="footer-inner footer-split">
+        <span>© <span id="year"></span> Miriam Malament</span>
+        <a class="footer-link" href="#top">Back to top</a>
       </div>
     </footer>
   </div>
+
+  <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Active nav highlight (optional, consistent with other pages)
+    (function(){
+      var map = {
+        'index.html': 'nav-home',
+        '': 'nav-home',
+        'experience.html': 'nav-experience',
+        'projects.html': 'nav-projects',
+        'research.html': 'nav-projects',
+        'contact.html': 'nav-contact'
+      };
+      var current = location.pathname.split('/').pop();
+      var activeId = map[current] || null;
+      if (activeId) {
+        var el = document.getElementById(activeId);
+        if (el) el.classList.add('active');
+      }
+    })();
+  </script>
 </body>
 </html>
